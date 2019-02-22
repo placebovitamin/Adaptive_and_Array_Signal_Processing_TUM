@@ -1,0 +1,162 @@
+% Präabel ====================================================================
+\documentclass[12pt,a4paper,oneside]{article}
+% PDF-Version 1.7 verwenden anstatt der 15 Jahre alten 1.5 (sorgt auch für weniger Warnungen, da die meisten PDF-Bilder mittlerweile Version 1.7 sind.)
+% Ich weiß nicht, wieso PDFTeX immer noch per default 1.5 verwendet.
+
+		
+\pdfminorversion=7
+\usepackage[a4paper]{geometry}
+% Seitenrahmen 
+\geometry{a4paper,left=20mm,right=20mm,bottom=20mm,top=15mm}
+%passende Codierung
+\usepackage[utf8]{inputenc}
+% Umlaute Version 
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[german=quotes]{csquotes}
+% Mathe-Package
+\usepackage{amsmath}
+% Mathesymbole
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+%Grafiken einfügen, .pdf einfügen, grafiken in Unterordner festlegen
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfpages}
+\graphicspath{{graphics/}}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{setspace}
+\onehalfspacing
+%% Unused
+%\usepackage{tikz}
+%\usetikzlibrary{shapes,arrows}
+\usepackage{trfsigns}
+\usepackage{hyperref}
+\usepackage{calc}
+
+\usepackage{titlesec}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+\usepackage{xcolor} 
+
+\usepackage[backend=biber,style=IEEE]{biblatex}
+\addbibresource{bibliography.bib}
+
+
+\usepackage{listings}
+\definecolor{hellgelb}{rgb}{1,1,0.9}
+\definecolor{quellcode_comment}{rgb}{0.2,0.6,0.2}
+\definecolor{quellcode_string}{rgb}{0.6,0,0.8}
+\definecolor{quellcode_background}{rgb}{0.98,0.98,0.98}
+
+\lstset{numbers=left,
+				backgroundcolor=\color{hellgelb},
+				breaklines=true,
+				frame=single,
+				captionpos=b,
+ 				language=Matlab,
+ 				basicstyle=\ttfamily\color{black}\scriptsize,
+ 				keywordstyle=\color{blue},
+ 				commentstyle=\color{quellcode_comment},
+ 				stringstyle=\color{quellcode_string}
+				}
+\renewcommand{\lstlistingname}{Code} 
+
+
+%% Überschreibungen
+% set imaginary unit to j
+\renewcommand{\j}{\mathrm{j}}
+% Untertilde
+\newcommand{\utilde}[1]{\underset{\sim}{#1}}
+% Vektor fett und unterstrichen
+\renewcommand{\vec}[1]{\ensuremath{\underline{\boldsymbol {#1}}}}	
+% Vektor fett und unterstrichen
+\newcommand{\vecp}[1]{\ensuremath{\overrightarrow{\boldsymbol {#1}}}}	
+% Dicker Ableitungspunkt
+\renewcommand*{\dot}[1]{\accentset{\mbox{\textrm{\large\bfseries .}} }{#1}}						
+% Dicker Doppelableitungspunkt
+\renewcommand*{\ddot}[1]{\accentset{\mbox{\textrm{\large\bfseries .\hspace{-0.25ex}.}}}{#1}}	
+% Dicker Dreifachableitungspunkt
+\renewcommand*{\dddot}[1]{\accentset{\mbox{$\overset{\textrm{\large\bfseries .}}{\textrm{\large\bfseries.\hspace{-0.25ex}.}}$}}{#1}}	
+% Definiere  Matrizen
+\newcommand{\ma}[1]{\ensuremath{\utilde{\boldsymbol {#1}}}}			% Matrixsymbol
+\newcommand{\mat}[1]{\ensuremath{\begin{bmatrix} #1 \end{bmatrix}}}	% Matrix
+% Real und Imaginärteil
+\renewcommand{\Re}[1]{\ensuremath{\operatorname{Re}\left\{#1\right\}}}
+\renewcommand{\Im}[1]{\ensuremath{\operatorname{Im}\left\{#1\right\}}}
+
+\newcommand{\textcirc}[1]{\textrm{\textcircled{#1}}}
+
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+
+% Abkürzungen für Symbole
+\providecommand{\ul}[1]{\ensuremath{\underline{#1}}}				% Underline
+\providecommand{\ol}[1]{\ensuremath{\overline{#1}}}				% Overline
+\providecommand{\bs}[1]{\ensuremath{\boldsymbol{#1}}}				% bold and italic in mathmode
+\providecommand{\Ra}{\ensuremath{\Rightarrow}}					% Rightarrow
+\providecommand{\ra}{\ensuremath{\rightarrow}} 					% rightarrow
+\providecommand{\lra}{\ensuremath{\longrightarrow}} 				% Longrightarrow
+\providecommand{\upa}{\ensuremath{\uparrow}} 
+\providecommand{\downa}{\ensuremath{\downarrow}}
+\providecommand{\bdot}{\ensuremath{\boldsymbol \cdot}} 			% Dicker Punkt für Skalarprodukt
+\providecommand{\svdots}{\ensuremath{:}}							% small vertical dots
+\providecommand{\shdots}{\ensuremath{\!\cdot \!\cdot\!\cdot\!}}	% small horizontal dots
+
+\providecommand{\pfeil}{\ensuremath{\quad\Rightarrow\quad}}
+\providecommand{\with}{\ensuremath{\quad\textrm{with}\quad}}
+\providecommand{\mybox}[1]{\noindent\fbox{\parbox{\textwidth}{#1}}}
+\providecommand{\ct}{\ensuremath{\quad\texttt{corresponds to}\quad}}
+
+\newcommand{\const}{\ensuremath{\texttt{const}}}
+\newcommand{\rank}{\ensuremath{\operatorname{rank}}}
+\newcommand{\trace}{\ensuremath{\operatorname{tr}}}
+\newcommand{\nullsp}{\ensuremath{\operatorname{null}}}
+
+
+% .:: Mathematische Operatoren
+% ======================================================================
+
+% Differentialgeometrie 
+\DeclareMathOperator{\Sp}{Sp}								% Span
+\DeclareMathOperator{\tr}{tr}								% Trace
+							
+% Einrückunng zu Beginn eines Absatzes auf Null setzten
+\setlength{\parindent}{0em} 
+
+% Titel
+\title{Adaptive and Array Signal Processing - Lecture Notes}
+% Autor
+\author{Christian, Michael, Steffi}
+
+
+
+
+% DOCUMENT_BEGIN ===============================================================
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\input{AASP_Motivation}
+\input{AASP_Math_general}
+\input{AASP_Math_derivative}
+\input{AASP_Math_Minimization}
+\input{AASP_Math_Linear_Algebra}
+\input{AASP_Math_Statistics}
+\newpage
+\input{AASP_Optimum_Linear_Filtering}
+\newpage
+\input{AASP_Spartial_Filtering}
+\newpage
+\input{AASP_Estimation_Steering_Matrix}
+\newpage
+\printbibliography
+\end{document}

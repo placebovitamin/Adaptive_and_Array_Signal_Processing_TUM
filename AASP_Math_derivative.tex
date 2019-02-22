@@ -1,0 +1,192 @@
+\subsection{Complex derivative }
+\subsubsection{Analytic function}
+\begin{doublespace}
+	
+
+$ h: \mathbb{C} \ni z \mapsto h(z) \in \mathbb{C} \quad\, \with z=x +\j y \quad x,y\in\mathbb{R}$
+
+
+$\frac{dh}{dz}=\lim\limits_{\Delta z \to 0}\frac{h(z+\Delta z)-h(z)}{\Delta z}$
+
+$h(z)=h(x +\j y)=f(x,y) \quad  f: \mathbb{R}^2 \ni (x,y) \mapsto f(x,y) \in \mathbb{C} $
+
+$dh=df=\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy$
+
+$\quad$Substitution:  $ dx=a\cdot dt,\quad dy=b\cdot dt,\quad (a,b)\in\mathbb{R}^2 \backslash (0,0)$
+
+
+$dz=dx+\j dy=(a+jb)dt\pfeil dx=\frac{a}{a+\j b}dz,\quad dy=\frac{b}{a+\j b}dz$ \ \\
+
+$df=dh=\underbrace{\frac{\frac{\partial f}{\partial x}a+\frac{\partial f}{\partial y}b}{a+\j b}}_{H(z)} dz$
+\end{doublespace}
+\mybox{\begin{itemize}
+\item Definition: $h(z)$ is analytic if and only if (iff) $H(z)$ exist and is indepent of $(a,b)\in\mathbb{R}^2 \backslash (0,0)$
+\item if $h(z)$ is analytic then $\frac{dh}{dz}=H$
+\end{itemize}
+$\frac{\partial H}{\partial a}=\frac{\j b}{(a+\j b)^2} \underbrace{\left(\frac{\partial f}{\partial x}+\j \frac{\partial f}{\partial y}\right)}_{=0},\qquad 
+\frac{\partial H}{\partial b}=\frac{-\j a}{(a+\j b)^2} \underbrace{\left(\frac{\partial f}{\partial x}+\j \frac{\partial f}{\partial y}\right)}_{=0}$
+\begin{itemize}
+\item $h(z)$ is analytic if and only if $\frac{df}{dx}$ and $\frac{df}{dy}$ exist and $\frac{df}{dx} + \j \frac{df}{dy}=0$.
+\item if $h(z)$ is analytic then $\frac{dh}{dz}=\frac{df}{dx} = - \j \frac{df}{dy}$
+\end{itemize}}
+
+\mybox{
+\textbf{Example for analytic functions} - Exponential function
+
+$h(z)=z^k \quad k\in \mathbb{R}$
+
+$f(x,y)=(x+\j y)^k$
+
+$\frac{df}{dx} + \j \frac{df}{dy}= k(x+\j y)^{k-1}+\j k(x+\j y)^{k-1} \j =0$, hence it is an analytic function 
+
+Result: \quad $\frac{dh}{dz} = k(x+\j y)^{k-1}=k\cdot z^{k-1}$}
+
+\textbf{other analytic functions}
+
+\begin{itemize}
+\item $h(z)=const.$
+\item $h(z)=e^z$
+\item $h(z)=\ln (z)$,  of $z=0$
+\item $h(z)=\frac{\sum_{k=0}^\infty a_k \cdot z^k}{\sum_{k=0}^\infty b_k \cdot z^k}$,  for the poles
+\end{itemize}
+
+\textbf{example of non-analytic functions:}
+\begin{itemize}
+\item $h(z)=z^*=x-\j y=f(x,y)$
+
+$\frac{\partial f}{\partial x}+\j \frac{\partial f}{\partial y}= 1 +\j (-\j) =2 \neq 0 \Rightarrow $ non analytic
+\item $h(z)=\Re{z}=\frac{z+z^*}{2}$
+
+$h:\mathbb{C}\ni z\mapsto h(z)\in\mathbb{R}$ is non-analytic,  it is a constant
+\item $\vec{w}^H\ma{R}\vec{w}$
+\end{itemize}
+
+
+
+\subsubsection{Derivatives of non-analytic functions }
+
+
+
+$\left. \begin{array}{l}z= x+jy, \quad\\z^*= x-jy\\ \end{array}\right\rbrace \quad x=\frac{z+z^*}{2},  y=\frac{z-z^*}{2j} \quad x,y \in \mathbb{R}$\\
+
+$h(z)=h(x+\j y)=f(x,y)=f\left(\frac{z+z^*}{2},\frac{z-z^*}{\j 2}\right)=g(z,z^*)$
+
+$df=\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy$
+
+$dg=\frac{\partial g}{\partial z}dz+\frac{\partial g}{\partial z^*}dz^* =\frac{\partial g}{\partial z}(dx+\j dy)+\frac{\partial g}{\partial z^*}(dx-\j dy) $
+$=\underbrace{\left(\frac{\partial g}{\partial z}+\frac{\partial g}{\partial z^*}\right)}_{\frac{\partial f}{\partial x}}dx
++\j \underbrace{\left(\frac{\partial g}{\partial z}-\frac{\partial g}{\partial z^*}\right)}_{\frac{\partial f}{\partial y}}dy$
+
+In matrix notation\ 
+\begin{doublespace}
+
+
+\quad $  	\begin{bmatrix} \frac{\partial f}{\partial x} \\
+	 \frac{\partial f}{\partial y}\end{bmatrix} =
+    	\begin{bmatrix}  1 & 1 \\  \j & -\j  \end{bmatrix}
+    \begin{bmatrix}  \frac{\partial g}{\partial z} \\
+     \frac{\partial g}{\partial z^*} \end{bmatrix}$\ \\ \ \\
+     
+\quad $  	\begin{bmatrix} \frac{\partial g}{\partial z} \\
+	 \frac{\partial g}{\partial z^*}\end{bmatrix} =
+    	\frac{1}{2}\begin{bmatrix}  1 & -\j \\  1 & \j  \end{bmatrix}
+    \begin{bmatrix}  \frac{\partial f}{\partial x} \\
+     \frac{\partial f}{\partial y} \end{bmatrix}$ \ \\
+\end{doublespace}
+Note: $\frac{\partial g}{\partial z^*} = \frac{1}{2}\frac{\partial f}{\partial x} +\frac{1}{2} \j\frac{\partial f}{\partial y}$
+
+$g(z,z^*)=h(z)$ is analytic iff $\frac{\partial g}{\partial z^*}=0$
+
+$(\frac{\partial g}{\partial z^*})^*=\frac{\partial g^*}{\partial z}\neq \frac{\partial g}{\partial z}$  
+
+ when $g: \mathbb{C}^2 \mapsto \mathbb{R}$ then: $(\frac{\partial g}{\partial z^*})^*= \frac{\partial g}{\partial z}$
+
+\textbf{In the following, we assume that}
+
+$h:\mathbb{C}\mapsto\mathbb{R},\quad g:\mathbb{C}^2\mapsto\mathbb{R}$
+
+$dg=\frac{\partial g}{\partial z}dz+\underbrace{\frac{\partial g}{\partial z^*}dz^*}_{\text{only if} \mapsto \mathbb{R}: (\frac{\partial g}{\partial z}dz)^*} = 2\Re{\frac{\partial g}{\partial z}dz}$
+
+\textbf{Local extremum}
+$dg = 0 \quad \forall dz   \qquad \iff \qquad \frac{\partial g}{\partial z}=0$
+
+\textbf{multiple variables}
+
+$g:\mathbb{C}^{2n}\mapsto \mathbb{R}; \qquad g(z_1,z_2,...,z_n,z_1^*,z_2^*,...,z_n^*)=g(\vec{z},\vec{z}^*)$
+
+$dg=\sum_{k=1}^{n} \frac{\partial g}{\partial z_k}dz_k+\sum_{k=1}^{n} \frac{\partial g}{\partial z_k^*}dz_k^* $
+$=2\Re{\sum_{k=1}^{n}\frac{\partial g}{\partial z_k}dz_k}$
+
+
+
+\subsubsection{Gradient vector}
+$\frac{\partial}{\partial\vec{z}}=\begin{bmatrix}\partial/\partial z_1 \\ \partial/\partial z_2 \\ \svdots \\\partial/\partial z_n  \end{bmatrix} $ \qquad
+$\frac{\partial}{\partial\vec{z}}g=\frac{\partial g}{\partial\vec{z}}=\begin{bmatrix}\partial g/\partial z_1 \\ \partial g/\partial z_2 \\ \svdots \\\partial g/\partial z_n  \end{bmatrix} $
+$d\vec{z}=\begin{bmatrix}dz_1 \\ dz_2 \\ \svdots \\ dz_n\end{bmatrix}$ \ \\
+
+Scalaproduct:
+
+$\sum\limits_{k=1}^n =\frac{\partial g}{\partial z_k}dz_k=\left(\frac{\partial g}{\partial \vec{z}}\right)^Td\vec{z}$\ \\
+
+$dg=2\Re{\left(\frac{\partial g}{\partial \vec{z}}\right)^Td\vec{z}}=2\Re{\left(\left(\frac{\partial g}{\partial \underline{z^*}}\right)^*\right)^Td\vec{z}}$
+$=2\Re{\left(\frac{\partial g}{\partial \underline{z^*}}\right)^Hd\vec{z}}$\ \\
+
+\textbf{Local extremum}
+$dg = 0 \quad \forall d\vec{z}   \qquad \iff \qquad \frac{\partial g}{\partial \vec{z}^*}=\underline{0}$
+
+\textbf{Steepest descent}
+
+\begin{doublespace}
+
+
+$\vec{z}\rightarrow\vec{z}+\Delta\vec{z}$
+
+$dg=2\Re{\left(\frac{\partial g}{\partial \underline{z^*}}\right)^H\Delta\vec{z}} \leq2 \left|\left( \frac{\partial g}{\partial \underline{z^*}}\right)^H\Delta\vec{z} \right|$
+
+equality only if $\left(\frac{\partial g}{\partial \underline{z^*}}\right)^H\Delta\vec{z}\in \mathbb{R}_0^+ $
+
+$\Delta \vec{z}=\varepsilon \frac{\partial g}{\partial \vec{z}^*} \Rightarrow  \left(\frac{\partial g}{\partial \underline{z^*}}\right)^H\Delta\vec{z} = \varepsilon \left(\frac{\partial g}{\partial \underline{z^*}}\right)^H\left(\frac{\partial g}{\partial \underline{z^*}}\right)\quad \in \mathbb{R}_0^+ \qquad \varepsilon > 0$
+
+steepest descent: $\Delta \vec{z}= -\frac{\partial g}{\partial \vec{z}^*}$
+\end{doublespace}
+\textbf{Example 1}
+
+$g=\vec{z}^H\vec{p}+\vec{p}^H\vec{z}; \quad \vec{p}=const$
+
+g is real:
+
+$g=g^*=g^H=(\vec{z}^H\vec{p}+\vec{p}^H\vec{z})^H=\vec{p}^H\vec{z}+\vec{z}^H\vec{z}=g $
+
+$ g=g^* \Rightarrow real$
+
+$\frac{\partial g}{\partial \vec{z}^*}=\frac{\partial}{\partial \vec{z}^*}(\vec{z}^H\vec{p}+\vec{p}^H\vec{z})=\frac{\partial}{\partial \vec{z}^*}(\vec{z}^H\vec{p})$
+$=\frac{\partial}{\partial \vec{z}^*} \sum\limits_{k=1}^n z_k^* P_k =\begin{bmatrix}
+\frac{\partial}{\partial z_1^*} \sum_{k=1}^n z_k^* P_k \\
+\frac{\partial}{\partial z_2^*} \sum_{k=1}^n z_k^* P_k \\
+\svdots\\
+\frac{\partial}{\partial z_n^*} \sum_{k=1}^n z_k^* P_k 
+\end{bmatrix} =\begin{bmatrix}P_1\\P_2\\ \svdots\\P_n\end{bmatrix} =\vec{p}$
+
+result:  $ \frac{\partial}{\partial \vec{z}^*}(\vec{z}^H\vec{p}+\vec{p}^H\vec{z}) = \vec{p} $
+
+alternativ: $ \frac{\partial}{\partial \vec{z}}(\vec{z}^H\vec{p}+\vec{p}^H\vec{z}) = \vec{p}^* $
+
+\textbf{Example 2}
+
+$g=\vec{z}^H\ma{R}\vec{z}; \qquad \ma{R}=\ma{R}^H=const$
+
+g is real:
+
+$g^*=g^H=(\vec{z}^H\ma{R}\vec{z})^H=\vec{z}^H\ma{R}^H\vec{z} 
+\overset{\ma{R}=\ma{R}^H}{=} 
+g\Rightarrow real $
+
+$\frac{\partial g}{\partial \vec{z}^*}
+=\frac{\partial}{\partial \vec{z}^*}(\vec{z}^H\underbrace{\ma{R}\vec{z}}_{\vec{p}})
+=\frac{\partial}{\partial \vec{z}^*}(\vec{z}^H\vec{p})
+=\vec{p}
+=\ma{R}\vec{z}$
+
+$\vec{p}$ dosn't depent on $\vec{z}^*$
+
+result: $\frac{\partial g}{\partial \vec{z}^*}=\frac{\partial}{\partial \vec{z}^*}(\vec{z}^H\ma{R}\vec{z})=\ma{R}\vec{z}$

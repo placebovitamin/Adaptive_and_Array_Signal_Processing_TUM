@@ -1,0 +1,208 @@
+\newpage
+\subsection{\texorpdfstring{$2^{nd}$}{Second}-Order Statistic}
+
+\subsubsection{reale valued discret time random processes}
+\textbf{Expected Value:}
+
+\quad $\mu_x[n]=E[x[n]]:= \lim\limits_{m\to M}\frac{1}{m}\sum\limits_{i=1}^m(x[n])^i$
+
+\textbf{Auto-Correlation:}
+
+\quad $r_x[n,k]:=E[x[n]x[n-k]]$
+
+\textbf{Auto-Covariance}
+
+\quad $C_x[n,k]:=E[(x[n]-\mu_x[n])(x[n-k]-\mu_x[n-k])]$ \qquad {\footnotesize(in this lecture $\mu_x=0$ $\rightarrow C_x[n,k]=r_x[n,k]$)}
+
+\quad $C_x[n,k]=r_x[n,k]-\mu_x[n]\mu_x[n-k]$
+
+\textbf{Cross-Correlation}
+
+\quad $r_{xy}[n,k]:=E[x[n]y[n-k]]$
+
+\quad $r_{xx}[n,k]=r_x[n,k]$
+
+\textbf{Cross-Covariance}
+
+\quad $C_{xy}[n,k]:=E[(x[n]-\mu_x[n])(y[n-k]-\mu_y[n-k])] $
+
+\quad $C_{xy}[n,k]=r_{xy}[n,k]-\mu_x[n]\mu_y[n-k]$
+
+\textbf{Time Average}
+
+\quad $\hat{\mu}_x^{(N)}:=\frac{1}{N}\sum\limits_{n=0}^{N-1}x[n]$ \qquad sample mean
+
+\quad $\hat{r}_n{(N)}:=\frac{1}{N}\sum\limits_{n=0}^{N-1}x[n]x[n-k]$
+
+\textbf{Stationarity} $\iff$ all statistic properties are independent of time
+
+\textbf{wide sense stationarity} $\iff$ $1^{st}$ and $2^{nd}$ order statistic do not depend on time
+
+\pfeil $r_{xy}[n,k]=r_{xy}[k]$ (Cross-Correlation is no function of time)
+
+\textbf{ergodicity} $\iff \mu_x[x]=\lim\limits_{N\to\infty}\hat{\mu}_x^{(N)},\quad \forall n$ \pfeil sample mean = expectation 
+
+\qquad you see one, you see them all 
+
+\vspace{0.5cm}
+
+$\Rightarrow$ \textbf{In the follwoing:} 
+\begin{itemize}
+\item ergodicity
+\item zero mean, $\mu_x[n]=0$
+\end{itemize} 
+
+\textbf{Consequence}
+\begin{enumerate}
+\item $r_x[n,k]=r_x[k]$
+\item $r_x[-k]=E[x[n]x[n+k]]\overset{n-k\to n}{=}E[x[n-k]x[n]]=r_x[k]$, \quad even function
+\item $r_{xy}[-k]=r_{yx}[k]$
+\end{enumerate}
+
+
+\subsubsection{complex random proccesses}
+\textbf{complex random variable}
+
+\quad$u[n]:=x[n]+\j y[n]; \quad x[n]=\Re{u[n]}, \quad y[n]=\Im{u[n]}$
+
+\mybox{
+\textbf{Definition: Auto-Correlations } - two different functions
+\begin{itemize}
+\item $\tilde{r}_u[k]:=E[u[n]\cdot u[n-k]]$
+\item $r_u[k]:=E[u[n]\cdot u^*[n-k]]$
+\end{itemize}}
+
+\quad $\tilde{r}_u[k]=r_x[k]-r_y[k]+\j (r_{xy}[-k]+r_{xy}[k])$
+
+\quad ${r}_u[k]=r_x[k]+r_y[k]+\j (r_{xy}[-k]-r_{xy}[k])$
+
+\quad with: 
+\begin{itemize}
+\item $r_x[k]=\frac{1}{2}\Re{r_u[k]+\tilde{r}_u[k]}$
+\item $r_y[k]=\frac{1}{2}\Re{r_u[k]-\tilde{r}_u[k]}$
+\item $r_{xy}[k]=-\frac{1}{2}\Im{r_u[k]-\tilde{r}_u[k]}$
+\end{itemize}
+
+\mybox{
+\textbf{Definiton: } 
+
+\quad $u[n]$ is \textbf{proper} if and only if $\tilde{r}_u[k]\equiv0$
+
+Consequence of properness:
+\begin{itemize}
+\item  $r_x[k]=r_y[k]$
+\item $r_{xy}[k]=-r_{xy}[-k]$
+\begin{itemize}
+\item[$\rightarrow$] $r_{xy}=0=E[x[0]y[0]]$
+\item[$\rightarrow$] $E[u^2[n]]=0=E[u[n]u[n]]$    
+\end{itemize}
+\end{itemize}}
+
+\textbf{Note: } $E[u[n]u^*[n]]\neq0$
+
+\pfeil $E[u^2[n]]=E[(x[n]+\j y[n])^2]=E[(x[n])^2+\j 2\cdot x[n]\cdot y[n]-(y[n])^2]$
+
+\hspace{6.3cm} $=\underbrace{E[x^2[n]]-E[y^2[n]]}_0+\j2\underbrace{E[x[n]y[n]]}_0$
+
+$\Rightarrow$ \textbf{In the follwoing:} 
+\begin{itemize}
+\item ergodicity
+\item zero mean, $\mu_x[n]=0$
+\item proper
+\end{itemize}\bigskip
+
+Therefore the Correlations show this properties:  
+\begin{itemize}
+\item $r_u[-k]=(r_u[k])^*$
+\item $r_{uw}[-k]=(r_{wu}[k])^*$
+\end{itemize} 
+\quad Include the Properties of the real case, because its proper. In general this is not satisfied.
+
+\subsubsection{Correlation Matrix}
+\textbf{Signal Vector}
+
+\quad$\vec{u}[n]:=\mat{u[n]\\u[n-1]\\\svdots\\u[n-M+1]} \in\mathbb{C}^{M\times 1}$
+
+\textbf{Correlation Matrix}
+
+\quad $\ma{R}_{\vec{u}}:=E[\vec{u}[n]\vec{u}^H[n]] \in\mathbb{C}^{M\times M}$
+
+\qquad $=E\left[{
+\mat{u[n]\\u[n-1]\\\svdots\\u[n-M+1]}
+\mat{u^*[n]&u^*[n-1]&\shdots&u^*[n-M+1]}}\right]$
+ 
+\qquad $=\mat{	r_u[0]& r_u[1]& r_u[2]& \shdots&r_u[M-1]\\
+				r_u^*[1]& r_u[0]& r_u[1]& \shdots&r_u[M-2]\\
+				r_u^*[2]& r_u^*[1]& r_u[0]& \shdots&r_u[M-3]\\
+				\ddots&\ddots&\ddots&\ddots&\ddots\\
+				r_u^*[M-1]& r_u^*[M-2]& r_u[M-3]& \shdots&r_u[0]}$
+
+\mybox{
+\textbf{Note:}
+\begin{itemize}
+\item $\ma{R}_{\vec{u}}$ is a Toeplitz Matrix 
+\item $\ma{R}_{\vec{u}}=\ma{R}_{\vec{u}}^H$, always true
+\item $\ma{R}_{\vec{u}}$ is Gram-ian
+\begin{itemize}
+\item[$\rightarrow$] EVD Exist: $\ma{R}_{\vec{u}}=\ma{V}\ma{\Lambda}\ma{V}^{-1}=\ma{V}\ma{\Lambda}\ma{V}^H, \quad \ma{\Lambda}\geq \ma{0}\pfeil \ma{R}_{\vec{u}}\geq \ma{0}$
+\end{itemize}
+\end{itemize}}\bigskip
+
+
+\textbf{positive semidefinite}: $\ma{R}_{\vec{u}}\geq \ma{0}\iff \forall \vec{w} \in \mathbb{C}^{M\times 1}: \quad \vec{w}^H\ma{R}_{\vec{u}}\vec{w}\geq 0$
+
+\pfeil $\underbrace{\vec{w}^H\ma{V}}_{\vec{z}^H}\ma{\Lambda}\underbrace{\ma{V}^H\vec{w}}_{\vec{z}}=\vec{z}^H\ma{\Lambda}\vec{z}=
+\sum\limits_{i=1}^M|z_i|^2\lambda_i\geq 0$\bigskip
+
+
+\textbf{Example:}
+
+Complex Envelope:
+
+\quad$u[n]=\alpha e^{\j \omega T n} + \underbrace{\eta[n]}_{\textrm{noise}}: \quad \alpha,\omega,T: const;\quad \omega,T\in\mathbb{R}; \quad \alpha\in\mathbb{C}$
+
+Real Signal
+
+\quad $\Re{u[n]\cdot e^{\j \underbrace{2 \pi f_0}_{\omega_0} T n}}=\Re{\alpha e^{\j(\omega+\omega_0)Tn}}=|\alpha| \cos ((\omega+\omega_0)Tn + \arg \alpha)$
+
+\with $\omega_0:$ 	carrier frequency
+
+Noise:
+
+\quad $\mu_\eta[n]=0, \quad r_\eta[k]=\left\lbrace \begin{matrix} \sigma_\eta^2 & k=0\\0&\textrm{else}\end{matrix} \right.$
+
+\quad $r_\eta[0]=E[\eta[n]\cdot\eta^*[n]]=E[|\eta[n]|^2]=\sigma_\eta^2$
+
+Correlation of the Signal
+
+\quad $r_u[k]=E[u[k]\cdot u^*[n-k]]
+=E[(\alpha e^{\j \omega T n} + \eta[n])(\alpha^* e^{-\j \omega T (n-k)} + \eta^*[n-k])]$
+
+\quad $=E[|\alpha|^2 e^{\j \omega T (n-n+k)}]+E[\alpha e^{\j \omega T n}\eta^*[n-k]]+E[\eta[n]\alpha^* e^{-\j \omega T (n-k)}]+E[\eta[n]\eta^*[n-k]]$
+
+\quad $=|\alpha|^2 e^{\j \omega T k}+\left\lbrace\begin{matrix} \sigma_\eta^2 & k=0\\0&\textrm{else}\end{matrix} \right. =|\alpha|^2 e^{\j \omega T k}+\sigma_\eta^2\cdot \delta_F; \qquad \delta_F=\left\lbrace\begin{matrix} 1 & k=0\\0&\textrm{else}\end{matrix} \right.$
+
+Signal-to-Noise Ratio (SNR)
+
+\quad $r_u[k]=|\alpha|^2 e^{\j \omega T k}+\sigma_\eta^2\cdot \delta_F =|\alpha|^2 ( e^{\j \omega T k}+\frac{1}{SNR}\cdot \delta_F)$ \with $SNR:=\frac{|\alpha|^2}{\sigma_\eta^2}$
+
+Correlation Matrix 
+
+\quad $\ma{R}_{\vec{u}}=|\alpha|^2 
+		\mat{	1+\frac{1}{SNR}& e^{j\omega T}& e^{j2\omega T}& \shdots&e^{j(M-1)\omega T}\\
+				e^{-j\omega T}& 1+\frac{1}{SNR}& e^{j\omega T}& \shdots&e^{j(M-2)\omega T}\\
+				e^{-j2\omega T}&e^{-j\omega T}& 1+\frac{1}{SNR}& \shdots&e^{j(M-3)\omega T}\\
+				\ddots&\ddots&\ddots&\ddots&\ddots\\
+				e^{-j(M-1)\omega T}& e^{-j(M-2)\omega T}& e^{-j(M-3)\omega T}& \shdots&1+\frac{1}{SNR}}$
+
+
+
+
+
+
+
+
+
+
+
+

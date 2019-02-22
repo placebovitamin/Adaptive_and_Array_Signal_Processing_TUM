@@ -1,0 +1,82 @@
+\subsection{Minimization with linear equality constraints }
+
+\subsubsection{Real-valued}
+$\min\limits_{\vec{x}\in\mathbb{R}^n} \vec{x}^T\ma{R}\vec{x}, \qquad s.t.\quad  \vec{a}^T\vec{x}=b,  \quad \ma{R}\in\mathbb{R}^{nxn}, \vec{a}\in\mathbb{R}^n, b\in\mathbb{R}$ \ \\
+
+Method of Lagrange 
+
+$\mathcal{L}(\vec{x},\lambda):= \vec{x}^T\ma{R}\vec{x}+\lambda(\vec{a}^T\vec{x}-b)\quad \Rightarrow \quad \min\limits_{\vec{x}}\max\limits_{\lambda}\mathcal{L}(\vec{x},\lambda)$
+
+
+\subsubsection{Complex-valued}
+$\min\limits_{\vec{z}\in\mathbb{C}^n} \vec{z}^H\ma{R}\vec{z}, \qquad s.t.\quad  \vec{a}^H\vec{z}=b,  \quad \ma{R}\in\mathbb{C}^{nxn}, \vec{a}\in\mathbb{C}^n, b\in\mathbb{C}$\ \\ 
+
+$\ma{R}=\ma{R}^H \in \mathbb{C} \quad \text{and} \quad\ma{R} \geq \vec{0}$\\
+
+$ \mathcal{L}(\vec{z},\lambda_R,\lambda_I):= \vec{z}^H\ma{R}\vec{z}+\lambda_R\Re{\vec{a}^H\vec{z}-b}+\lambda_I\Im{\vec{a}^H\vec{z}-b}$
+
+$ \mathcal{L}(\vec{z},\lambda):= \vec{z}^H\ma{R}\vec{z}+2\Re{\lambda^*(\vec{a}^H\vec{z}-b)}$
+
+$\qquad =\vec{z}^H\ma{R}\vec{z}+\lambda^*(\vec{a}^H\vec{z}-b)+(\vec{z}^H\vec{a}-b^H)\lambda$
+
+$\qquad =\mathcal{L}(\vec{z},\vec{z}^*,\lambda,\lambda^*)$
+
+
+\subsubsection{Several complex constraints}
+$\min\limits_{\vec{z}\in\mathbb{C}^n} \vec{z}^H\ma{R}\vec{z}, 
+\qquad s.t.\quad 
+\left\lbrace \begin{array}{l} \vec{a}_1^H\vec{z}=b_1\\ \svdots \\ \vec{a}_m^H\vec{z}=b_m \end{array} \right.$
+
+$\mathcal{L}=\vec{z}^H\ma{R}\vec{z} + \sum\limits_{k=1}^m\lambda_k^*(\vec{a}_k^H\vec{z}-b_k)+\sum\limits_{k=1}^m(\vec{z}^H\vec{a}_k-b_k^*)\lambda_k$
+
+with: 
+\begin{itemize}
+\item $\vec{\lambda}=\begin{bmatrix}\lambda_1\\\svdots\\\lambda_m\end{bmatrix}\in\mathbb{C}^m, \quad \vec{b}
+=\begin{bmatrix}b_1\\\svdots\\b_m\end{bmatrix}\in\mathbb{C}^m$
+\item $\sum\limits_{k=1}^m\lambda_k^*b_k=\vec{\lambda}^H\vec{b}$
+\item $\sum\limits_{k=1}^m\lambda_k^*\vec{a}_k^H\vec{z}
+=\vec{\lambda}^H\begin{bmatrix}\vec{a}_1^H  \vec{z}\\\svdots\\ \vec{a}_m^H  \vec{z} \end{bmatrix}
+=\vec{\lambda}^H\begin{bmatrix}\vec{a}_1^H\\\svdots\\ \vec{a}_m^H  \end{bmatrix}\vec{z} 
+=\vec{\lambda}^H\ma{A}^H\vec{z}$
+\end{itemize}
+
+follows:
+
+$\min\limits_{\vec{z}\in\mathbb{C}^n} \vec{z}^H\ma{R}\vec{z}, 
+\qquad s.t.\quad 
+\ma{A}^H\vec{z}=\vec{b}, \quad \ma{R}=\ma{R}^H$
+
+$\mathcal{L}=\vec{z}^H\ma{R}\vec{z}+\vec{\lambda}^H(\ma{A}^H\vec{z}-\vec{b})+(\vec{z}^H\ma{A}-\vec{b}^H)\vec{\lambda}
+$
+
+$\Rightarrow \quad \min\limits_{\vec{z}}\max\limits_{\vec{\lambda}}\mathcal{L}(\vec{x},\lambda)$
+
+\mybox{
+\textbf{Solution}
+
+$\ma{R}$ is positiv definit: $\ma{R}=\ma{R}^H \iff \ma{R}^{-1}$ exists and $\ma{R}^{-1}=(\ma{R}^{-1})^H $
+
+$\frac{\partial L}{\partial \vec{z}^*}=\ma{R}\vec{z}+\ma{A}\vec{\lambda} \overset{!}{=} \vec{0}
+\quad \Rightarrow \vec{z}=-\ma{R}^{-1}\ma{A}\vec{\lambda}$
+
+$\vec{b}=\ma{A}^H\vec{z}=-\ma{A}^H\ma{R}^{-1}\ma{A}\vec{\lambda}
+ \quad \Rightarrow \vec{\lambda}=-(\ma{A}^H\ma{R}^{-1}\ma{A})^{-1}\vec{b}$
+
+$\mathbf{\vec{z}_{opt}=\ma{R}^{-1}\ma{A}(\ma{A}^H\ma{R}^{-1}\ma{A})^{-1}\vec{b}}$}
+
+check if local minimum
+
+$\Delta\vec{z}$ such that $\ma{A}^H(\vec{z}_{opt}+\Delta\vec{z})=\vec{b}   
+\quad \iff \ma{A}^H\Delta\vec{z} =\vec{0}$ \qquad $\Delta \vec{z}\in \operatorname{null} \ma{A}$; see section \ref{sssec:svd}
+
+$d\mathcal{L}=2\Re{\frac{\partial L}{\partial \vec{z}^*}d\vec{z}}$
+
+$\frac{\partial \mathcal{L}}{\partial \vec{z}^*}=\ma{R}\vec{z}+\ma{A}\vec{\lambda}
+=\ma{R}(\vec{z}_{opt}+\Delta \vec{z})+\ma{A}\vec{\lambda}$
+$=\underbrace{\ma{R}\vec{z}_{opt}+\ma{A}\vec{\lambda}}_{\vec{0}}+\ma{R}\Delta\vec{z}
+=\ma{R}\Delta\vec{z}$
+
+$d\mathcal{L}=2\Re{\Delta \vec{z}^H\ma{R}^H(-\Delta \vec{z})}
+=-2\Re{\underbrace{\Delta \vec{z}^H\ma{R}^H\Delta\vec{z}}_{>0}}=-2\underbrace{\Delta\vec{z}^H\ma{R}\Delta\vec{z}}_{>0}<0$ \quad local minimum
+
+$\mathcal{L}=\vec{z}^H\ma{R}\vec{z}+\vec{\lambda}^H(\ma{A}^H\vec{z}-\vec{b})+(\vec{z}^H\ma{A}-\vec{b}^H)\vec{\lambda}$ \quad if contraints met: $v=\vec{z}^H\ma{R}\vec{z}$

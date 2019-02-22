@@ -1,0 +1,1103 @@
+\newpage
+\subsection{Linear Algebra}
+\subsubsection{Vector spaces}
+\mybox{
+\textbf{Definition:} A \textbf{vector space} $\mathbb{V}$ over a set $\mathbb{K}$ is a set such that: 
+\begin{enumerate}
+\item $\forall \vec{a},\vec{b}\in\mathbb{V}: \qquad \vec{a}+\vec{b}\in\mathbb{V}$\\
+The vectors $\vec{a}$ and $\vec{b}$ in vectorspace  $\mathbb{V}$ can be added to a new vector in the vector space.
+\item $\forall \vec{a},\vec{b}\in\mathbb{V}: \qquad \vec{a}+\vec{b}=\vec{b}+\vec{a}$\\
+Addition in commutative.
+\item $\forall \vec{a},\vec{b},\vec{c}\in\mathbb{V}: \quad (\vec{a}+\vec{b})+\vec{c}=\vec{a}+(\vec{b}+\vec{c})$\\
+The order to operate addition ist not relevant.
+\item $\forall \vec{a}\in\mathbb{V}: \exists \vec{0} \in \mathbb{V}: \vec{a} + \vec{0}= \vec{a} $ with $\vec{0} $ as the identity element.\\
+The sum of a vector with the zero-vector equals the original vector.
+\item $\forall \vec{a} \in \mathbb{V}: \exists - \vec{a} \in \mathbb{V}: \vec{a} + (-\vec{a})= \vec{0} $\\
+The sum of a vector with it's negative opponent equals the zero-vector.
+\item $\forall \vec{a} \in \mathbb{V}: 1\vec{a}=\vec{a} ; 1 \in  \mathbb{K} $\\
+Scaling a vector with 1 results in the vector.
+\item $\forall \vec{a} \in \mathbb{V}, \forall \lambda, \mu \in  \mathbb{K}: \lambda (\mu \vec{a}) = (\lambda \mu)\vec{a}$\\
+Scaling a vector with two scalars is commutative.
+\item $\forall \vec{a}, \vec{b}\in \mathbb{V}, \forall \lambda \in  \mathbb{K}: \lambda (\vec{a}+ \vec{b})= \lambda \vec{a} + \lambda \vec{b}$\\
+Scaling two vectors with the same scalar equals scaling two vectors with the scalar seperately.
+\item $\forall \vec{a} \in \mathbb{V}, \forall \lambda, \mu \in  \mathbb{K}: (\mu + \lambda)\vec{a}= \mu\vec{a}+\lambda \vec{a}$\\
+It's irrelevant if two scalars are summed up first or multiplied by a vector individually.
+\end{enumerate}}
+
+
+\textbf{Conclusion:}
+\begin{enumerate}
+\item $\vec{a}+\vec{a}=2\vec{a} \quad \mathbb{K}=\mathbb{C}$
+
+proof:	$\overbrace{\vec{a}+\vec{a}}^{\textcirc{1}}  \overset{\textcirc{6}}{=} 1\vec{a}+1\vec{a} \overset{\textcirc{9}}{=} \overbrace{(1+1)}^{2 in\mathbb{K}}\vec{a}=2\vec{a}$
+\item $\vec{0}$ is unique 
+
+
+proof: Assume there is another $\vec{0}$
+
+$\left. \begin{array}{l}
+\textcirc{4}\quad \vec{0}'+\vec{0}= \vec{0}'\\
+\textcirc{4}\quad \vec{0}+\vec{0}'= \vec{0}\\
+\textcirc{2}\quad \vec{0}'+\vec{0}=\vec{0}+\vec{0}'
+\end{array} \right\rbrace
+\vec{0}'=\vec{0}$
+\end{enumerate}
+
+\textbf{Example of vector spaces}
+
+\begin{itemize}
+\item $\left\lbrace\vec{0}\right\rbrace$ 
+\item $\mathbb{K}=\mathbb{Z}, \mathbb{V}=\mathbb{Z}$ \quad integer numbers
+\item $\mathbb{K}=\mathbb{C}, \mathbb{V}=\mathbb{C}$ \quad complex numbers
+\item $\mathbb{K}=\mathbb{C},$
+
+$\mathbb{V}=\left\lbrace a_0+a_1z+a_2z^2+ \shdots +a_nz^n |z,a_0,\shdots,a_n \in \mathbb{C} \right\rbrace$ \quad polynoms
+\item $\mathbb{K}=\mathbb{C}, \mathbb{V}=\mathbb{C}^n=\left\lbrace \begin{bmatrix}
+a_1 \\ \svdots \\ a_n
+\end{bmatrix} \right\rbrace, a_1,a_2,\shdots,a_n \in \mathbb{C}$ \quad vectors 
+\end{itemize}
+
+\textbf{counter example}
+
+\begin{itemize}
+\item $\left\lbrace \right\rbrace$ \quad empty set
+\end{itemize}
+
+\mybox{
+\textbf{Definition:} A set $\mathbb{S}$ is called \textbf{subspace of a vector space} $\mathbb{V}$ over $\mathbb{K}$, if and only if:
+
+\begin{enumerate}
+\item $\mathbb{S}\subseteq \mathbb{V}$ \qquad Must be a subset of $\mathbb{V}$
+\item $\forall \vec{a},\vec{b}\in\mathbb{S}: \vec{a}+\vec{b}\in\mathbb{S}$
+\item $\forall\vec{a}\in\mathbb{S},\forall\lambda\in\mathbb{K}: \lambda\vec{a}\in\mathbb{S}$
+\end{enumerate}}
+Note: $\vec{0}\in\mathbb{S}; \mathbb{S}\neq\left\lbrace\right\rbrace$
+
+Linear combination: $\vec{v}_1, ... , \vec{v}_n\in\mathbb{S}\Rightarrow \sum\limits_{k=1}^{n}a_k\vec{v}_k \in \mathbb{S}; a_k\in\mathbb{K}$
+
+
+\subsubsection{Vectors}
+\begin{doublespace}
+
+
+In the following 
+
+$\mathbb{K}=\mathbb{C}, \mathbb{V}=\mathbb{C}^m$
+
+$a_1,...,a_m\in\mathbb{C}$
+
+colum vector: $\vec{a}:=\begin{bmatrix}a_1\\\svdots\\a_m\end{bmatrix} $
+
+row vector: $\vec{a}^T:=\begin{bmatrix}a_1&\shdots&a_m\end{bmatrix} \quad (\vec{a}^T)^T=\vec{a}$
+
+complex conjugate: $\vec{a}^*=\begin{bmatrix}a_1^*\\\svdots\\a_m^*\end{bmatrix}\quad (\vec{a}^*)^*=\vec{a}$
+
+Hermite-ian vector: $(\vec{a}^*)^T=(\vec{a}^T)^*:= \vec{a}^H \quad (\vec{a}^H)^H=\vec{a}$
+
+complex scalar product: $\vec{a}^H\vec{b}=a_1^*b_1+...+a_m^*b_m=(\vec{b}^H\vec{a})^*$
+
+$\vec{a},\vec{b}$ are orthogonal iff $\vec{a}^H\vec{b}=\vec{b}^H\vec{a}=0$
+
+euclidian norm: $\left|\left|\vec{a}\right|\right|_2:=\sqrt{\vec{a}^H\vec{a}}=\sqrt{a_1^*a_1+...+a_m^*a_m}=\sqrt{\left|a_1\right|^2+...+\left|a_m\right|^2}$
+
+\mybox{\textbf{Definition: Span}  
+
+$\Sp(\vec{v}_1,...,\vec{v}_n):=\left\lbrace \sum\limits_{k=1}^n a_k\vec{v}_k | a_1,...,a_n\in\mathbb{C} \right\rbrace$
+
+$ \vec{v}_1,...,\vec{v}_n\in\mathbb{C}^m$
+
+Note: $\Sp(\vec{v}_1,...\vec{v}_n)$ is a subspace of $\mathbb{C}^m$}
+
+\mybox{\textbf{Definition:} 
+
+The vectors $\vec{v}_1,...\vec{v}_n$ are linearly independent (LID) if and only if: $a_1\vec{v}_1+a_2\vec{v}_2...+a_n\vec{v}_n=\vec{0}$ requires that $a_1=...=a_n=0$ 
+
+\textbf{Theorem:} 
+
+if $\vec{v}_1,...\vec{v}_n$ are not LID, that is if they are linearly dependent (LD), then $\exists_i:\vec{v}_i=\sum\limits_{k=1,k\neq i}^n b_k\vec{v}_k$ and vice versa (und umgekehrt)}
+
+\textbf{Proof:}
+
+$a_1\vec{v}_1+...+a_n\vec{v}_n=\vec{0}$ for $\vec{v}_i$ with $a_i\neq 0$
+
+$\quad a_k=\left\lbrace \begin{array}{l}b_k \textrm{ for } k\neq i\\-1 \textrm{ for } k=1\end{array}\right.$ \qed
+
+\mybox{\textbf{Definition:}
+
+Dimension, $dim\mathbb{S}$ of a subset $\mathbb{S}$ is the maximum number of LID vectors in $\mathbb{S}$
+}
+
+\mybox{
+\textbf{Theorem:}
+
+Every subset $\mathbb{S}$ with $dim\mathbb{S}=n$ is a span $\Sp(\vec{v}_1,...,\vec{v}_n)$ of n LID vectors $\vec{v}_1,...,\vec{v}_n$ in $\mathbb{S}$}
+\end{doublespace}
+\textbf{Proof:}
+
+\begin{itemize}
+\item $\Sp(\vec{v}_1,...,\vec{v}_n)\subseteq \mathbb{S}$, from definition
+\item show $\mathbb{S}\subseteq \Sp(\vec{v}_1,...,\vec{v}_n)$ 
+\end{itemize}
+\begin{doublespace}
+	suppose $\vec{s}\in\mathbb{S}: \vec{s}\in \Sp(\vec{v}_1,...,\vec{v}_n)$, then $(\vec{v}_1,...,\vec{v}_n,\vec{s})$ are LID 
+
+$\underbrace{(\vec{v}_1,...,\vec{v}_n,\vec{s})}_{dim=n+1}\subseteq \underbrace{\mathbb{S}}_{dim =n}$ because $\vec{s}\in\mathbb{S}$
+
+$\Rightarrow \forall \vec{s}\in\mathbb{S}: \vec{s}\in \Sp(\vec{v}_1,...,\vec{v}_n))$
+
+$\Rightarrow \mathbb{S}= \Sp(\vec{v}_1,...,\vec{v}_n)$\qed
+
+\textbf{Note:} $dim(\vec{v}_1,...,\vec{v}_n)=n $ if $\vec{v}_1,...,\vec{v}_n$ are LID
+
+\mybox{\textbf{Definition:} the n LID vectors $\vec{v}_1,...,\vec{v}_n$ are called \textbf{base vectors} of $\Sp(\vec{v}_1,...,\vec{v}_n)$}
+
+\textbf{Note:} base vectors are not unique: 
+
+eg: $\mathbb{S}_1=\Sp\left(\begin{bmatrix}0\\1\\0\end{bmatrix},\begin{bmatrix}0\\1\\1\end{bmatrix}\right)$ ,
+$\mathbb{S}_2=\Sp\left(\begin{bmatrix}0\\2\\1\end{bmatrix},\begin{bmatrix}0\\0\\-1\end{bmatrix}\right)$
+
+
+$\begin{bmatrix}0\\2\\1\end{bmatrix}=\begin{bmatrix}0\\1\\0\end{bmatrix}+\begin{bmatrix}0\\1\\1\end{bmatrix}, 
+\begin{bmatrix}0\\0\\-1\end{bmatrix}=\begin{bmatrix}0\\1\\0\end{bmatrix}-\begin{bmatrix}0\\1\\1\end{bmatrix} 
+\Rightarrow \mathbb{S}_1 \subseteq \mathbb{S}_2 \textcirc{1}$\\ \ \\
+
+$\begin{bmatrix}0\\1\\0\end{bmatrix}=\frac{1}{2}\!\begin{bmatrix}0\\2\\1\end{bmatrix}+\frac{1}{2}\!\begin{bmatrix}0\\0\\-1\end{bmatrix},
+\begin{bmatrix}0\\1\\1\end{bmatrix}=\frac{1}{2}\!\begin{bmatrix}0\\2\\1\end{bmatrix}-\frac{1}{2}\!\begin{bmatrix}0\\0\\-1\end{bmatrix} 
+\Rightarrow \mathbb{S}_2 \subseteq \mathbb{S}_1 \textcirc{2}$\\
+
+$\textcirc{1} \& \textcirc{2} \Rightarrow \mathbb{S}_1=\mathbb{S}_2$\\
+
+\mybox{\textbf{Definition:} Orthonormal base vectors $\vec{w}_1,...,\vec{2}_n$ have the property: 
+
+$\vec{w}_j^H\vec{w}_k=\left\lbrace \begin{matrix}1,& i=k\\0,&else\end{matrix} \right.$}
+
+\mybox{
+\textbf{Theroem:} orthonormal vectors are LID}
+
+\textbf{Proof:} $a_1\vec{w}_1+a_2\vec{w}_2+...+a_n\vec{w}_n=\vec{0}\quad |\vec{w}_1^H\cdot$
+
+$a_1\underbrace{\vec{w}_1^H\vec{w}_1}_{1}+a_2\underbrace{\vec{w}_1^H\vec{w}_2}_{0}+...+a_n\underbrace{\vec{w}_1^H\vec{w}_n}_{0}=\underbrace{\vec{w}_1^H\vec{0}}_{0}\Rightarrow a_1=0$
+\end{doublespace}
+Repeat: $\begin{array}{l}\vec{w}_2^H:a_2=0\quad ...\quad\vec{w}_n^H:a_n=0\end{array}$\qed\\
+
+\mybox{\textbf{Theorem:} Let $\vec{v}_1,...,\vec{v}_n\in\mathbb{C}^n$ be n LID vectors of $\mathbb{C}^n$, then $\Sp(\vec{v}_1,...,\vec{v}_n)=\Sp(\vec{e}_1,...,\vec{e}_n)\in\mathbb{C}^n$
+
+with: $\vec{e}_1=\begin{bmatrix}1\\0\\0\\\svdots\end{bmatrix},\vec{e}_2=\begin{bmatrix}0\\1\\0\\\svdots\end{bmatrix},...,\vec{e}_n=\begin{bmatrix}0\\\svdots\\0\\1\end{bmatrix} \in\mathbb{C}^n$}
+
+\textbf{Proof:} $\vec{v}_i=\sum\limits_{j=1}^na_{ji}\vec{e}_j\Rightarrow \Sp(\vec{v}_1,...,\vec{v}_n)\subseteq \mathbb{C}^n$
+
+if $\exists\vec{s}\in\mathbb{C}^n: \vec{s}\in \Sp(\vec{v}_1,...,\vec{v}_n)$ then $(\vec{v}_1,...,\vec{v}_n,\vec{s})$ is LID
+$\underbrace{\Sp(\vec{v}_1,...,\vec{v}_n,\vec{s})}_{dim=n+1}\subseteq\underbrace{\mathbb{C}^n}_{dim=n (wrong)}$ \qed
+
+\mybox{\textbf{Theorem:} Every subspace has got orthonormal base-vectors
+}
+\textbf{Proof:} $\mathbb{S}=\Sp(\vec{v}_1,...,\vec{v}_n)$ with $\vec{v}_i$ is LID
+
+Orthogonal vectors:
+
+$\vec{u}_1=\vec{v}_1$\\
+
+$\vec{u}_2=\vec{v}_2-\frac{\vec{u}_1^H\vec{v}_2}{\vec{u}_1^H\vec{u}_1}\vec{u}_1 $\\
+
+$\vec{u}_1^H \vec{u}_2 = \vec{u}_1^H \vec{v}_2 - \vec{u}_1^H \vec{v}_2 = 0 \quad \vec{u}_2^H \vec{u}_1 = 0$\\
+
+$\vec{u}_3=\vec{v}_3-\frac{\vec{u}_1^H\vec{v}_3}{\vec{u}_1^H\vec{u}_1}\vec{u}_1-\frac{\vec{u}_2^H\vec{v}_3}{\vec{u}_2^H\vec{u}_2}\vec{u}_2 $\\
+
+$\vec{u}_k=\vec{v}_k-\sum\limits_{m=1}^{k-1}\frac{\vec{u}_m^H\vec{v}_k}{\vec{u}_m^H\vec{u}_m}\vec{u_m}, \with 2\leq k\leq n$\\
+
+normalized vectors $\rightarrow$ orthonormal vectors:
+
+$\vec{w}_i=\frac{\vec{u}_i}{\sqrt{\vec{u}_i^H\vec{u}_i}}$ \\
+$\Rightarrow \vec{w}_i^H\vec{w}_k=\left\lbrace \begin{matrix}0,&i\neq k\\1,&i=k\end{matrix}  \right.$\\
+
+$\Sp(\vec{w}_1,...,\vec{w}_n)=\Sp(\vec{v}_1,...,\vec{v}_n)$\qed\\ 
+%}
+
+
+\subsubsection{Matrices}
+$\ma{A}=\begin{bmatrix}A_{11}&\shdots&A_{1n}\\\svdots& &\svdots\\A_{m1} & \shdots& A_{mn}\end{bmatrix}\in\mathbb{C}^{m\times n}$ \with m rows and n columns
+
+$A_{ij}=(\ma{A})_{ij}$ element of $\ma{A}$ at the i-th row and j-th column 
+
+$\ma{A}^*=\begin{bmatrix}A_{11}^*&\shdots&A_{1n}^*\\\svdots& &\svdots\\A_{m1}^* & \shdots& A_{mn}^*\end{bmatrix} \in \mathbb{C}^{m\times n}$
+ 
+$\ma{A}^T=\begin{bmatrix}A_{11}&\shdots&A_{m1}\\\svdots& &\svdots\\A_{1n} & \shdots& A_{mn}\end{bmatrix} \in \mathbb{C}^{n\times m}$
+
+Hermite-ian matrix: $(\ma{A}^*)^T=(\ma{A}^T)^*=\ma{A}^H$
+
+Frobenius norm: $\left|\left| \ma{A}\right|\right|_F := \sqrt{\sum\limits_{k=1}^m\sum\limits_{p=1}^n \left|A_{kp}\right|^2}$
+
+Zero matrix: $\ma{0}_{m\times n}=\begin{bmatrix}0&\shdots&0\\\svdots&&\svdots\\0&\shdots&0\end{bmatrix}\in \mathbb{C}^{m\times n},\quad \ma{0}_m \overset{!}{=}\ma{0}_{m\times m}$
+
+Identity matrix: $\ma{I}_m=\begin{bmatrix}1&0&\shdots\\0&1& \\\svdots& &\ddots\end{bmatrix}$
+
+Matrix multiplication: $\ma{C}=\ma{A}\ma{B} \iff C_{ik}=\sum\limits_{t}A_{it}\cdot B_{tk}$
+
+$\underbrace{\begin{bmatrix}\vec{a}_1&\shdots&\vec{a}_p\end{bmatrix}}_{\ma{A}}
+\underbrace{\begin{bmatrix}\vec{\beta}_1^H\\\svdots\\\vec{\beta}_p^H\end{bmatrix}}_{\ma{B}}=
+\vec{a}_1\vec{\beta}_1^H+...+\vec{a}_p\vec{\beta}_p^H=\ma{C}$
+
+$\underbrace{\begin{bmatrix}\vec{\alpha}_1^H\\\svdots\\\vec{\alpha}_m^H\end{bmatrix}}_{\ma{A}}
+\underbrace{\begin{bmatrix}\vec{b}_1&\shdots&\vec{b}_n\end{bmatrix}}_{\ma{B}} =
+\begin{bmatrix}\vec{\alpha}_1^H\vec{b}_1&\shdots&\vec{\alpha}_1^H\vec{b}_n\\
+\svdots& &\svdots\\
+\vec{\alpha}_m^H\vec{b}_1&\shdots&\vec{\alpha}_m^H\vec{b}_n\end{bmatrix}=\ma{C}$
+
+Multiplication with sub matrices:
+
+$\begin{bmatrix}\ma{A}&\ma{C}\\\ma{B}&\ma{D}\end{bmatrix}
+\begin{bmatrix}\ma{E}&\ma{G}\\\ma{F}&\ma{H}\end{bmatrix}=
+\begin{bmatrix}\ma{A}\ma{E}+\ma{C}\ma{F}&\ma{A}\ma{G}+\ma{C}\ma{H}\\\ma{B}\ma{E}+\ma{D}\ma{F}&\ma{B}\ma{G}+\ma{D}\ma{H}\end{bmatrix}$
+
+example:
+
+$\ma{M}=\begin{bmatrix}\ma{I}_m&\ma{F}\end{bmatrix}; \ma{Q}=\begin{bmatrix}-\ma{F}^H&\ma{I}_m\end{bmatrix}$
+
+$\ma{M}\ma{Q}^H=\begin{bmatrix}\ma{I}_m&\ma{F}\end{bmatrix}\begin{bmatrix}-\ma{F}\\\ma{I}_m\end{bmatrix}
+=\ma{I}_m(-\ma{F})+\ma{F}\ma{I}_m=\ma{F}-\ma{F}=\ma{0}$
+
+\mybox{Identity matrix \\
+$\ma{I} \ma{A} = \ma{A} \ma{I} = \ma{A}$\\
+$\ma{A}^H(\ma{A}^H)^{-1} = \ma{I}$\\
+If $\ma{B}\in\mathbb{C}^{m\times n}$ has $n$ orthonormal columns then $\ma{B}^H\ma{B}=\ma{I}$}\\
+
+Multiplication with a vector:
+
+$\ma{A}\vec{x}=\begin{bmatrix}\vec{a}_1&...&\vec{a}_n\end{bmatrix}\begin{bmatrix}x_1\\...\\x_n\end{bmatrix}
+=\vec{a}_1x_1+...+\vec{a}_nx_n$
+
+In general: $\ma{A}\ma{B}\neq\ma{B}\ma{A}$
+\begin{itemize}
+\item $(\ma{A}+\ma{B})^2=(\ma{A}+\ma{B})(\ma{A}+\ma{B})=\ma{A}^2+\ma{A}\ma{B}+\ma{B}\ma{A}+\ma{B}^2$
+\item $(\ma{A}\ma{B})\ma{C}=\ma{A}(\ma{B}\ma{C})$
+\item $(\ma{A}\ma{B})^T=\ma{B}^T\ma{A}^T$
+\item $(\ma{A}\ma{B})^H=\ma{B}^H\ma{A}^H$
+\end{itemize}
+
+\mybox{\textbf{Definition: }Trace: 
+$\tr\ma{A}=\sum\limits_{k}A_{kk}$}
+\begin{itemize}
+\item $\tr(\ma{A}\ma{B})=\tr(\ma{B}\ma{A})$
+\item $\tr(\ma{A}\underbrace{\ma{B}\ma{C}}_{\ma{M}})=\tr(\ma{M}\ma{A})=\tr(\ma{B}\ma{C}\ma{A})$
+\item $\tr(\ma{A}\ma{B}\ma{C})=\tr(\ma{B}\ma{C}\ma{A})=\tr(\ma{C}\ma{A}\ma{B})$
+\item $\tr(\ma{A}\ma{A}^H)=\tr(\ma{A}^H\ma{A})$
+\end{itemize}
+$\tr(\ma{A}\ma{A}^H)=\tr(\ma{A}\ma{A}^H)=
+\tr\begin{bmatrix}\vec{a}_1^H\\...\\\vec{a}_n^H\end{bmatrix}\begin{bmatrix}\vec{a}_1&...&\vec{a}_n\end{bmatrix}
+=\tr\begin{bmatrix}\vec{a}_1^H\vec{a}_1 & & X\\ &\ddots& \\X& &\vec{a}_n^H\vec{a}_n\end{bmatrix}
+=\sum\limits_{k=1}^n\vec{a}_k^H\vec{a}_k=\sum\limits_{k=1}^n||\vec{a}_k||^2_2
+=\sum\limits_{k=1}^n\sum\limits_{p=1}^n|a_{kp}|^2=||\ma{A}||^2_F$
+
+Frobenius norm: $\tr(\ma{A}^H\ma{A})=\tr(\ma{A}\ma{A}^H)=||\ma{A}||^2_F$
+
+\mybox{\textbf{Definition:} $\ma{A}\in\mathbb{C}^{n\times n}$ is invertable if and only if: 
+
+$\exists \ma{B}: \ma{A}\ma{B}=\ma{B}\ma{A}=\ma{I}_n$, then $\ma{B}=\ma{A}^{-1}$ is called inverse of $\ma{A}$}
+
+\mybox{
+\textbf{Theorem:} If $\ma{A}$ is invertable then $\ma{A}^{-1}$ is unique}
+
+\textbf{Proof:} $\ma{C}$ is another inverse of $\ma{A}$
+
+$\ma{C}=\ma{C}\ma{I}=\ma{C}\ma{A}\ma{B}=(\ma{C}\ma{A})\ma{B}=\ma{B}
+\Rightarrow \ma{I}\ma{B}=\ma{B}=\ma{C}$ \qed
+
+\mybox{\textbf{Theorem:} $(\ma{A}^H)^{-1}=(\ma{A}^{-1})^{H}=\ma{A}^{-H}$}
+
+\textbf{Proof:} $\ma{A}\ma{A}^{-1}=\ma{I}\quad |(\cdot)^H$
+
+$(\ma{A}\ma{A}^{-1})^H=(\ma{A}^{-1})^H\ma{A}^H=\ma{I}=(\ma{A}^H)^{-1}\ma{A}^H\quad|\cdot (\ma{A}^H)^{-1}$
+
+$(\ma{A}^{-1})^H\underbrace{\ma{A}^H(\ma{A}^H)^{-1}}_{\ma{I}}
+=(\ma{A}^H)^{-1}\underbrace{\ma{A}^H(\ma{A}^H)^{-1}}_{\ma{I}}$
+
+$\Rightarrow(\ma{A}^{-1})^H=(\ma{A}^H)^{-1}$\qed
+
+\mybox{\textbf{Theorem:} if $\ma{A}^{-1}$ exist, then columns of $\ma{A}$ are LID}
+
+\textbf{Proof:} $\underbrace{\ma{A}\vec{x}=\vec{0}}_{\vec{a}_1x_1+...\vec{a}_nx_n=\vec{0}}
+\Rightarrow \underbrace{\vec{x}=\ma{A}^{-1}\vec{0}=\vec{0}}_{x_1=x_2=...=x_n=0}$
+
+$\Rightarrow \Sp(\vec{a}_1,...,\vec{a}_n)=\mathbb{C}^n$
+
+$\exists \vec{b}_i: \ma{A}\vec{b}_i=\vec{e}_i \in \mathbb{C}^n$
+
+$\Rightarrow \ma{A}\underbrace{\begin{bmatrix}\vec{b}_1,...,\vec{b}_n\end{bmatrix}}_{\ma{B}}=\begin{bmatrix}\vec{e}_1,...,\vec{e}_n\end{bmatrix}=\ma{I}$
+
+$\exists \ma{B}: \ma{A}\ma{B}=\ma{I}$\qed
+
+
+\subsubsection{Determinate}
+$\det \ma{A}: \mathbb{C}^{n\times n}\mapsto \mathbb{C}$
+
+Property 1: $n=1: \det A=A$
+
+Property 2: If $\ma{A}$ has LD columns, then $\det A=0$
+
+Property 3: $\det \ma{A}$ is linear in colums of $\ma{A}$
+
+\quad \textcirc{1}: $\det [\vec{a}_1,...,\vec{a}_{i-1},\lambda\vec{a}_i,\vec{a}_{i+1},...,\vec{a}_n]=\lambda \det \ma{A}$
+
+\quad \textcirc{2}: $\det [\vec{a}_1,...,\vec{a}_{i-1},\vec{a}_i,\vec{a}_{i+1},...,\vec{a}_n]$
+
+\qquad\quad$+\det [\vec{a}_1,...,\vec{a}_{i-1},\vec{b}_i,\vec{a}_{i+1},...,\vec{a}_n]$
+
+\qquad\quad$=\det [\vec{a}_1,...,\vec{a}_{i-1},\vec{a}_i+\vec{b}_i,\vec{a}_{i+1},...,\vec{a}_n]$
+
+\mybox{
+\textbf{Theorems:}
+
+\begin{enumerate}
+\item $\det \ma{A}$ is unique
+\item $\det \ma{A}=\sum\limits_{i=1}^n(-1)^{i+j}A_{ij}\det \ma{A}^{(i,j)}$; for any j
+
+\;  $\ma{A}^{(i,j)}\in\mathbb{C}^{(n-1)\times (n-1)}$:{\small  $\ma{A}$ with i-th row and j-th columns removed}
+\item $\det \ma{I}_n=1$
+\item $\det (\ma{A}\ma{B})=\det (\ma{A})\cdot \det (\ma{B})$
+\item $\det (\ma{B}^{-1})=(\det \ma{B})^{-1}$
+\item $\det \ma{A} = \det \ma{A}^T$ 
+\end{enumerate}}
+
+\begin{flushright}- without proof\end{flushright}
+
+example:
+
+\quad$\det a=a, a\in\mathbb{C}$
+
+\quad $\det \begin{bmatrix}a&c\\b&d\end{bmatrix} = a\det(d)+(-1)b\det(c)=ad-bc$
+
+
+\subsubsection{Eigenvalues}
+\mybox{
+\textbf{Definition:} $\lambda\in\mathbb{C}$ is an eigenvalue (Eval) of $\ma{A}\in\mathbb{C}^{n\times n}$ if $\exists\vec{b}\neq \vec{0}$ such that $(\ma{A}-\lambda\ma{I})\vec{b}=\vec{0}$, then $\vec{b}$ is a eigenvecotr (Evec) of $\ma{A}$ for the eigenvalue $\lambda$}
+
+Properties: 
+\begin{itemize}
+\item \textbf{Eigenvalue} $\det(\ma{A}-\lambda\ma{I})=0$
+\item $\ma{A}\vec{b}=\lambda\vec{b}$
+\item given n LID eigenvectors $(\vec{b}_1,...,\vec{b}_n)$ of $\ma{A}\in\mathbb{C}^{n\times n}$ of the eigenvalues $(\lambda_1,...\lambda_n)$ then\\ $\ma{A}=\ma{B}\ma{\Lambda}\ma{B}^{-1}$ 
+\item $\ma{B}=\begin{bmatrix}\vec{b}_1&...&\vec{b}_n\end{bmatrix}\in\mathbb{C}^{n\times n} $
+\item $\ma{\Lambda}=\begin{bmatrix}\lambda_1& & \\ &\ddots & \\ & &\lambda_n\end{bmatrix} \in \mathbb{C}^{n\times n}$
+\item $\ma{B}\ma{\Lambda}=\begin{bmatrix}\vec{b}_1&...&\vec{b}_n\end{bmatrix} 
+\begin{bmatrix}\lambda_1& & \\ &\ddots & \\ & &\lambda_n\end{bmatrix}$
+
+$=\begin{bmatrix}\underbrace{\vec{b}_1\lambda_1}_{\ma{A}\vec{b}_1}&...&\underbrace{\vec{b}_n\lambda_n}_{\ma{A}\vec{b}_n}\end{bmatrix}=\ma{A}\begin{bmatrix}\vec{b}_1&...&\vec{b}_n\end{bmatrix}=\ma{A}\ma{B}$
+\item \textbf{Eigenvalue Decomposition, EVD}: $\ma{A}=\ma{B}\ma{\Lambda}\ma{B}^{-1}$
+\end{itemize}
+
+\mybox{
+\textbf{Note:}
+\begin{itemize}
+\item $\tr(\ma{A})=\tr(\ma{B}\ma{\Lambda}\ma{B}^{-1})=\tr(\underbrace{\ma{B}^{-1}\ma{B}}_{\ma{I}}\ma{\Lambda})
+=\tr(\ma{\Lambda})=\sum\limits_{k=1}^n\lambda_k$
+\item $\det\ma{A}=\det\ma{B}\ma{\Lambda}\ma{B}^{-1}=\det\ma{B}\det\ma{\Lambda}\det\ma{B}^{-1}$
+
+$=det\ma{B}\det\ma{\Lambda}\frac{1}{\det\ma{B}}=\det\ma{\Lambda}=\prod\limits_{k=1}^n\lambda_k$
+\item \scalebox{0.95}{$\ma{A}^k=\ma{A}\ma{A}...\ma{A}=\ma{B}\ma{\Lambda}\underbrace{\ma{B}^{-1}\ma{B}}_{\ma{I}}\ma{\Lambda}\underbrace{\ma{B}^{-1}\ma{B}}_{\ma{I}}\ma{\Lambda}\ma{B}^{-1}...\ma{B}\ma{\Lambda}\ma{B}^{-1}$
+$=\ma{B}\ma{\Lambda}^k\ma{B}^{-1}=\ma{B}\begin{bmatrix}\lambda_1^k& & \\ &\ddots & \\ & &\lambda_n^k\end{bmatrix}\ma{B}^{-1}$}
+\end{itemize}}
+\newpage
+\textbf{Function of matrices}
+
+Exponential function: 
+
+$e^{\ma{A}}\overset{\textrm{Taylor}}{=}\ma{I}+\ma{A}+\frac{1}{!2}\ma{A}^2+\frac{1}{!3}\ma{A}^3+\frac{1}{!4}\ma{A}^4+...$
+$=\underbrace{\ma{I}}_{\ma{B}\ma{I}\ma{B}^{-1}}+\ma{B}\ma{\Lambda}\ma{B}^{-1}+\frac{1}{!2}\ma{B}\ma{\Lambda}^2\ma{B}^{-1}+\frac{1}{!3}\ma{B}\ma{\Lambda}^3\ma{B}^{-1}+...$
+
+$=\ma{B}(\ma{I}+\ma{\Lambda}+\frac{1}{!2}\ma{\Lambda}^2+\frac{1}{!3}\ma{\Lambda}^3+...)\ma{B}^{-1} $
+$=\ma{B}\begin{bmatrix}1+\lambda_1+\frac{1}{2}\lambda_1^2...& & \\ &\ddots & \\ & &1+\lambda_k+\frac{1}{2}\lambda_k^2...\end{bmatrix}\ma{B}^{-1}$
+
+$=\ma{B}\begin{bmatrix}e^{\lambda_1}& & \\ &\ddots & \\ & &e^{\lambda_k}\end{bmatrix}\ma{B}^{-1}$
+
+Exponential Cosine: 
+
+$\cos(\ma{A})\overset{\textrm{Taylor}}{=}\ma{I}-\frac{1}{2}\ma{A}^2+\frac{1}{24}\ma{A}^4-\frac{1}{6}\ma{A}^6+...$
+
+$=\ma{B}(\ma{I}-\frac{1}{2}\ma{\Lambda}^2+\frac{1}{24}\ma{\Lambda}^4-\frac{1}{6}\ma{\Lambda}^6+... )\ma{B}^{-1}
+=\ma{B} \begin{bmatrix}\cos\lambda_1 & \\ \\ &\cos\lambda_n\end{bmatrix} \ma{B}^{-1}$
+
+Exponential Sine: 
+
+$\sin(\ma{A})\overset{\textrm{Taylor}}{=}\ma{A}-\frac{1}{6}\ma{A}^3+\frac{1}{120}\ma{A}^5-...$
+
+$=\ma{B}(\ma{\Lambda}-\frac{1}{6}\ma{\Lambda}^3+\frac{1}{120}\ma{\Lambda}^5-...)\ma{B}^{-1}
+=\ma{B} \begin{bmatrix}\sin\lambda_1 & \\ \\ &\sin\lambda_n\end{bmatrix} \ma{B}^{-1}$
+
+
+Homework 1: 
+
+$\cos\left(\begin{bmatrix}\frac{\pi}{2}&\frac{\pi}{2}\\\frac{\pi}{2}&\frac{\pi}{2}\end{bmatrix}\right)=\cos\ma{A}$
+
+with:$\ma{A}=\ma{B}\ma{\Lambda}\ma{B}^{-1}
+=\begin{bmatrix}\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\end{bmatrix}
+\begin{bmatrix}0&0\\0&\pi\end{bmatrix}
+\begin{bmatrix}\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\end{bmatrix}
+$
+
+$\cos\ma{A}=\begin{bmatrix}\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\end{bmatrix}
+\begin{bmatrix}\cos 0&0\\0&\cos \pi\end{bmatrix}
+\begin{bmatrix}\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\end{bmatrix}$
+$=\begin{bmatrix}0&-1\\-1&0\end{bmatrix} $
+
+Homework 2:
+
+with:$\ma{A}=\ma{B}\ma{\Lambda}\ma{B}^{-1}
+=\begin{bmatrix}\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\end{bmatrix}
+\begin{bmatrix}0&0\\0&\frac{\pi}{3}\end{bmatrix}
+\begin{bmatrix}\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\end{bmatrix}
+$
+
+$\cos^2(\ma{A})+\sin^2(\ma{A})$
+$=\left(\cos\begin{bmatrix}\frac{\pi}{6}&\frac{\pi}{6}\\\frac{\pi}{6}&\frac{\pi}{6}\end{bmatrix}\right)^2
++\left(\sin\begin{bmatrix}\frac{\pi}{6}&\frac{\pi}{6}\\\frac{\pi}{6}&\frac{\pi}{6}\end{bmatrix}\right)^2 $
+
+
+$=\begin{bmatrix}\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\end{bmatrix}
+\left(
+\begin{bmatrix}\cos^2(0)&0\\0&\cos^2(\frac{\pi}{3})\end{bmatrix}
++\begin{bmatrix}\sin^2(0)&0\\0&\sin^2(\frac{\pi}{3})\end{bmatrix}
+\right)
+\begin{bmatrix}\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\end{bmatrix}$
+
+
+$=\ma{B}\ma{I}\ma{B}^{-1}=\ma{I}$
+
+
+
+\textbf{Warning:} EVD does not always exist
+
+Example: $\ma{A}=\begin{bmatrix}1&1\\0&1\end{bmatrix}; \det\begin{bmatrix}\ma{A}-\lambda\ma{I}\end{bmatrix}=0$\\
+\newpage
+Eval:\\
+
+$\det\begin{bmatrix}1-\lambda&1\\0&1-\lambda\end{bmatrix}=(1-\lambda)^2=0; \quad \lambda_1=\lambda_2=1$\\
+
+Evec:\\
+
+$(\ma{A}-\lambda_{1/2}\ma{I})\vec{b}=\vec{0} \Rightarrow \begin{bmatrix}0&1\\0&0\end{bmatrix}\begin{bmatrix}b_1\\b_2\end{bmatrix}=\begin{bmatrix}0\\0\end{bmatrix}\Rightarrow \vec{b}_{1/2}=\begin{bmatrix}1\\0\end{bmatrix}$
+
+only one LID eigenvector of $\ma{A}$
+
+However:
+
+\mybox{
+\textbf{Theorem:}
+Let$\ma{A}=\ma{A}^H\in \mathbb{C}^{n\times n}$ with k-fold eigenvalue $\mu$, then there are k LID eigenvectors for $\mu$.}
+
+
+\textbf{Proof:} 
+\begin{itemize}
+\item $p(\lambda):=\det(\ma{A}-\lambda\ma{I})=(\mu-\lambda)^k\cdot q(\lambda)$
+\item $q(\mu)\neq 0: \mu$ is no root of $q(\lambda)$ 
+\item $\mathbb{E}_\mu:=\left\lbrace\vec{v}|\ma{A}\vec{v}=\mu\vec{v}\right\rbrace$ Eigenspace (all eigenvectors of $\mu +\vec{0}$)
+
+$\mathbb{E}_\mu=\Sp(\underbrace{\vec{b}_1,...,\vec{b}_l}_{\textrm{orthonormal}})$ \quad $l$ LID eigenvectors
+
+$\dim\mathbb{E}_\mu =l$
+\end{itemize}
+
+Aim: want to show $l=k$
+
+$\ma{B}\begin{bmatrix}\underbrace{\vec{b}_1,...,\vec{b}_l,\overbrace{\vec{b}_{l+1},...,\vec{b}_n}^{\textrm{invented}}}_{\textrm{orthonormal}}\end{bmatrix}  \in  \mathbb{C}^{n\times n}$
+
+$\ma{B}^H\ma{B}= \begin{bmatrix}\vec{b}_1^H\\ . \\ \vec{b}_n^H\end{bmatrix}$
+$ \begin{bmatrix}\vec{b}_1 & ... & \vec{b}_n\end{bmatrix} =\ma{I}$\quad length of each vector is 1
+
+$\ma{B}^{-1}=\ma{B}^H$
+
+$\left. \begin{array}{l}\ma{A}\vec{v}=\mu\vec{v}\\\vec{v}=\ma{B}\vec{w}\\\vec{w}=\ma{B}^H\vec{v}\end{array}\right\rbrace \iff \ma{B}^H\ma{A}\ma{B}\vec{w}=\mu\vec{w}$
+
+$\ma{B}^H\ma{A}\ma{B}=
+\begin{bmatrix}\vec{b}_1^H\\ . \\ \vec{b}_n^H\end{bmatrix}
+\begin{bmatrix}\mu\vec{b}_1 & ... &\mu\vec{b}_l & \underbrace{*\quad*\quad*}_{Junk}\end{bmatrix}$
+
+$=\begin{bmatrix}
+\overbrace{\begin{matrix}\mu&0&...&0\\0&\mu&...&0\\.&.&...&.\\0&0&...&\mu\end{matrix}}^{l} &\vline& \ma{0}\\ \hline \ma{0}&\vline& \ma{A}_1
+\end{bmatrix} $
+
+because: 
+
+$(\ma{B}^H\ma{A}\ma{B})^H=\ma{B}^H\ma{A}^H\ma{B}=\ma{B}^H\ma{A}\ma{B},\quad
+\ma{A}^H=\ma{A}$
+
+$\det(\ma{B}^H\ma{A}\ma{B}-\lambda\ma{I})\underset{\ma{B}^H=\ma{B}^{-1}}{=} \det(\ma{B}^H\ma{A}\ma{B}-\lambda\ma{B}^H\ma{I}\ma{B})$
+
+$=\det(\ma{B}^H(\ma{A}-\lambda\ma{I})\ma{B})=\det(\ma{B}^{-1}(\ma{A}-\lambda\ma{I})\ma{B})$
+
+$=\det(\ma{A}-\lambda\ma{I})=p(\lambda)=(\mu-\lambda)^k\cdot q(\lambda)=(\mu-\lambda)^l\cdot \underbrace{ det(\ma{A} - \lambda \ma{I})}_{\varphi(\lambda)}$
+
+Assumption: that $\mu$ is an eigenvalue of $\ma{A}_1$: 
+
+$\ma{A}_1\vec{c}=\mu\vec{c}, \quad 
+\ma{B}^H\ma{A}\ma{B}\begin{bmatrix}\left. \vec{0} \right\rbrace l \\ \vec{c}\end{bmatrix} =
+\begin{bmatrix} \vec{0} \\ \underbrace{\ma{A}_1\vec{c}}_{\mu\vec{c}}\end{bmatrix}
+=\mu\begin{bmatrix} \vec{0} \\ \vec{c}\end{bmatrix}$
+
+$\mu\begin{bmatrix} \vec{0} \\ \vec{c}\end{bmatrix}$ is an eigenvector of $\ma{B}^H\ma{A}\ma{B}$
+
+$\vec{v}=\ma{B}\begin{bmatrix} \vec{0} \\ \vec{c}\end{bmatrix}$ is an eigenvector of $\ma{A}$
+
+$\vec{v}=\begin{bmatrix} \vec{b}_1,...,\vec{b}_l,\vec{b}_{l+1},...\vec{b}_n\end{bmatrix}\begin{bmatrix} \vec{0} \\ \vec{c}\end{bmatrix}=\begin{bmatrix} \vec{b}_{l+1},...\vec{b}_n\end{bmatrix}\vec{c}\in \Sp(\vec{b}_{l+1},...\vec{b}_n)$
+
+$\vec{v}$ is eigenvector of $\ma{A}: \quad \vec{v}\in \Sp(\vec{b}_{1},...\vec{b}_l)$
+
+$\Rightarrow \vec{v}^H\vec{v}=\vec{0}$, orthogonal
+
+$\iff \vec{v}=\vec{0}$ \quad but $\vec{0}$ is no eigenvector!
+
+actualy $\mu$ is not a eigenvalue of $\ma{A}_1$
+
+$p(\lambda)=(\mu-\lambda)^k\cdot \underbrace{q(\lambda)}_{q(\mu)\neq0}=(\mu-\lambda)^l\cdot \underbrace{q(\lambda)}_{q(\mu)\neq0} \quad l=k\quad\dim\mathbb{E}_\mu=k$\qed
+
+\mybox{
+\textbf{Conclusion:}
+
+$\ma{A}=\ma{A}^H \Rightarrow$ EVD of $\ma{A}$ exist}
+
+\mybox{
+\textbf{Theorem:} 
+
+For $\ma{A}=\ma{A}^H \in\mathbb{C}^{n\times n}$ then:
+\begin{itemize}
+\item all eigenvalues $\in\mathbb{R}$
+\item all eigenvectors are orthonormal
+\end{itemize}}
+
+\textbf{Proof:}
+
+
+$\ma{A}=\ma{A}^H=\ma{B}\ma{\Lambda}\ma{B}^{-1}=\ma{B}\ma{\Lambda}\ma{B}^{H}=(\ma{B}\ma{\Lambda}\ma{B}^{H})^{H}=\ma{B}\ma{\Lambda}^H\ma{B}^{H}$
+
+$\Rightarrow \ma{\Lambda}=\ma{\Lambda}^H=(\ma{\Lambda}^T)^*=(\ma{\Lambda})^*; \quad \forall\lambda_i: \lambda_i=\lambda_i^*$
+
+$\ma{A}\vec{v}_1=\lambda_1 \vec{v}_1 \overset{\vec{v}_2^H\cdot}{\iff} \vec{v}_2^H\ma{A}\vec{v}_1=\lambda_1 \vec{v}_2^H\vec{v}_1 \quad(1)$
+
+$\ma{A}\vec{v}_2=\lambda_2 \vec{v}_2 \overset{\vec{v}_1^H\cdot}{\iff} \vec{v}_1^H\ma{A}\vec{v}_2=\lambda_2 \vec{v}_1^H\vec{v}_2 \overset{(\cdot)^H}{\iff}  \vec{v}_2^H\underbrace{\ma{A}}_{\ma{A}=\ma{A}^H}\vec{v}_1=\lambda_2 \vec{v}_2^H\vec{v}_1  \quad (2)$ 
+
+$(1)-(2) \Rightarrow\quad \vec{v}_2^H\ma{A}\vec{v}-\vec{v}_2^H\ma{A}\vec{v}=(\lambda_1-\lambda_2)\vec{v}_2^H\vec{v}_1\overset{!}{=}0$
+
+\textbf{if} $\lambda_1\neq\lambda_2\pfeil \vec{v}_2^H\vec{v}_1=0$ \quad orthogonal
+ 
+\textbf{else} $\lambda_1=\lambda_2 =\lambda$ \quad 2-dimensional solution
+
+$\ma{A}\vec{v}_1=\lambda\vec{v}_1 \quad \ma{A}\vec{v}_2=\lambda\vec{v}_2$
+
+Define: $\vec{w}_1=\vec{v}_1; \quad \vec{w}_2=\vec{v}_1 + a\cdot\vec{v}_2 \quad with \quad a\neq 0$
+
+$\ma{A}\vec{w}_1=\lambda\vec{w}_1;\quad \ma{A}\vec{v}_1+a\ma{A}\vec{v}_2=\lambda\vec{v}_1+a\lambda\vec{v}_2 \iff \ma{A}\vec{w}_2=\lambda\vec{w}_2$
+
+$\Sp(\vec{v}_1,\vec{v}_2)=\Sp(\vec{w}_1,\vec{w}_2)$
+
+on condition on: $\vec{w}_1^H\vec{w}_2\overset{!}{=}0$
+
+$\vec{w}_1^H\vec{w}_2=\vec{v}_1^H(\vec{v}_1+a\cdot\vec{v}_2)\overset{!}{=}0 \pfeil  a=-\frac{\vec{v}_1^H\vec{v}_1}{\vec{v}_1^H\vec{v}_2}$
+
+$\vec{v}_1, \vec{v}_2$ are orthogonal if a is definde as above
+\qed
+
+
+\subsubsection{Gram-ian Matrix}\label{sec:Gramian_matrix}
+\mybox{
+\textbf{Theorem:} 
+
+$\ma{A}=\ma{C}\ma{C}^H\in\mathbb{C}^{n\times n}$ \pfeil all eigenvalues of $\ma{A}$ are bigger or equal to 0 }
+
+\textbf{Proof:} 
+
+$\ma{C}\ma{C}^H\vec{v}=\mu\vec{v} \quad | \vec{v}^H\cdot$
+
+$\underbrace{\vec{v}^H\ma{C}}_{\vec{a}^H}\underbrace{\ma{C}^H\vec{v}}_{\vec{a}}=\mu\vec{v}^H\vec{v}$
+ 
+$\mu=\frac{\vec{a}^H\vec{a}}{\vec{v}^H\vec{v}}=\frac{||\vec{a}||_2^2}{||\vec{v}||_2^2 }\geq 0$\qed
+
+
+$\ma{A}=\ma{C}\ma{C}^H=\ma{B}\ma{\Lambda}\ma{B}^H$ because $\ma{A}$ is hermitian
+
+$\ma{B}\ma{B}^H=\ma{B}^H\ma{B}=\ma{I}$, \quad $\ma{B}$ is unitary and orthonormal
+
+
+
+
+
+\subsubsection{Singular Value Decomposition}\label{sssec:svd}
+\mybox{Sigular value decomposition exists for every matrix $\ma{A}\in\mathbb{C}^{m\times n}$
+
+with:
+\begin{itemize}
+\item $\ma{U}\in\mathbb{C}^{m\times m}, \quad \ma{U}^{-1}=\ma{U}^H$, Unitary matrix
+\item $\ma{V}\in\mathbb{C}^{n\times n}, \quad \ma{V}^{-1}=\ma{V}^H$, Unitary matrix
+\item $\ma{\Sigma}\in\mathbb{R}_{0+}^{m\times n}$ \quad $(\ma{\Sigma})_{i,j}=\left\lbrace\begin{matrix}0&i\neq j\\s_i&i=j\end{matrix}\right.$, Diagonal Matrix\\
+all $s_i>0$ are Singular values
+\item Note: Since \ma{U} and \ma{V} are unitary matrices we get the following properties:\\
+$\ma{U}^H\ma{U} = \ma{U}\ma{U}^H = \ma{I}$\\
+$\ma{V}^H\ma{V} = \ma{V}\ma{V}^H = \ma{I}$
+\end{itemize}}
+
+\textbf{Singular Value Decomposition: } $\ma{A}=\ma{U}\ma{\Sigma}\ma{V}^H$
+
+\mybox{
+\textbf{Connection to EVD:} - Calculation of SVD
+
+Calculate $\ma{\Sigma}$ and $\ma{U}$
+
+$\left. \begin{array}{l}
+\ma{A}\ma{A}^H = \underbrace{\ma{U}\ma{\Sigma}\ma{V}^H}_{\ma{A}}\underbrace{\ma{V}\ma{\Sigma}^T\ma{U}^H}_{\ma{A}^H}= \ma{U}\ma{\Sigma} \ma{\Sigma}^T\ma{U}^H\\
+\textrm{EVD: } \ma{A}\ma{A}^H = \ma{B}\ma{\Lambda}\ma{B}^H \with \ma{B}^H=\ma{B}^{-1},\ma{\Lambda}\geq 0
+\end{array} \right\rbrace 
+\begin{array}{c}   \ma{U}=\ma{B}\\ \ma{\Sigma}\ma{\Sigma}^T=\ma{\Lambda} \end{array}$
+
+\ \\
+
+Calculate $\ma{\Sigma}$ and $\ma{V}$
+
+$\left. \begin{array}{l}
+\ma{A}^H\ma{A} = \underbrace{\ma{V}\ma{\Sigma}^T\ma{U}^H}_{\ma{A}^H}\underbrace{\ma{U}\ma{\Sigma}\ma{V}^H}_{\ma{A}}= \ma{V}\ma{\Sigma}^T \ma{\Sigma}\ma{V}^H\\
+\textrm{EVD: } \ma{A}^H\ma{A} = \ma{B}'\ma{\Lambda}'\ma{B}'^{H} \with \ma{B}'^H=\ma{B}'^{-1},\ma{\Lambda}'\geq 0
+\end{array} \right\rbrace 
+\begin{array}{c}   \ma{V}=\ma{B}'\\ \ma{\Sigma}^T\ma{\Sigma}=\ma{\Lambda}' \end{array}$}
+
+\ \\
+
+Zeors in EVD: (for $\ma{A}\ma{A}^H$)
+
+
+\textcirc{1} $n\geq m$:
+
+$\ma{\Sigma}\ma{\Sigma}^T=
+\begin{bmatrix}\begin{matrix}s_1 & & \\ &\ddots& \\ & & s_m  \end{matrix}\vline \;\ma{0} \end{bmatrix}
+\begin{bmatrix}\begin{matrix}s_1 & & \\ &\ddots& \\ & & s_m  \end{matrix}\\\hline\ma{0} \end{bmatrix}  
+=\begin{bmatrix}s_1^2 & & \\ &\ddots& \\ & & s_m^2  \end{bmatrix}\overset{!}{=}
+\begin{bmatrix}\lambda_1 & & \\ &\ddots& \\ & & \lambda_m  \end{bmatrix}$
+
+\textcirc{2} $n< m$:
+
+$\ma{\Sigma}\ma{\Sigma}^T=
+\begin{bmatrix}\begin{matrix}s_1 & & \\ &\ddots& \\ & & s_n  \end{matrix}\\\hline\ma{0} \end{bmatrix}
+\begin{bmatrix}\begin{matrix}s_1 & & \\ &\ddots& \\ & & s_n  \end{matrix}\vline \;\ma{0} \end{bmatrix}
+=\begin{bmatrix}\begin{matrix}s_1 & & \\ &\ddots& \\ & & s_n  \end{matrix}&\vline&\ma{0}\\ \hline \ma{0}&\vline&\ma{0} \end{bmatrix}$
+
+
+Number of Singular Values:
+
+$\ma{A}\ma{A}^H\vec{x}\in\Sp(\vec{a}_1,...,\vec{a}_n)$
+
+$\ma{B}\ma{\Lambda}\underbrace{\ma{B}^{-1}\vec{x}}_{\vec{y}}=\mat{\vec{b}_1\lambda_1&\shdots&\vec{b}_m\lambda_m}\vec{y} \quad 
+\left\lbrace \begin{array}{c} \in \Sp(\vec{b}_1,...,\vec{b}_m) \\ \in \Sp(\vec{a}_1,...,\vec{a}_n)  \end{array} \right.$
+ 
+\begin{itemize}
+\item $m>n$
+\item $\vec{a}_1,...,\vec{a}_n$ are LID  \qquad
+\item at most n eigenvalues can be $\neq0$
+\end{itemize}
+$\quad\Rightarrow$ at least $m-n$ eigenvalues are $=0$
+
+$s_i=\sqrt{\lambda_i}\quad i\in\left\lbrace1,2,...,n\right\rbrace \quad n<m$
+
+\mybox{
+\textbf{General:}
+
+$s_i=\sqrt{\lambda_i}\quad i\in\left\lbrace1,2,...,\min(n,m)\right\rbrace$}
+
+$\ma{A}^H\ma{A}=\underbrace{\ma{V}\ma{\Sigma}^T\ma{U}^H}_{\ma{A}^H}\underbrace{\ma{U}\ma{\Sigma}\ma{V}^H}_{\ma{A}}=\ma{V}\ma{\Sigma}^T\ma{\Sigma}\ma{V}^H$\\
+\textbf{EVD:}\\
+$\left. \begin{array}{l} \ma{A}^H\ma{A} = \ma{B'}\ma{\Lambda'}\ma{B'}^H\\
+	(\ma{B'})^{-1} = (\ma{B'})^{H}\\
+	\ma{\Lambda'} > \ma{0}\end{array} \right\rbrace$ \qquad $\ma{V} = \ma{B'}$, \quad $\ma{\Sigma'}\ma{\Sigma}=\ma{\Lambda}$\\
+
+$\ma{A}\ma{A}^H\vec{v} = \lambda \vec{v}$\\
+$\ma{A}^H\ma{A}\underbrace{\ma{A}^H\vec{v}}_{\vec{w}} = \lambda \underbrace{\ma{A}\vec{v}}_{\vec{w}}$\\
+$\ma{A}^H\ma{A}\vec{w} = \lambda \vec{w} = \lambda' \vec{w} \iff \lambda = \lambda'$
+
+\mybox{
+\textbf{Summary: }
+
+$\forall\ma{A}\in\mathbb{C}^{m\times n} \quad \exists  \text{unitary}  \ma{U}, \ma{V}$ that: $\ma{A}=\ma{U}\ma{\Sigma}\ma{V}^H$
+
+$\ma{\Sigma}=\mat{\begin{matrix}s_1& & \\ & \ddots& \\ & & s_r \end{matrix} &\vline&\ma{0}\\\hline  \ma{0}&\vline& \ma{0}} 
+\quad \begin{array}{l}r\leq min (m,n)\\ r=0 \iff \ma{A}=\ma{0}\\r>0 \quad \forall \ma{A}\neq \ma{0}\end{array} $}
+
+\vspace{5mm} 
+\textbf{Undermatrices of SVD:}
+
+r: number of positive Sigular Values:
+
+$s_1\geq s_2\geq ...\geq s_r > 0   \qquad  s_{r+1}=s_{r+2}=...s_{\min(m,n)}=0$
+
+\ \\
+
+$\ma{A}=$\quad \scalebox{1.5}{$
+\underbrace{\mat{\ma{U}_1&\ma{U}_2}}_{m\times m}\quad\underbrace{\mat{\ma{\Sigma}_1&\ma{0}\\\ma{0}&\ma{0}}}_{m\times n}\quad\underbrace{\mat{\ma{V}_1^H\\\ma{V}_2^H}}_{n\times n}$}   \quad
+$=\underbrace{\ma{U}_1\ma{\Sigma}_1\ma{V}_1^H}_{\textrm{foreshortend SVD}}$
+
+\ \\
+
+\begin{itemize}
+\item $\ma{U}_1 \in \mathbb{C}^{m\times r}$
+\item $\ma{U}_2 \in \mathbb{C}^{m\times (m-r)}$
+\item $\ma{\Sigma}_1 \in \mathbb{R}^{r\times r}$
+\item $\ma{V}_1^H \in \mathbb{C}^{r\times n}$
+\item $\ma{V}_2^H \in \mathbb{C}^{(n-r)\times n}$
+\end{itemize}
+
+Inverse:
+
+$\ma{\Sigma}_1^{-1}$ exists, provided that $\ma{\Sigma}_1$ exist
+
+$\ma{U}^H\ma{U}=\ma{I}=\mat{\ma{U}_1^H\\\ma{U}_2^H} \mat{\ma{U}_1&\ma{U}_2} 
+=\mat{\ma{U}_1^H\ma{U}_1 &\vline& \ma{U}_1^H\ma{U}_2 \\ \hline \ma{U}_2^H\ma{U}_1 &\vline& \ma{U}_2^H\ma{U}_2} = \mat{\ma{I}&\ma{0}\\\ma{0}&\ma{I}}$
+\begin{itemize}
+\item $\ma{U}_1^H\ma{U}_1 = \ma{I}$
+\item $\ma{U}_1^H\ma{U}_2 = \ma{0}$
+\item $\ma{U}_2^H\ma{U}_1 = \ma{0}$
+\item$\ma{U}_2^H\ma{U}_2 = \ma{I}$
+\end{itemize}
+
+But $\ma{U}\ma{U}^H$ leads to:\\
+$\ma{U}\ma{U}^H=\mat{\ma{U}_1 &\ma{U}_2}\mat{\ma{U}_1^H \\\ma{U}_2^H}=\ma{I}  \pfeil \ma{U}_1 \ma{U}_1^H+\ma{U}_2 \ma{U}_2^H=\ma{I}$
+
+
+
+\mybox{
+\textbf{Definition: }
+
+ The Image of a Matirx $im\ma{A}$ is the span of the colums of $\ma{A}$
+
+$\quad im\ma{A}=\left\lbrace \vec{x} |\quad \vec{x}=\ma{A}\vec{y} ,\quad\vec{y}\in\mathbb{C}^{n\times 1}  \right\rbrace$}
+
+\mybox{
+\textbf{Theorem: } 
+
+$\ma{A}=\ma{U}_1\ma{\Sigma}_1\ma{V}_1^H$ then $im\ma{A}=im\ma{U}_1 $}
+
+
+\textbf{Proof: } 
+
+$\ma{A}\in\mathbb{C}^{m\times n}$
+
+$im\ma{A}=\left\lbrace \vec{x} |\quad \vec{x}=\ma{A}\vec{y} ,\quad\vec{y}\in\mathbb{C}^{n\times 1}  \right\rbrace
+=\left\lbrace \vec{x} |\quad \vec{x}=\ma{U}\ma{\Sigma}\underbrace{\ma{V}^H\vec{y}}_{\vec{z}} ,\quad\vec{y}\in\mathbb{C}^{n\times 1}  \right\rbrace$
+
+$\Rightarrow\vec{y}=\ma{V}\vec{z}$
+
+$im\ma{A}=\left\lbrace \vec{x} |\quad \vec{x}=\ma{U}\mat{\ma{\Sigma}_1&\ma{0}\\\ma{0}&\ma{0}}\mat{\vec{z}_1\\\vec{z}_2} ,
+\quad \begin{array}{l}\vec{z}_1 \in\mathbb{C}^{r\times 1}\\\vec{z}_2 \in\mathbb{C}^{(n-r)\times 1}\end{array} \right\rbrace
+=\left\lbrace \vec{x} |\quad \vec{x}=\ma{U}_1\underbrace{\ma{\Sigma}_1\vec{z}_1}_{\vec{W}} ,
+\quad \vec{z}_1 \in\mathbb{C}^{r\times 1}\right\rbrace$
+
+$=\left\lbrace \vec{x} |\quad \vec{x}=\ma{U}_1\vec{w} ,
+\quad \vec{w}_1 \in\mathbb{C}^{r\times 1}\right\rbrace=im\ma{U}_1$\qed
+
+\mybox{
+\textbf{Note: } $\dim im \ma{A} = r$}
+
+\mybox{
+\textbf{Definition: }
+
+The null space: $null\ma{A}=\left\lbrace\vec{x}|\quad\ma{A}\vec{x}=\vec{0}\right\rbrace$}
+
+\mybox{
+\textbf{Theorem: }
+
+$\ma{A}=\mat{\ma{U}_1 &\ma{U}_2} \mat{\ma{\Sigma}_1 & \ma{0} \\ \ma{0} & \ma{0}} \mat{\ma{V}_1^H \\\ma{V}_2^H}  \quad \Rightarrow \quad null\ma{A}=im\ma{V}_2$}
+
+
+
+\textbf{Proof: } 
+
+$\ma{A}\vec{x}=\vec{0}, \quad \vec{x}=\ma{V}_2\vec{y}, \quad \vec{x}$ represent the image of $\ma{V}_2$
+
+$\ma{A}\vec{x}=\ma{U}_1\ma{\Sigma}_1\underbrace{\ma{V}_1^H\ma{V}_2}_{\ma{0}}\vec{y}=\vec{0}: (\textrm{TRUE}) \quad\Rightarrow \quad  im\ma{V}_2\subseteq null\ma{A}$
+
+Suppose: $\exists \vec{v}\in null\ma{A},\quad\vec{v}\notin im\ma{V}_2$
+
+$\vec{v}\notin im\ma{V}_2 \Rightarrow \exists \vec{z}:\vec{v}=\ma{V}_1\vec{z},\quad \vec{z}\neq\vec{0}\quad(1)$
+
+$\vec{0}=\ma{A}\vec{v}=\ma{U}_1\ma{\Sigma}_1\underbrace{\ma{V}_1^H\ma{V}_1}_{\ma{I}}\vec{z}=\ma{U}_1\underbrace{\ma{\Sigma}_1\vec{z}}_{\vec{w}}
+\pfeil \vec{0}=\ma{U}_1\vec{w} \quad with\quad \vec{w}=\ma{\Sigma}_1\vec{z}=\vec{0}$
+
+$\pfeil \vec{z}=\ma{\Sigma}_1^{-1}\vec{0}=\vec{0} \quad(2)$ 
+
+$(1),(2)\pfeil $ supposition is wrong: $\forall\vec{v}\in null \ma{A}: \quad \vec{v}\in im\ma{V}_2 \pfeil null\ma{A}=im\ma{V}_2$\qed\\
+Note: $dim\,null\,\ma{A}=n-r \qquad dim\,im\,\ma{A} + dim\,null\,\ma{A} =n$\\
+
+\mybox{
+\textbf{Definition: } 
+
+The $rank\ma{A}$ is the number of LID columns of $\ma{A}$}
+
+\mybox{
+\textbf{Theorem: }
+
+$rank\ma{A}=r$}
+
+
+\textbf{Proof: }
+
+$\ma{A}=\ma{U}_1\ma{\Sigma}_1\ma{V}_1^H \pfeil im\ma{A}=im\ma{U}_1=im\mat{\vec{u}_1&...&\vec{u}_r}\pfeil dim\ma{A}=dim\ma{U}_1=r$ \qed
+
+\mybox{
+\textbf{Theorem: }
+
+$rank\ma{A}=rank\ma{A}^T=rank\ma{A}^H=rank\ma{A}\ma{A}^H=rank\ma{A}^H\ma{A}=rank\ma{A}\ma{A}^T=rank\ma{A}^T\ma{A}$}\\ \ \\
+
+\textbf{Proof: }
+
+$\ma{A}=\ma{U}_1\ma{\Sigma}_1\ma{V}_1^H$
+
+$\ma{A}^H=\ma{V}_1\ma{\Sigma}_1\ma{U}_1^H$
+
+$\ma{A}$ and $\ma{A}^H$ have the same singular values. 
+
+\pfeil The singular values for $\ma{A}\ma{A}^H$ and $\ma{A}^H\ma{A}$ and $\ma{A}\ma{A}^T$ ... are $\ma{\Sigma}_1\ma{\Sigma}_1$, hence the rank is the same as the rank of  $\ma{A}$\qed
+
+\subsubsection{Projectors}
+
+\mybox{A Projector is a matrix $\vec{x}=\ma{P}_{\mathbb{S}}\vec{y}$ that:
+\begin{enumerate}
+\item $im \ma{P}_{\mathbb{S}}= \mathbb{S}$  \quad (image: Linear combination of the columns: set of vectors)
+\item $\ma{P}_{\mathbb{S}}=\ma{P}_{\mathbb{S}}^H$
+\item $\ma{P}_{\mathbb{S}}\ma{P}_{\mathbb{S}}=\ma{P}_{\mathbb{S}}$
+\end{enumerate}}
+
+\mybox{
+\textbf{Theorem:}
+
+$\forall\vec{x}\in\mathbb{S}: \quad \ma{P}_{\mathbb{S}}\vec{x}=\vec{x}$
+
+$\forall\vec{x}\notin\mathbb{S}: \quad \ma{P}_{\mathbb{S}}\vec{x}\neq\vec{x}$}
+
+
+\textbf{Proof: }
+
+$\vec{x}\in\mathbb{S} \pfeil \exists\vec{u}: \quad \vec{x}=\ma{P}_{\mathbb{S}}\vec{y}$
+
+$\ma{P}_{\mathbb{S}}\vec{x} \overset{\vec{x}=\ma{P}_{\mathbb{S}}\vec{y}}{=}\underbrace{\ma{P}_{\mathbb{S}}\ma{P}_{\mathbb{S}}}_{\ma{P}_{\mathbb{S}}}\vec{y}=\ma{P}_{\mathbb{S}}\vec{y}=\vec{x}$
+
+
+if $\vec{x}\notin\mathbb{S}$ but $\ma{P}_\mathbb{S}\vec{x}\in\mathbb{S}$ then: $\ma{P}_\mathbb{S}\vec{x}\neq\vec{x}$\qed
+
+\mybox{
+\textbf{Theorem: }
+
+$\ma{P}_\mathbb{S}$ is unique to $\mathbb{S}$
+}
+
+
+\textbf{Proof: }
+
+$\ma{P}_\mathbb{S}'$ is a alternative Projector
+
+$||(\ma{P}_\mathbb{S}-\ma{P}_\mathbb{S}')\vec{z} ||_2^2\\=((\ma{P}_\mathbb{S}-\ma{P}_\mathbb{S}')\vec{z})^H(\ma{P}_\mathbb{S}-\ma{P}_\mathbb{S}')\vec{z}
+=\vec{z}^H(\ma{P}_\mathbb{S}^H-\ma{P}_\mathbb{S}'^H)(\ma{P}_\mathbb{S}-\ma{P}_\mathbb{S}')\vec{z}$
+
+$=\vec{z}^H(\ma{P}_\mathbb{S}-\ma{P}_\mathbb{S}')(\ma{P}_\mathbb{S}-\ma{P}_\mathbb{S}')\vec{z}
+=\vec{z}^H(\underbrace{\ma{P}_\mathbb{S}\ma{P}_\mathbb{S}}_{\ma{P}_\mathbb{S}}-\ma{P}_\mathbb{S}\ma{P}_\mathbb{S}'-\ma{P}_\mathbb{S}'\ma{P}_\mathbb{S}+\underbrace{\ma{P}_\mathbb{S}'\ma{P}_\mathbb{S}'}_{\ma{P}_\mathbb{S}'})\vec{z}$
+
+$=\vec{z}^H(\ma{I}-\ma{P}_\mathbb{S}')\underbrace{\ma{P}_\mathbb{S}\vec{z}}_{\vec{y}\in\mathbb{S}}+\vec{z}^H(\ma{I}-\ma{P}_\mathbb{S})\underbrace{\ma{P}_\mathbb{S}'\vec{z}}_{\vec{w}\in\mathbb{S}}=
+\vec{z}^H(\vec{y}-\ma{P}'_\mathbb{S}\vec{y})+\vec{z}^H(\vec{w}-\ma{P}_\mathbb{S}\vec{w})$
+
+\quad with\quad $\vec{y}=\ma{P}'_\mathbb{S}\vec{y},\quad \vec{w}=\ma{P}_\mathbb{S}\vec{w}$
+\pfeil  $||(\ma{P}_\mathbb{S}-\ma{P}_\mathbb{S}')\vec{z} ||_2^2=\vec{z}^H(\vec{y}-\vec{y})+\vec{z}^H(\vec{w}-\vec{w})=0 \quad \forall \vec{z}$
+
+\pfeil $\ma{P}_\mathbb{S}=\ma{P}_\mathbb{S}'$
+\qed
+
+\mybox{
+\textbf{Theorem:}
+
+\begin{enumerate}
+\item $\ma{P}_{im\ma{A}}=\ma{U}_1\ma{U}_1^H; \qquad \ma{P}_{im\ma{A}^H}=\ma{V}_1\ma{V}_1^H$ 
+\item $\ma{P}_{null\ma{A}}=\ma{V}_2\ma{V}_2^H=\ma{I}-\ma{P}_{im\ma{A}^H}; \qquad \ma{P}_{null\ma{A}^H}=\ma{U}_2\ma{U}_2^H=\ma{I}-\ma{P}_{im\ma{A}}$
+\end{enumerate}
+}
+with $\ma{I}=\ma{V}_1\ma{V}_1^H+\ma{V}_2\ma{V}_2^H$ and $\ma{I}=\ma{U}_1\ma{U}_1^H+\ma{U}_2\ma{U}_2^H$, but $\ma{I}=\ma{V}_1^H\ma{V}_1$
+\begin{flushright}-without proof\end{flushright}
+
+
+\subsubsection{System of Linear Equation}
+
+System of Linear Equation: $\ma{A}\vec{x}=\vec{b}; \qquad \underbrace{\ma{A}\in\mathbb{C}^{m\times n}}_{\textrm{given}};\qquad \underbrace{\vec{b}\in\mathbb{C}^{m\times 1}}_{\textrm{given}};\qquad \underbrace{\vec{x}\in\mathbb{C}^{n\times 1}}_{\textrm{find x}}$
+
+\pfeil $m$ equations and $n$ unknowns 
+
+\textbf{Solution set: } $\mathbb{S}=\left\lbrace \vec{x}|\quad \ma{A}\vec{x}=\vec{b} \right\rbrace$
+
+\textcircled{1}: \quad $\vec{b}\in im\ma{A}$: \quad solution exist \quad $\exists\vec{x}_p \in\mathbb{C}^{n\times 1}:\quad \ma{A}\vec{x}_p=\vec{b}$ \qquad \begin{footnotesize}(p means patirticular solution)\end{footnotesize}
+
+The whole Solution set is 
+$\mathbb{S}=\left\lbrace \vec{x}_p+\vec{y}|\quad \vec{y}\in null\ma{A} \right\rbrace$ 
+\quad because:
+
+\begin{enumerate}
+\item $\ma{A}(\vec{x}_p+\vec{y})=\underbrace{\ma{A}\vec{x}_p}_{\vec{b}}+\underbrace{\ma{A}\vec{y}}_{\vec{0}}=\vec{b}$
+\item $\ma{A}\vec{z}=\vec{b};$
+\qquad {\footnotesize($\vec{z}$ is another particular solution)}
+\\
+$\ma{A}(\vec{z}-\vec{x}_p)=\vec{0}\pfeil \vec{z}-\vec{x}_p\in null\ma{A}$
+\\ {\footnotesize(difference between two particular solutions is part of the null-space of $\ma{A}$)}
+\\
+$\vec{z}=\vec{x}_p+\vec{y}, \qquad \vec{y}\in null\ma{A}$
+\\ {\footnotesize(the sum of a particular solution and a vector of the null-space is another particluar solution)}
+\end{enumerate}
+
+with: $\quad null\ma{A}=im\ma{V}_2; \quad \ma{V}\in\mathbb{C}^{n\times (n-r)}$
+
+$\pfeil\mathbb{S}=\left\lbrace \vec{x}_p+\ma{V}_2\cdot\vec{w} |\quad \vec{w}\in \mathbb{C}^{n-r} \right\rbrace \with r=rank\ma{A}$
+
+
+\textbf{Special case: } 
+$rank\ma{A}=n$ \qquad full column rank matrix 
+
+unique solution \quad $\mathbb{S}=\left\lbrace \vec{x}_p  \right\rbrace$
+
+\textbf{Particular Solution:}
+
+$\ma{A}\vec{x}_p=\vec{b}$
+$\with \vec{x}_p=\ma{A}^{-1}\vec{b}=\ma{V}_1\ma{\Sigma}_1^{-1}\ma{U}_1^H\vec{b} $
+
+$\underbrace{\ma{U}_1\ma{\Sigma}_1\ma{V}_1^H}_{\ma{A}}\underbrace{\ma{V}_1\ma{\Sigma}_1^{-1}\ma{U}_1^H\vec{b}}_{\vec{x}_p}=\underbrace{\ma{U}_1\ma{U}_1^H}_{\ma{P}_{im\ma{A}}}\vec{b}\underset{b\in im\ma{A}}{=}\vec{b}$
+$\with \ma{V}_1^H\ma{V}_1=\ma{I}, \quad \text{and}\quad \ma{\Sigma}_1\ma{\Sigma}_1^{-1}=\ma{I} $
+
+Particular Solution: $\vec{x}_p=\ma{V}_1\ma{\Sigma}_1^{-1}\ma{U}_1^H\vec{b}$
+
+The whole Solution set with the SVD is: \quad
+$\mathbb{S}=\left\lbrace \ma{V}_1\ma{\Sigma}_1^{-1}\ma{U}_1^H\vec{b}+\ma{V}_2\vec{w} |\quad \vec{w}\in \mathbb{C}^{(n-r)\times 1} \right\rbrace$ 
+
+if $rank\ma{A}<n$\pfeil mulitple solution with  $(n-r)$ dimensions 
+
+
+\textbf{Minimum Norm Solution:}
+
+$\vec{x}_{MN}=arg\min\limits_{\vec{x}}||\vec{x}||^2_2$\quad s.t. $\ma{A}\vec{x}_{MN}=\vec{b}$
+
+
+$\mathcal{L}=\underbrace{\vec{x}^H\vec{x}}_{||\vec{x}||^2_2}+\vec{\lambda}^H(\ma{A}\vec{x}-\vec{b})+(\vec{x}^H\ma{A}^H-\vec{b}^H)\vec{\lambda}
+\pfeil\frac{\partial\mathcal{L}}{\partial\vec{x}^*}\vec{x}+\ma{A}^H\lambda\overset{!}{=}\vec{0}
+\pfeil\vec{x}=-\ma{A}^H\vec{\lambda}$
+
+$\vec{b}=\ma{A}\vec{x}=-\ma{A}\ma{A}^H\vec{\lambda}\pfeil \vec{\lambda}=-(\ma{A}\ma{A}^H)^{-1}\vec{b}$
+
+Minimum Norm Solution: $\pfeil \vec{x}_{MN}=\ma{A}^H(\ma{A}\ma{A}^H)^{-1}\vec{b}$
+
+Asume: $\ma{A}\ma{A}^H$ is inverteble $\ma{A}\in\mathbb{C}^{m\times n}\pfeil \ma{A}\ma{A}^H\in\mathbb{C}^{m\times m}$
+
+$rank\ma{A}=m=r$\quad full row rank
+
+$\ma{U}=\left.\mat{\underbrace{\ma{U}_1}_{r}&\underbrace{\ma{U}_2}_{n-r}}\right\rbrace m \overset{m=r}{=}\ma{U}_1$
+
+SVD: $\ma{A}=\ma{U}_1\ma{\Sigma}_1\ma{V}_1^H=\ma{U}\ma{\Sigma}_1\ma{V}_1^H \with \ma{U}_1=\ma{U} \qquad \ma{U}^{-1} = \ma{U}^H$
+
+$\vec{x}_{MN}=\ma{A}^H(\ma{A}\ma{A}^H)^{-1}\vec{b}
+=\ma{V}_1\ma{\Sigma}_1\ma{U}^H(\ma{U}\ma{\Sigma}_1\underbrace {\ma{V}_1^H\ma{V}_1}_{\ma{I}}\ma{\Sigma}_1\ma{U}^H)^{-1}\vec{b}
+=\ma{V}_1\ma{\Sigma}_1\ma{U}^H(\ma{U}\ma{\Sigma}_1^2\ma{U}^H)^{-1}\vec{b}$
+
+$=\ma{V}_1\underbrace{\ma{\Sigma}_1\underbrace{\ma{U}^H\ma{U}}_{\ma{I}}\ma{\Sigma}_1^{-2}}_{\Sigma_1^{-1}}\ma{U}^H\vec{b}
+=\ma{V}_1\Sigma_1^{-1}\ma{U}^H\vec{b}$
+
+$\pfeil\vec{x}_{MN}=\ma{V}_1\Sigma_1^{-1}\ma{U}_1^H\vec{b}   \quad = \vec{x}_p$ \quad {\tiny(out of section "particular solution")}
+
+
+\textcircled{2}:  $\vec{b}\notin im\ma{A}\pfeil \mathbb{S}=\emptyset=\left\lbrace\right\rbrace$
+
+\textbf{Approximate Solution:} eg. Least-Squeare Solution
+
+$\vec{x}_{LS}=arg\min\limits_{\vec{x}}||\ma{A}\vec{x}-\vec{b}||^2_2$
+
+$\mathcal{L}=(\ma{A}\vec{x}-\vec{b})^H(\ma{A}\vec{x}-\vec{b})=(\vec{x}^H\ma{A}^H-\vec{b}^H)(\ma{A}\vec{x}-\vec{b})=\vec{x}^H\ma{A}^H\ma{A}\vec{x}-\vec{x}^H\ma{A}^H\vec{b}-\vec{b}^H\ma{A}\vec{x}+\vec{b}^H\vec{b}$
+
+$\frac{\partial \mathcal{L}}{\partial \vec{z}^*}=\ma{A}^H\ma{A}\vec{x}-\ma{A}^H\vec{b}\overset{!}{=}0$
+
+$ \pfeil \vec{x}_{LS}=(\ma{A}^H\ma{A})^{-1}\ma{A}^H\vec{b}$
+
+
+asume $rank\ma{A}=n \pfeil$ full column rank $\pfeil \ma{V}_1=\ma{V}$
+
+SVD: $\ma{A}=\ma{U}_1\ma{\Sigma}_1\ma{V}_1^H=\ma{U}_1\ma{\Sigma}_1\ma{V}^H \quad with \quad \ma{V}_1=\ma{V} $
+
+$\vec{x}_{LS}=(\ma{V}\ma{\Sigma}_1\ma{U}_1^H\ma{U}_1\ma{\Sigma}_1\ma{V}^H)^{-1} \ma{V}\ma{\Sigma}_1\ma{U}_1^H \vec{b}$
+
+$\pfeil\vec{x}_{LS}=\underbrace{\ma{V}_1\Sigma_1^{-1}\ma{U}_1^H}_{\ma{A}^+}\vec{b}   \quad = \vec{x}_p \quad = \ma{A}^+\vec{b}$ 
+
+\mybox{
+\textbf{Moore-Penrose-Pseudo-Inverse: }$\ma{A}^+=\ma{V}_1\ma{\Sigma_1}^{-1}\ma{U}_1^H$
+
+$\ma{A}^+:=\left\lbrace \begin{matrix}
+ \ma{V}_1\ma{\Sigma_1}^{-1}\ma{U}_1^H & \ma{A}\neq\ma{0}\\
+\ma{A}^T&\ma{A}=\ma{0}\end{matrix} \right. $
+
+$\ma{A}^+\vec{b}=\left\lbrace \begin{matrix}
+\textrm{Minimum-Norm-Solution if } \ma{A}\vec{x}=\vec{b} \in im\ma{A}\\
+\textrm{Least-Square-Solution if } \ma{A}\vec{x}=\vec{b} \notin im\ma{A}
+\end{matrix} \right. $}
+
+\textbf{Compute Pseudo Inverse:}
+\begin{itemize}
+\item $\ma{A}^+=\ma{A}^H(\ma{A}\ma{A}^H)^{-1}$ \quad $\ma{A}$ has full row rank
+\item $\ma{A}^+=(\ma{A}^H\ma{A})^{-1}\ma{A}^H$ \quad $\ma{A}$ has full column rank
+\item $\ma{A}^+=\lim\limits_{\mu\to 0} \ma{A}^H(\ma{A}\ma{A}^H+\mu\ma{I})^{-1}
+=\lim\limits_{\mu\to 0} (\ma{A}^H\ma{A}+\mu\ma{I})^{-1}\ma{A}^H$
+\end{itemize}
+
+\mybox{
+\textbf{Theorem:}
+\begin{itemize}
+\item $\ma{P}_{im\ma{A}}=\ma{A}\ma{A}^+$
+\item $\ma{P}_{null\ma{A}}=\ma{I}-\ma{A}\ma{A}^+$
+\end{itemize}}
+\begin{flushright}- without proof\end{flushright}
+
+Solution set with Pseudo Inverse:
+
+$\ma{A}\vec{x}=\vec{b}\pfeil \mathbb{S}=\left\lbrace\ma{A}^+\vec{b}+(\ma{I}-\ma{A}\ma{A}^+)\vec{w} |\quad \vec{w}\in \mathbb{C}^{(n-r)\times 1}  \right\rbrace$
+
+
+\subsubsection{The Eckart-Young Theorem}
+Low-rank approximation 
+
+given: $\ma{A}\in \mathbb{C}^{m\times n};\qquad rank\ma{A}=r$
+
+looking for $\ma{B}\in\mathbb{C}^{m\times n};\quad rank\ma{A}=k<r$
+
+$\min\limits_{\ma{B}}||\ma{A}-\ma{B}||_F^2 \quad \textrm{s.t. } rank \ma{B}=k<r$
+
+Remember: Frobenius norm: 
+
+$||\ma{X}||_F^2=tr(\ma{X}^H\ma{X})=tr(\ma{X}\ma{X}^H)$ 
+
+Frobenius norm for Matrices: 
+
+$||\ma{C}||_F^2=||\ma{U}^H\ma{C}\ma{V}||_F^2$ \quad with \quad $\ma{A}=\ma{U}\ma{\Sigma}\ma{V}^H; \quad \ma{U},\ma{V}$ unitary
+
+Explanation: 
+
+
+$||\ma{U}^H\ma{C}\ma{V}||_F^2=tr(\ma{V}^H\ma{C}^H\underbrace{\ma{U}\ma{U}^H}_{\ma{I}}\ma{C}\ma{V})=tr(\ma{V}^H\ma{C}^H\ma{C}\ma{V})=tr(\ma{C}\underbrace{\ma{V}\ma{V}^H}_{\ma{I}}\ma{C}^H)$
+
+$=tr(\ma{C}\ma{C}^H)=||\ma{C}||_F^2$
+
+
+Now: $\ma{C}=\ma{A}-\ma{B}$
+
+$||\ma{A}-\ma{B}||_F^2  =||\ma{U}\ma{\Sigma}\ma{V}^H-\ma{B}||_F^2  = ||\ma{\Sigma}-\underbrace{\ma{U}^H\ma{B}\ma{V}}_{\ma{M}}||_F^2$ \pfeil$\ma{M}=\ma{U}^H\ma{B}\ma{V}$
+
+$||\ma{A}-\ma{B}||_F^2 =||\ma{\Sigma}-\ma{M}||_F^2
+ = \sum\limits_{i=1}^r|s_i-M_{ii}|^2+\sum\limits_{i>r}|M_{ii}|^2+\sum\limits_{i,j\neq i}|M_{ij}|^2$
+ 
+Get Minimum if:
+\begin{itemize}
+\item $M_{i,j\neq i}=0$
+\item $M_{i,i}=0, i>r$
+\item $M_{i,i}=s_i; \quad for\quad i\in\left\lbrace 1,2,...,k\right\rbrace$ \quad because \quad  $rank\ma{B}=k<r$
+\\$s_1\geq s_2\geq ... \geq s_k > s_{r+1}=s_{r+2}=...=0$
+\end{itemize}
+
+
+Approximation of $\ma{A}$ with lower Rank: $\ma{B}=\ma{U}\ma{M}\ma{V}^H$
+
+\quad with \quad $\ma{M}=
+\mat{s_1 & & & &\\ & \ddots & & &\\ & & s_k & &\\ & & & 0 & \\ & & & & \ddots }
+=\ma{U}^H\ma{B}\ma{V}$ \qquad
+$\ma{B}=\mat{\vec{u}_1& \shdots & \vec{u}_k}\mat{s_1 & &\\ & \ddots &\\ & & s_k  }\mat{\vec{v}_1^H\\\svdots\\\vec{v}_k^H}$
+
+\mybox{
+$\ma{B}=\sum\limits_{i=1}^ks_i\vec{u}_i\vec{v}_i^H$}

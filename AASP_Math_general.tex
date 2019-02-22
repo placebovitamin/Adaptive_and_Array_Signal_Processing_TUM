@@ -1,0 +1,28 @@
+% SECTION ====================================================================================
+\section{Mathematical background}
+% ============================================================================================
+\subsection{Gernral}
+\subsubsection{Matrix inverse}
+$\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}^{-1}=
+\frac{1}{a_{11}a_{22}-a_{12}a_{21}}\begin{bmatrix}a_{22}&-a_{12}\\-a_{21}&a_{11}\end{bmatrix}$
+\subsubsection{Hermitian matrix}
+$\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}^{H}=
+\begin{bmatrix}a_{11}^*&a_{21}^*\\a_{12}^*&a_{22}^*\end{bmatrix}$
+
+\subsubsection{Quadratic equation}
+$ax^2+bx+c=0\pfeil x_{1/2}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$\\
+$x^2 + px + q=0 \pfeil x_{1/2}=-\frac{p}{2} \pm \sqrt{\frac{p^2}{4}-q} $\\
+
+\subsubsection{Euklidian Norm}
+$||\vec{v}||_2=\sqrt{v_1^2 + v_2^2 + ... + v_N} = \sqrt{\sum_{i=1}^{N}|v_i|^2}$
+\subsubsection{Frobenius Norm}
+$||\ma{V}||_F=\sqrt{|v_{1,1}|^2 + |v_{1,2}|^2+... + |v_{N,M}|^2} =\sqrt{\sum_{i=1}^{N} \sum_{j=1}^{M}|v_{i,j}|^2}$
+\subsubsection{Taylor series}
+$T f(x, a)  = \sum_{n=0}^\infty  \frac{f^{(n)}(a)}{n!} (x-a)^n = f(a) + f'(a) (x-a) + \frac{f''(a)}{2}(x-a)^2 + \frac{f'''(a)}{6} (x-a)^3 + \ldots$
+\subsubsection{Fourier series}
+$f(t)=\frac{a_{0}}{2}+\sum_{k=1}^{\infty}\left(a_{k}\cos\left(kt\right)+b_{k}\sin\left(kt\right)\right)$\\
+$a_{k}=c_{k}+c_{-k}\quad\text{für }k\geq0$\\
+$b_{k}=\mathrm{i}\left(c_{k}-c_{-k}\right)\quad\text{für }k\geq1$\\
+or as an alternative:\\
+$a_{k} = \frac{1}{\pi}\int_{-\pi}^{\pi}f(t)\cdot\cos\left(kt\right)\mathrm dt\quad\text{für }k\geq0$\\
+$b_{k} = \frac{1}{\pi}\int_{-\pi}^{\pi}f(t)\cdot\sin\left(kt\right)\mathrm dt\quad\text{für }k\geq1$
