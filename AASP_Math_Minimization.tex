@@ -54,7 +54,7 @@ $\Rightarrow \quad \min\limits_{\vec{z}}\max\limits_{\vec{\lambda}}\mathcal{L}(\
 \mybox{
 \textbf{Solution}
 
-$\ma{R}$ is positiv definit: $\ma{R}=\ma{R}^H \iff \ma{R}^{-1}$ exists and $\ma{R}^{-1}=(\ma{R}^{-1})^H $
+$\ma{R}$ is positive definite: $\ma{R}=\ma{R}^H \iff \ma{R}^{-1}$ exists and $\ma{R}^{-1}=(\ma{R}^{-1})^H $
 
 $\frac{\partial L}{\partial \vec{z}^*}=\ma{R}\vec{z}+\ma{A}\vec{\lambda} \overset{!}{=} \vec{0}
 \quad \Rightarrow \vec{z}=-\ma{R}^{-1}\ma{A}\vec{\lambda}$
@@ -79,4 +79,4 @@ $=\underbrace{\ma{R}\vec{z}_{opt}+\ma{A}\vec{\lambda}}_{\vec{0}}+\ma{R}\Delta\ve
 $d\mathcal{L}=2\Re{\Delta \vec{z}^H\ma{R}^H(-\Delta \vec{z})}
 =-2\Re{\underbrace{\Delta \vec{z}^H\ma{R}^H\Delta\vec{z}}_{>0}}=-2\underbrace{\Delta\vec{z}^H\ma{R}\Delta\vec{z}}_{>0}<0$ \quad local minimum
 
-$\mathcal{L}=\vec{z}^H\ma{R}\vec{z}+\vec{\lambda}^H(\ma{A}^H\vec{z}-\vec{b})+(\vec{z}^H\ma{A}-\vec{b}^H)\vec{\lambda}$ \quad if contraints met: $v=\vec{z}^H\ma{R}\vec{z}$
+$\mathcal{L}=\vec{z}^H\ma{R}\vec{z}+\vec{\lambda}^H(\ma{A}^H\vec{z}-\vec{b})+(\vec{z}^H\ma{A}-\vec{b}^H)\vec{\lambda}$ \quad if constraints met: $\mathcal{L}=\vec{z}^H\ma{R}\vec{z}$

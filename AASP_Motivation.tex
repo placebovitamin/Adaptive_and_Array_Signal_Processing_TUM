@@ -21,7 +21,7 @@ Infinite impulse response (IIR) is a property applying to many linear time-invar
 The discrete filter in picture \ref{discretefilter} is defined by:\\ 
 $C_1\cdot u_1[n] + C_2\cdot u_2[n-1] = (C_1+C_2 )u_2[n]$\\ 
 $u_2[n]= \underbrace{\frac{C_2}{C_1+C_2}}_{a}\cdot u_2[n-1] + \underbrace{\frac{C_1}{C_1+C_2}}_{1-a}\cdot u_1[n]$\\
-It's impulse response is given by table \ref{tab:prog_filter_Impulse_Resp}. As can be seen coefficient $a$ allows us to change the filter's impulse response and therefore to program the filter. Figure \ref{discreteeasy} shows a block diagram for such an easy, programmable discrete filter. From this block diagram it can be seen immediately that this filter is an IIR-Filter and can therefor be unstable.
+It's impulse response is given by table \ref{tab:prog_filter_Impulse_Resp}. As can be seen coefficient $a$ allows us to change the filter's impulse response and therefore to program the filter. Figure \ref{discreteeasy} shows a block diagram for such an easy, programmable discrete filter. From this block diagram it can be seen immediately that this filter is an IIR-Filter and can therefore be unstable.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5, trim=1cm 7cm 3cm 2cm,clip]{discrete_easy.pdf}
@@ -43,7 +43,7 @@ It's impulse response is given by table \ref{tab:prog_filter_Impulse_Resp}. As c
 \end{tabular}
 \end{table}
 
-\textbf{Caution!} Proof of stability required! \\ $|a| \geq 1 \rightarrow $ instable \pfeil $|a| \leq 1 \rightarrow$ stable.
+\textbf{Caution!} Proof of stability required! \\ $|a| \geq 1 \rightarrow $ unstable \pfeil $|a| \leq 1 \rightarrow$ stable.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5, trim=0cm 5cm 0cm 5cm,clip]{delay_filter.pdf}
@@ -55,7 +55,7 @@ It's impulse response is given by table \ref{tab:prog_filter_Impulse_Resp}. As c
 To overcome the stability problems an FIR-filter can be used instead. FIR-Filters are always stable.
 Suitable for adaptive filters but it's an approximation \pfeil finite \\
 Structure: tapped delay line \\
-linear: neither delay only coefficient are dependent in input signal. $\rightarrow$ linear adaptive filter, see picture \ref{delayfilter}.\\ \\
+linear: neither delay nor coefficient are dependent on input signal. $\rightarrow$ linear adaptive filter, see picture \ref{delayfilter}.\\ \\
 
 \textbf{Delays of 1 clock cycle:}\\
 $D\cdot x[n] = x[n-1]$\\ \\
@@ -77,7 +77,7 @@ The filter in graphic \ref{delayfilter1_2} shows the shifting of the signal by $
 \end{figure}
 
 A fractional delay $y[n] \approx u[n-a] $ for $0 \leq a \leq 1$ \\
-$y[n] = a_0 \cdot u[n] + a_1 \cdot u[n-1] + a_2 \cdot u[n-2] $ with $ a_0 = \frac{1}{2} (a^2 + 3a + 2)$ and $a_1 = (2-a)a$ and $a_2= \frac{1}{2} (a-1) a $\\
+$y[n] = a_0 \cdot u[n] + a_1 \cdot u[n-1] + a_2 \cdot u[n-2] $ with $ a_0 = \frac{1}{2} (a^2 - 3a + 2)$ and $a_1 = (2-a)a$ and $a_2= \frac{1}{2} (a-1) a $\\
 
 \begin{figure}[H]
 	\centering
@@ -87,7 +87,7 @@ $y[n] = a_0 \cdot u[n] + a_1 \cdot u[n-1] + a_2 \cdot u[n-2] $ with $ a_0 = \fra
 \end{figure}
 
 \textbf{Example:} $a=\frac{1}{2} \quad u[n]=sin(\frac{n}{2})$\\
-A node is passing \[ S= \sum_{i=1}^2 |a_i|^2 = \frac{1}{2}a^4 - 6a^3 +\frac{5}{2} a^2 - 3a+1\] remains $\leqq 1$ only for $0\leq a\leq 2$. For $a < 0  $ or $a > 2$ it grows unboundenly.\\ This is relevant, since uncorrelated noise at the input leads to an output which mean square is proportional to S. Thus, $a < 2$ or $a < 0$ are possible, but with a (huge) noise penalty. The mean squared output noise is minimum for $a = 1-\frac{1}{\sqrt{2}} \approx 0,3$
+A node is passing \[ S= \sum_{i=1}^2 |a_i|^2 = \frac{1}{2}a^4 - 6a^3 +\frac{5}{2} a^2 - 3a+1\] remains $\leqq 1$ only for $0\leq a\leq 2$. For $a < 0  $ or $a > 2$ it grows unboundenly.\\ This is relevant, since uncorrelated noise at the input leads to an output which mean square is proportional to S. Thus, $a > 2$ or $a < 0$ are possible, but with a (huge) noise penalty. The mean squared output noise is minimum for $a = 1-\frac{1}{\sqrt{2}} \approx 0,3$
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5, trim=1cm 8cm 1cm 4cm, clip]{antenna.pdf}
@@ -169,7 +169,7 @@ For linear adaptive filters: uncorrelated is enough.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.65, trim=0cm 3cm 0cm 4.5cm, clip]{interference_chanellation2.pdf}
-	\caption{Example for an application for a an interference-cancelling-filter}
+	\caption{Example for an application for an interference-cancelling-filter}
 	\label{interference2} 
 \end{figure}
 For \ref{interference2}: Linear filters are better than nonlinear ones for this case. Filter tries to "'kill"' the interference because it knows, what has been played on the speaker.

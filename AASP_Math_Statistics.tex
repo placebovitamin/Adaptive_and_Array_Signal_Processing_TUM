@@ -1,7 +1,7 @@
 \newpage
 \subsection{\texorpdfstring{$2^{nd}$}{Second}-Order Statistic}
 
-\subsubsection{reale valued discret time random processes}
+\subsubsection{real valued discrete time random processes}
 \textbf{Expected Value:}
 
 \quad $\mu_x[n]=E[x[n]]:= \lim\limits_{m\to M}\frac{1}{m}\sum\limits_{i=1}^m(x[n])^i$
@@ -46,7 +46,7 @@
 
 \vspace{0.5cm}
 
-$\Rightarrow$ \textbf{In the follwoing:} 
+$\Rightarrow$ \textbf{In the following:} 
 \begin{itemize}
 \item ergodicity
 \item zero mean, $\mu_x[n]=0$
@@ -60,7 +60,7 @@ $\Rightarrow$ \textbf{In the follwoing:}
 \end{enumerate}
 
 
-\subsubsection{complex random proccesses}
+\subsubsection{complex random processes}
 \textbf{complex random variable}
 
 \quad$u[n]:=x[n]+\j y[n]; \quad x[n]=\Re{u[n]}, \quad y[n]=\Im{u[n]}$
@@ -84,7 +84,7 @@ $\Rightarrow$ \textbf{In the follwoing:}
 \end{itemize}
 
 \mybox{
-\textbf{Definiton: } 
+\textbf{Definition: } 
 
 \quad $u[n]$ is \textbf{proper} if and only if $\tilde{r}_u[k]\equiv0$
 
@@ -104,7 +104,7 @@ Consequence of properness:
 
 \hspace{6.3cm} $=\underbrace{E[x^2[n]]-E[y^2[n]]}_0+\j2\underbrace{E[x[n]y[n]]}_0$
 
-$\Rightarrow$ \textbf{In the follwoing:} 
+$\Rightarrow$ \textbf{In the following:} 
 \begin{itemize}
 \item ergodicity
 \item zero mean, $\mu_x[n]=0$
@@ -142,14 +142,14 @@ Therefore the Correlations show this properties:
 \begin{itemize}
 \item $\ma{R}_{\vec{u}}$ is a Toeplitz Matrix 
 \item $\ma{R}_{\vec{u}}=\ma{R}_{\vec{u}}^H$, always true
-\item $\ma{R}_{\vec{u}}$ is Gram-ian
+\item $\ma{R}_{\vec{u}}$ is Gramian
 \begin{itemize}
 \item[$\rightarrow$] EVD Exist: $\ma{R}_{\vec{u}}=\ma{V}\ma{\Lambda}\ma{V}^{-1}=\ma{V}\ma{\Lambda}\ma{V}^H, \quad \ma{\Lambda}\geq \ma{0}\pfeil \ma{R}_{\vec{u}}\geq \ma{0}$
 \end{itemize}
 \end{itemize}}\bigskip
 
 
-\textbf{positive semidefinite}: $\ma{R}_{\vec{u}}\geq \ma{0}\iff \forall \vec{w} \in \mathbb{C}^{M\times 1}: \quad \vec{w}^H\ma{R}_{\vec{u}}\vec{w}\geq 0$
+\textbf{positive semi-definite}: $\ma{R}_{\vec{u}}\geq \ma{0}\iff \forall \vec{w} \in \mathbb{C}^{M\times 1}: \quad \vec{w}^H\ma{R}_{\vec{u}}\vec{w}\geq 0$
 
 \pfeil $\underbrace{\vec{w}^H\ma{V}}_{\vec{z}^H}\ma{\Lambda}\underbrace{\ma{V}^H\vec{w}}_{\vec{z}}=\vec{z}^H\ma{\Lambda}\vec{z}=
 \sum\limits_{i=1}^M|z_i|^2\lambda_i\geq 0$\bigskip

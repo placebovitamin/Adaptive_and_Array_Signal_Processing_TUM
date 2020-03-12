@@ -20,7 +20,7 @@ $dz=dx+\j dy=(a+jb)dt\pfeil dx=\frac{a}{a+\j b}dz,\quad dy=\frac{b}{a+\j b}dz$ \
 $df=dh=\underbrace{\frac{\frac{\partial f}{\partial x}a+\frac{\partial f}{\partial y}b}{a+\j b}}_{H(z)} dz$
 \end{doublespace}
 \mybox{\begin{itemize}
-\item Definition: $h(z)$ is analytic if and only if (iff) $H(z)$ exist and is indepent of $(a,b)\in\mathbb{R}^2 \backslash (0,0)$
+\item Definition: $h(z)$ is analytic if and only if (iff) $H(z)$ exist and is independent of $(a,b)\in\mathbb{R}^2 \backslash (0,0)$
 \item if $h(z)$ is analytic then $\frac{dh}{dz}=H$
 \end{itemize}
 $\frac{\partial H}{\partial a}=\frac{\j b}{(a+\j b)^2} \underbrace{\left(\frac{\partial f}{\partial x}+\j \frac{\partial f}{\partial y}\right)}_{=0},\qquad 
@@ -107,7 +107,7 @@ $h:\mathbb{C}\mapsto\mathbb{R},\quad g:\mathbb{C}^2\mapsto\mathbb{R}$
 
 $dg=\frac{\partial g}{\partial z}dz+\underbrace{\frac{\partial g}{\partial z^*}dz^*}_{\text{only if} \mapsto \mathbb{R}: (\frac{\partial g}{\partial z}dz)^*} = 2\Re{\frac{\partial g}{\partial z}dz}$
 
-\textbf{Local extremum}
+\textbf{Local extrema}
 $dg = 0 \quad \forall dz   \qquad \iff \qquad \frac{\partial g}{\partial z}=0$
 
 \textbf{multiple variables}
@@ -124,14 +124,14 @@ $\frac{\partial}{\partial\vec{z}}=\begin{bmatrix}\partial/\partial z_1 \\ \parti
 $\frac{\partial}{\partial\vec{z}}g=\frac{\partial g}{\partial\vec{z}}=\begin{bmatrix}\partial g/\partial z_1 \\ \partial g/\partial z_2 \\ \svdots \\\partial g/\partial z_n  \end{bmatrix} $
 $d\vec{z}=\begin{bmatrix}dz_1 \\ dz_2 \\ \svdots \\ dz_n\end{bmatrix}$ \ \\
 
-Scalaproduct:
+Scalar product:
 
-$\sum\limits_{k=1}^n =\frac{\partial g}{\partial z_k}dz_k=\left(\frac{\partial g}{\partial \vec{z}}\right)^Td\vec{z}$\ \\
+$\sum\limits_{k=1}^n \frac{\partial g}{\partial z_k}dz_k=\left(\frac{\partial g}{\partial \vec{z}}\right)^Td\vec{z}$\ \\
 
 $dg=2\Re{\left(\frac{\partial g}{\partial \vec{z}}\right)^Td\vec{z}}=2\Re{\left(\left(\frac{\partial g}{\partial \underline{z^*}}\right)^*\right)^Td\vec{z}}$
 $=2\Re{\left(\frac{\partial g}{\partial \underline{z^*}}\right)^Hd\vec{z}}$\ \\
 
-\textbf{Local extremum}
+\textbf{Local extrema}
 $dg = 0 \quad \forall d\vec{z}   \qquad \iff \qquad \frac{\partial g}{\partial \vec{z}^*}=\underline{0}$
 
 \textbf{Steepest descent}
@@ -155,7 +155,7 @@ $g=\vec{z}^H\vec{p}+\vec{p}^H\vec{z}; \quad \vec{p}=const$
 
 g is real:
 
-$g=g^*=g^H=(\vec{z}^H\vec{p}+\vec{p}^H\vec{z})^H=\vec{p}^H\vec{z}+\vec{z}^H\vec{z}=g $
+$g=g^*=g^H=(\vec{z}^H\vec{p}+\vec{p}^H\vec{z})^H=\vec{p}^H\vec{z}+\vec{z}^H\vec{p}=g $
 
 $ g=g^* \Rightarrow real$
 
@@ -169,7 +169,7 @@ $=\frac{\partial}{\partial \vec{z}^*} \sum\limits_{k=1}^n z_k^* P_k =\begin{bmat
 
 result:  $ \frac{\partial}{\partial \vec{z}^*}(\vec{z}^H\vec{p}+\vec{p}^H\vec{z}) = \vec{p} $
 
-alternativ: $ \frac{\partial}{\partial \vec{z}}(\vec{z}^H\vec{p}+\vec{p}^H\vec{z}) = \vec{p}^* $
+alternative: $ \frac{\partial}{\partial \vec{z}}(\vec{z}^H\vec{p}+\vec{p}^H\vec{z}) = \vec{p}^* $
 
 \textbf{Example 2}
 
@@ -187,6 +187,6 @@ $\frac{\partial g}{\partial \vec{z}^*}
 =\vec{p}
 =\ma{R}\vec{z}$
 
-$\vec{p}$ dosn't depent on $\vec{z}^*$
+$\vec{p}$ does not depend on $\vec{z}^*$
 
 result: $\frac{\partial g}{\partial \vec{z}^*}=\frac{\partial}{\partial \vec{z}^*}(\vec{z}^H\ma{R}\vec{z})=\ma{R}\vec{z}$

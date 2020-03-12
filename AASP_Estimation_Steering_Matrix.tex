@@ -132,8 +132,8 @@ $\vec{x}[n]=\vec{a}(\mu_1)s[n]=\vec{a}(\mu_1); \qquad \mu_1=2\pi\frac{\Delta}{\l
 $\ma{\hat{R}}_x = \frac{1}{N}\sum\limits_{n=1}^{N}{\vec{a}(\mu_1)\vec{a}^H(\mu_1)} = \vec{a}(\mu_1)\vec{a}^H(\mu_1)$\\
 \begin{flalign*}
 S(\mu)&=\vec{a}^H(\mu)\ma{\hat{R}}_x\vec{a}(\mu)&&\\
-&=\vec{a}^H(\mu)\vec{a}(\mu)\vec{a}^H(\mu)\vec{a}(\mu)&&\\
-&=\left|\vec{a}^H(\mu)\vec{a}(\mu)\right|^2&&\\
+&=\vec{a}^H(\mu)\vec{a}(\mu_1)\vec{a}^H(\mu_1)\vec{a}(\mu)&&\\
+&=\left|\vec{a}^H(\mu)\vec{a}(\mu_1)\right|^2&&\\
 &=\left|\sum\limits_{k=0}^{M-1}{e^{\j(\mu-\mu_1)k}}\right|^2
 \end{flalign*}
 \rule{\textwidth}{0.4pt}
@@ -167,16 +167,16 @@ $\lim\limits_{\mu\rightarrow\mu_1}S(\mu)=M^2$\\
 
 As can be seen from figures \ref{fig:Space_Spectrum_Analyzer_M_4} and \ref{fig:Space_Spectrum_Analyzer_M_8} the resolution is limited. This limit (space between maximum and next zero) is called "Rayleigh-limit" ($\Delta\mu$) and depends on the number of sensors $M$ as follows:\\
 $\Delta\mu=\frac{2\pi}{M}$\\
-The only way to increase the resolution (decrease "Rayleigh-limit" $\Delta\mu$) is to increase the number of sensors. However this leads to higher costs. Therefor it is not our preferred solution.\\ 
+The only way to increase the resolution (decrease "Rayleigh-limit" $\Delta\mu$) is to increase the number of sensors. However this leads to higher costs. Therefore it is not our preferred solution.\\ 
 Can we do better?\\ \ \\
 \begin{tabular}{ll}
-\Ra& Yes, e. g. by using the MVDR (minimum variance distortionless response) spectrum estimation:\\
+\Ra& Yes, e. g. by using the MVDR (minimum variance distortion-less response) spectrum estimation:\\
  & $S_{MVDR}(\mu)=\frac{1}{\vec{a}^H(\mu)\ma{\hat{R}}_x^{-1}\vec{a}(\mu)}$\\
  & $S_{FPG}(\mu)=\vec{a}^H(\mu)\ma{\hat{R}}_x\vec{a}(\mu)\qquad $ Where FPG stands for Fourier Periodogram (for comparison)\\
 \end{tabular}
 
 For \underline{zero noise} the MVDR-spectrum has \underline{no} resolution limitation!\\ 
-The MVDR is the same algorithm as the Digital spectrum analyzer (\autoref{sssec:dsa}) but with the spatial sampling.
+The MVDR is the same algorithm as the Digital spectrum analyser (\autoref{sssec:dsa}) but with the spatial sampling.
 \\ \ \\
 Can we do better?\\
 \begin{tabular}{ll}
@@ -203,7 +203,7 @@ Processing the signals received on an array of sensors for the location of the e
 $\vec{x}[n]=\ma{A}\vec{s}[n]+\vec{\nu}[n]$\\
 \begin{flalign*}
 \ma{A}&=\mat{\vec{a}(\mu_1)& \vec{a}(\mu_2) & \shdots & \vec{a}(\mu_d)}, \qquad \rank\ma{A}=d \pfeil \textrm{steering vectors are LID}&&\\
-&=\ma{U}\ma{\Sigma}\ma{U}^H\qquad \text{(SVD)}
+&=\ma{U}\ma{\Sigma}\ma{V}^H\qquad \text{(SVD)}
 \end{flalign*}
 
 $\ma{U}=\mat{\vec{u}_1 & \vec{u}_2 & \shdots & \vec{u}_d & \vec{u}_{d+1} & \vec{u}_{d+2} &\shdots & \vec{u}_M}$\\
@@ -226,13 +226,13 @@ $\ma{U}_2^H\vec{a}(\mu_i)=\underbrace{\ma{U}_2^H\ma{U}_1}{=\ma{0}}\vec{x}=\vec{0
 \subsubsection{Ideal MUSIC spectrum}
 
 $S_{\text{MUSIC, IDEAL}}(\mu)=\frac{||\vec{a}(\mu)||_2^2}{||\ma{U}_2^H\vec{a}(\mu)||_2^2}$\\
-We assueme that $\vec{a}(\mu)\neq0$ holds for any $\mu$.\\ \\
+We assume that $\vec{a}(\mu)\neq0$ holds for any $\mu$.\\ \\
 
 To compute the actual spectrum we divide the $\mu$s into two parts.\\ \\
 
 \textbf{Case 1:}\\
 Lets start with $\mu\in\{\mu_1,\ldots,\mu_d\}$:
-As we derived above $\ma{U}_2^H\vec{a}(\mu_i)=0$ and therefor it's Euclidean norm is also zero. So we get:\\
+As we derived above $\ma{U}_2^H\vec{a}(\mu_i)=0$ and therefore it's Euclidean norm is also zero. So we get:\\
 $\Rightarrow S_{\text{MUSIC, IDEAL}}(\mu_i)=\infty$\\
 
 \textbf{Case 2:}\\
@@ -265,9 +265,9 @@ However we got 2 problems:
 	\item We don't know $\ma{U}_2$ because \ma{A} is unknown 
 \end{enumerate}
 
-\paragraph{Problem 1: Linear dependenc of steering vectors}
+\paragraph{Problem 1: Linear dependence of steering vectors}
 Let's first look a bit deeper into problem 1:\\
-Intuitivly it create linear dependent steering vestors (\vec{a}) seems only possible if we place the sensors (antennas) in a well-aranged structure. So we consoder an uniform linear array (ULA) that is such a structure.\\
+Intuitively it create linear dependent steering vectors (\vec{a}) seems only possible if we place the sensors (antennas) in a well-arranged structure. So we consider an uniform linear array (ULA) that is such a structure.\\
 $\vec{a}(\mu_1)=\mat{1\\a\\a^2},\qquad\vec{a}(\mu_2)=\mat{1\\b\\b^2},\vec{a}(\mu)=\mat{1\\c\\c^2}$\\
 where $a=e^{\j\mu_1},\quad b=e^{\j\mu_2},\quad c=e^{\j\mu}$ and $a\neq b,\quad a\neq c, b\neq c$\\
 $\mat{1&1&1\\a&b&c\\a^2&b^2&c^2}\mat{\alpha\\\beta\\\gamma}=\vec{0}$\\
@@ -287,12 +287,12 @@ Recall the singular value decomposition (SVD) of matrix \ma{A}:
 $\ma{A}=\ma{U}\ma{\Sigma}\ma{V}^H$\\
 $\ma{A}\ma{R}_s\ma{A}^H=\ma{U}\underbrace{\ma{\Sigma}\ma{V}^H\ma{R}_s\ma{V}\ma{\Sigma}^T}_{\ma{\Lambda}}\ma{U}^H=\ma{U}\ma{\Lambda}\ma{U}^H$\\
 Where $\ma{\Lambda}$ is the eigenvalue matrix.\\
-Now let's assueme $\ma{R}_s$ has full rank, which means $\rank\ma{R}_s=d$. Therefor the eigenvalue decomposition (EVD) of $\ma{R}_s$ exists and is given as follows:\\
+Now let's assume $\ma{R}_s$ has full rank, which means $\rank\ma{R}_s=d$. Therefore the eigenvalue decomposition (EVD) of $\ma{R}_s$ exists and is given as follows:\\
 $\ma{R}_s=\ma{Q}\ma{\Lambda}'\ma{Q}^H;\qquad \ma{\Lambda}'>\vec{0}$ (positive definite)\\
 $\ma{R}_s^{\frac{1}{2}}=\ma{Q}\ma{\Lambda}'^{\frac{1}{2}}\ma{Q}^H$\\
 Since $\ma{\Lambda}'^{\frac{1}{2}}$ is real valued we can conclude: $\left(\ma{R}^{\frac{1}{2}}\right)^H=\ma{R}^{\frac{1}{2}}$\\
 $\ma{A}\ma{R}_s\ma{A}^H=\ma{A}\ma{R}^{\frac{1}{2}}\ma{R}^{\frac{1}{2}}\ma{A}^H=\underbrace{\ma{A}\ma{R}^{\frac{1}{2}}}_{\ma{G}}\underbrace{\left(\ma{R}^{\frac{1}{2}}\right)^H\ma{A}^H}_{\ma{G}^H}=\ma{G}\ma{G}^H$\\
-$\Ra \ma{A}\ma{R}_s\ma{A}^H$ turns out to be a Gram'ian matrix (see section \ref{sec:Gramian_matrix}).\\
+$\Ra \ma{A}\ma{R}_s\ma{A}^H$ turns out to be a Gramian matrix (see section \ref{sec:Gramian_matrix}).\\
 \begin{flalign*}
 \text{im}\ma{A}\ma{R}_s\ma{A}^H&=\text{im}\ma{G}\ma{G}^H&&\\
 &=\text{im}\ma{A}\ma{R}^{\frac{1}{2}}&&\\
@@ -304,7 +304,7 @@ Note: $\vec{x}=\ma{R}^{\frac{1}{2}}\vec{y} \Ra \vec{y}=\ma{R}^{-\frac{1}{2}}\vec
 $\rank\ma{A}\ma{R}_s\ma{A}^H=\rank\ma{A}=d$\\
 $\ma{A}\ma{R}_s\ma{A}^H=\ma{U}\ma{\Lambda}\ma{U}^H=\mat{\ma{U}_1&\ma{U}_2}\mat{\lambda_1& & & & & & \\ &\lambda_2 & & & & &\\ & &\ddots& & & &\\ & & &\lambda_d& & &\\ & & & & 0& &\\ & & & & & \ddots& \\& & & & & &0}\mat{\ma{U}_1^H\\\ma{U}_2^H}$\\
 $\vec{x}[n]=\ma{A}\vec{s}[n]+\vec{\nu}[n]$\\
-If we assueme that noise and signal are uncorrelated (what usually is the case)  we get the following:\\
+If we assume that noise and signal are uncorrelated (what usually is the case)  we get the following:\\
 \mybox{
 $E\left[\vec{x}[n]\vec{x}^H[n]\right]=\ma{R}_x=\ma{A}\ma{R}_s\ma{A}^H+\ma{R}_\nu$}\\
 Note that $E\left[\vec{x}[n]\vec{x}^H[n]\right]$ can be estimated from array observations.\\
@@ -345,7 +345,7 @@ $\ma{X}=\mat{\vec{x}[n]&\vec{x}[n+1]&\shdots&\vec{x}[n+N-1]}$\\
 
 \newpage
 \paragraph{Jump detection}
-As can be seen above a jump detection is needed in order to determine the number of arriving wavefronts $d$. This can be done by defining a threshold $q$. If the difference between the m-th eigenvalue and the (m-1)-st is larger than this threshold this is considerd as jump and the value for $d$ is found. But now the qeustion is how to set $q$ such that it is neither to small nor to big.\\
+As can be seen above a jump detection is needed in order to determine the number of arriving wavefronts $d$. This can be done by defining a threshold $q$. If the difference between the m-th eigenvalue and the (m-1)-st is larger than this threshold this is considered as jump and the value for $d$ is found. But now the question is how to set $q$ such that it is neither to small nor to big.\\
 
 \begin{figure}[H]
 	\centering
@@ -388,7 +388,7 @@ Threshold&$q$&\textcolor[rgb]{1,0,0}{1.45}&\textcolor[rgb]{1,0,0}{1.34}&\textcol
 				$\ma{\hat{U}}_1=\mat{\vec{\hat{u}}_1&\shdots&\vec{\hat{u}}_{\hat{d}}}$; \qquad
 				$\ma{\hat{U}}_2=\mat{\vec{\hat{u}}_{\hat{d}+1}&\shdots&\vec{\hat{u}}_{M}}$\\
 				\textcolor[rgb]{1,0,0}{Remember: $\ma{\hat{U}}_2\ma{\hat{U}}_2^H=\ma{I}-\ma{\hat{U}}_1\ma{\hat{U}}_1^H$ may sometimes be easier}
-	\item Search for all local maximas of $S_{\text{MUSIC}}(\mu)=\frac{\vec{a}^H(\mu)\vec{a}(\mu)}{\vec{a}^H(\mu)\ma{U}_2\ma{U}_2^H\vec{a}(\mu)}$
+	\item Search for all local maxima of $S_{\text{MUSIC}}(\mu)=\frac{\vec{a}^H(\mu)\vec{a}(\mu)}{\vec{a}^H(\mu)\ma{U}_2\ma{U}_2^H\vec{a}(\mu)}$
 	\item \begin{tabular}{ll}
 				if number of peaks is & $<\hat{d}: \hat{d}\leftarrow\hat{d}-1$ go back to 4\\
 				& $>\hat{d}: \hat{d}\leftarrow\hat{d}+1$ go back to 4
@@ -406,13 +406,13 @@ $\with \ma{R}_\nu=\sigma_\nu^2\ma{I}$ from $\ma{\Lambda}'$\\
 $\vec{x}[n]=\ma{A}\vec{s}[n]+\vec{\nu}[n]$
 
 \subsubsection{Preprocessing if noise is not white (colored noise) - Noise Whitening}
-So far we assumed that the noise is white. However this may not allwas be the case. To be still able to compute the signal some kind of preprocessing is needed. Therefor the matrix \ma{T} is used to ``transform'' the input signal such that the MUSIC algorithm works anyway, even if the noise is not white.\\
+So far we assumed that the noise is white. However this may not always be the case. To be still able to compute the signal some kind of preprocessing is needed. Therefore the matrix \ma{T} is used to ``transform'' the input signal such that the MUSIC algorithm works anyway, even if the noise is not white.\\
 $\vec{x}[n]=\ma{A}\vec{s}[n]+\ma{\nu}$\\
 $\underbrace{\ma{T}\vec{x}[n]}_{=\vec{y}[n]}=\ma{T}\ma{A}\vec{s}[n]+\ma{T}\ma{\nu};\qquad \text{det}\ma{T}\neq 0$ (\ma{T} is invertible)\\
 $\ma{T}:=\ma{R}_\nu^{-\frac{1}{2}};\qquad \text{i. e. } \ma{T}\ma{T}=\ma{R}_\nu^{-1}$ (provided that $\ma{R}_\nu^{-1}$ exists)\\
 $E\left[\vec{y}[n]\vec{y}^H[n]\right]=\ma{T}\ma{A}\ma{R}_s\ma{A}^H\ma{T}+\ma{I}$\\
 $\vec{y}[n]=\mat{\ma{T}\vec{a}(\mu_1)&\ma{T}\vec{a}(\mu_2)&\shdots&\ma{T}\vec{a}(\mu_d)}\vec{s}[n]+\ma{T}\vec{\nu}[n]$\\
-Insted of \vec{x} we can feed \vec{y} to the MUSIC algorithm to determine the steering matrix (preprocessing):\\
+Instead of \vec{x} we can feed \vec{y} to the MUSIC algorithm to determine the steering matrix (preprocessing):\\
 $\ma{X}\leftarrow\ma{T}\ma{X}$\\
 $\vec{a}(\mu)\leftarrow\ma{T}\vec{a}(\mu)$ (run MUSIC)\\ \\
 \Ra Remember that the BLUE filter works better as the LS filter if the noise is not white. The Result of the signal with noise whitening with the LS filter is the BLUE filter. \\
@@ -421,7 +421,7 @@ BLUE: $\textcolor[rgb]{0,0,1}{\ma{R}_\nu^{-\frac{1}{2}}}\ma{R}_x\textcolor[rgb]{
 $\ma{\hat{R}}_s=\left(\ma{R}_\nu^{-\frac{1}{2}}\ma{A}\right)^+\left(\ma{\hat{R}}_\nu^{-\frac{1}{2}}\ma{\hat{R}}_x\ma{\hat{R}}_\nu^{-\frac{1}{2}}-\ma{I}\right)\left(\ma{R}_\nu^{-\frac{1}{2}}\ma{A}\right)^{+H}$\\ \\
 \Ra We see that this is an other way to compute the BLUE.
 
-\subsubsection{Calibartion of general sensor positions }
+\subsubsection{Calibration of general sensor positions }
 MUSIC is for a ULA, but in general the positions of the sensors are arbitrary. The steering vector can't be determined analytically in general. Therefore the system is measured. 
 \begin{figure}[H]
 	\centering
@@ -430,7 +430,7 @@ MUSIC is for a ULA, but in general the positions of the sensors are arbitrary. T
 	\label{fig:Calibration_scenario}
 \end{figure}
 
-In order to get information about an antenna constellation one usually calibrates the antennas using a reference antenna inside an antenna champer. Figure \ref{fig:Calibration_scenario} depicts such a calibration figurative. After the measurement an antenna table is obtained. For the example from figure \ref{fig:Calibration_scenario} it could look like:\\
+In order to get information about an antenna constellation one usually calibrates the antennas using a reference antenna inside an antenna chamber. Figure \ref{fig:Calibration_scenario} depicts such a calibration figurative. After the measurement an antenna table is obtained. For the example from figure \ref{fig:Calibration_scenario} it could look like:\\
 Amplitude Ratio:\\
 $\vec{a}(\Theta,\,\Phi)=\mat{1\\\frac{x_2}{x_1}\\\frac{x_3}{x_1}\\\shdots\\\frac{x_6}{x_1}}$
 

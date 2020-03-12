@@ -3,12 +3,12 @@
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[trim =6cm 7cm 6cm 4cm, clip,width=0.70\textwidth]{graphics/Spatial_filtering_antenna_example.pdf}
-	\caption{Eaxample of a spatial filtering scenario: Sender with 1 antenna and Receiver with 3 antennas (as ULA)}
+	\caption{Example of a spatial filtering scenario: Sender with 1 antenna and Receiver with 3 antennas (as ULA)}
 	\label{fig:SPatial_filtering_antenna_example}
 \end{figure}
 $\vec{x}[n]=\mat{x_1[n]\\x_2[n]\\\svdots\\x_M[n]}=\sum\limits_{k=1}^{d}\vec{a}(\Theta_k)s_k[n]+\vec{\nu}[n]$\\
 $\vec{a}(\Theta)=\mat{1\\e^{-j2\pi \frac{\Delta}{\lambda} \cos(\Theta)}\\e^{-j 2 \cdot 2\pi \frac{\Delta}{\lambda} \cos(\Theta)}\\\svdots\\e^{-j(M-1)2\pi \frac{\Delta}{\lambda} \cos(\Theta)}}$\\
-$\vec{x}[n]=\underbrace{\mat{\vec{a}(\Theta_1)&\vec{a}(\Theta_2)&\shdots&\vec{a}(\Theta_d)}}_{\ma{A}\in\mathbb{C}^{M\times d}}\cdot\underbrace{\mat{s_1[n]\\s_2[n]\\\svdots\\s_d[n]}}_{\vec{s}[n]\in\mathbb{C}^{M\times 1}}+\underbrace{\vec{\nu}}_{\in\mathbb{C}^{M\times 1}}$\\
+$\vec{x}[n]=\underbrace{\mat{\vec{a}(\Theta_1)&\vec{a}(\Theta_2)&\shdots&\vec{a}(\Theta_d)}}_{\ma{A}\in\mathbb{C}^{M\times d}}\cdot\underbrace{\mat{s_1[n]\\s_2[n]\\\svdots\\s_d[n]}}_{\vec{s}[n]\in\mathbb{C}^{d\times 1}}+\underbrace{\vec{\nu}}_{\in\mathbb{C}^{M\times 1}}$\\
 $\vec{x}[n]=\ma{A}\cdot \vec{s}[n]+\vec{\nu}[n]$\\
 With:\\
 \begin{tabular}{rl}
@@ -46,11 +46,11 @@ Frobenius norm of the error:
 \begin{flalign*}
 \varepsilon &= ||\ma{X}-\ma{A}\ma{S}||_F^2=\trace\left((\ma{X}-\ma{A}\ma{S})^H(\ma{X}-\ma{A}\ma{S})\right)
 =\trace\left((\ma{X}^H-\ma{S}^H\ma{A}^H)(\ma{X}-\ma{A}\ma{S})\right)&&\\
-&=\trace(\ma{X}\ma{X}^H)-\trace(\ma{X}^H\ma{A}\ma{S})-\trace(\ma{S}^H\underbrace{\ma{A}^H\ma{X}}_{\ma{B}})+\trace(\ma{S}^H\ma{A}^H\ma{A}\ma{X})
+&=\trace(\ma{X}\ma{X}^H)-\trace(\ma{X}^H\ma{A}\ma{S})-\trace(\ma{S}^H\underbrace{\ma{A}^H\ma{X}}_{\ma{B}})+\trace(\ma{S}^H\ma{A}^H\ma{A}\ma{S})
 \end{flalign*}
 
 \mybox{
-\textbf{Definition}:  Derivation of a scalar fuction with respect to a matrix:\\
+\textbf{Definition}:  Derivation of a scalar function with respect to a matrix:\\
 $\frac{\partial \varepsilon}{\partial \ma{S}^*}:=\mat{\frac{\partial \varepsilon}{\partial \vec{S}_1^*}&\frac{\partial \varepsilon}{\partial \vec{S}_2^*}&\shdots&\frac{\partial \varepsilon}{\partial \vec{S}_N^*}}$}\\
 \ \\
 
@@ -63,7 +63,7 @@ $\frac{\partial\varepsilon}{\partial\ma{S}^H}=-\ma{A}^H\ma{X}+\ma{A}^H\ma{A}\ma{
 $\ma{\hat{S}}_{LS}=(\ma{A}^H\ma{A})^{-1}\ma{A}^H\ma{X}=\ma{A}^+\ma{X}=\ma{W}^H\ma{X}$
 }\\
 $\ma{A}\in\mathbb{C}^{M\times d}$\\
-$\ma{A}^H\ma{A}\in\mathbb{C}^{d\times d},\quad$ Assume $\rank \ma{A}=d$ \qquad \pfeil Number of incoming wavefronts: $d$\\
+$\ma{A}^H\ma{A}\in\mathbb{C}^{d\times d},\quad$ Assume $\rank \ma{A}=d$ \qquad \pfeil Number of incoming wave-fronts: $d$\\
 $\rank\ma{A}^H\ma{A}=\rank\ma{A}=d$\\
 $\Rightarrow$ all $d$ steering vectors $\vec{a}(\Theta_1)\ldots\vec{a}(\Theta_d)$ are L.I.D.\\ \ \\
 \textbf{Calculation with realistic signal (Add observation noise) }\\
@@ -86,7 +86,7 @@ SNR&=\frac{E[||\ma{\hat{S}}_{LS}||_F^2\left.\right|\ma{\nu}=0]}{E[||\ma{\hat{S}}
 =\frac{\trace E[\ma{S}^H\ma{S}]}{\trace E[\ma{A}^+\ma{\nu}\ma{\nu}^H(\ma{A}^+)^H]}&&\\
 &=\frac{\trace E[\ma{S}^H\ma{S}]}{\trace (\ma{A}^+E[\ma{\nu}\ma{\nu}^H](\ma{A}^+)^H)}
 \end{flalign*}
-Numinator of SNR:
+Numerator of SNR:
 \begin{flalign*}
 \trace E[\ma{S}^H\ma{S}]&=\trace E\left[\mat{\vec{s}^H[n]\\\vec{s}^H[n+1]\\\svdots\\\vec{s}^H[n+N-1]}\mat{\vec{s}[n]&\vec{s}[n+1]&\shdots&\vec{s}[n+N-1]}\right]&&\\
 &=E\left[\trace(\vec{s}^H[n]\vec{s}[n])+\trace(\vec{s}^H[n+1]\vec{s}[n++1])+\ldots+\trace(\vec{s}^H[n+N-1]\vec{s}[n+N-1])\right]&&\\
@@ -132,7 +132,7 @@ $\lambda_1=\lambda_2=\ldots=\lambda_d=\frac{c}{d}=M$\\
 $\sum\limits_{k=1}^d\frac{1}{\lambda_k}=\frac{1}{\frac{c}{d}+x}+\frac{1}{\frac{c}{d}-x}+\frac{d}{c}(d-2)$\\
 Taylor-Series with respect to $x$ around $0$:\\
 $\sum\limits_{k=1}^d\frac{1}{\lambda_k}=\frac{d^2}{c}+\underbrace{\frac{2d}{c}\sum\limits_{n=1}^\infty\underbrace{(\frac{d}{c}x)^{2n}}_{\geq0}}_{\geq 0}$\\
-$\Rightarrow$ Minimum for $x=0\quad \Rightarrow$ maximum SNR\\
+$\Rightarrow$ Minimum at $x=0\quad \Rightarrow$ maximum SNR\\
 \underline{Alternative to show that it is a minimum:}\\
 $\frac{d\frac{\sigma_s^2}{\sigma_\nu^2}}{\sum\limits_{k=1}^d\frac{1}{\lambda_k}}\leq d\frac{\sigma_s^2}{\sigma_\nu^2}\lambda_{min}$\\ \\
 
@@ -258,7 +258,7 @@ Cost Function:
 \begin{flalign*}
 J&=E[||\ma{W}^H\ma{X}-\ma{S}||_F^2]&&\\
 &=E\left[\trace\left((\ma{W}^H\ma{X}-\ma{S})(\ma{X}^H \ma{W} - \ma{S})\right)\right]&&\\
-&=\trace\left(\ma{W}^H E[\ma{X}\ma{X}^H]\ma{W}\right) - \trace\left(\ma{W} E[\ma{X}\ma{S}^H]\right) - \trace\left(E[\ma{S}\ma{X}^H]\ma{W}\right) + \trace\left(E\ma{S}\ma{S}^H]\right)
+&=\trace\left(\ma{W}^H E[\ma{X}\ma{X}^H]\ma{W}\right) - \trace\left(\ma{W} E[\ma{X}\ma{S}^H]\right) - \trace\left(E[\ma{S}\ma{X}^H]\ma{W}\right) + \trace\left(E[\ma{S}\ma{S}^H]\right)
 \end{flalign*}
 Singal Correlation Matrix: \\ $E[\ma{X}\ma{X}^H]=N\ma{R}_x$ \\ 
 Channel output Correlation Matrix: \\$E[\ma{S}\ma{S}^H]=N\ma{R}_S$\\ 
@@ -268,7 +268,7 @@ With assumimg, that noise and signal are uncorrelated ($E[\ma{\nu}\ma{S}^H]=\ma{
 $E[\ma{X}\ma{S}^H] = \ma{A}E[\ma{S}\ma{S}^H] = \ma{A}\ma{R}_s N$\\
 With the property $\ma{R}_s=\ma{R}_s^H$ (Recall: All correlation matrices are hermitian matrices) we get for our cost function J:\\
 $J=N\trace\left(\ma{W}^H\ma{R}_x\ma{W}\right)-N\trace\left(\ma{W}^H\ma{A}\ma{R}_s\right) - N \trace\left(\ma{R}_s\ma{A}^H\ma{W}\right) + N\trace\left(\ma{R}_s\right)$\\ \\
-Now what is our filter matrice $\ma{W}_{LMMSE}$?\\
+Now what is our filter matrix $\ma{W}_{LMMSE}$?\\
 $\frac{\partial J}{\partial \ma{W}^*}=N\ma{R}_x\ma{W}-N\ma{A}\ma{R}_s\stackrel{!}{=}0$\\
 \mybox{
 $\ma{W}_{LMMSE}=\ma{R}_x^{-1}\ma{A}\ma{R}_s$ 
@@ -292,8 +292,8 @@ $\ma{R}_s=\ma{A}^+(\ma{R}_x-\ma{R}_\nu)(\ma{A}^+)^H$ \pfeil it's not neccessary 
 }
 \mybox{
 \begin{flalign*}
-\ma{W}_{LMMSE}^H&=\ma{A}^+(\ma{R}_x-\ma{R}_\nu)(\ma{A}^+)^H\ma{R}_x^{-1}&&\\
-&=(\ma{A}^H\ma{A})^{-1}\ma{A}^H(\ma{R}_x-\ma{R}_\nu)\ma{A}(\ma{A}^H\ma{A})^{-1}\ma{R}_x^{-1}
+\ma{W}_{LMMSE}^H&=\ma{A}^+(\ma{R}_x-\ma{R}_\nu)(\ma{A}^+)^H\ma{A}^H\ma{R}_x^{-1}&&\\
+&=(\ma{A}^H\ma{A})^{-1}\ma{A}^H(\ma{R}_x-\ma{R}_\nu)\ma{A}(\ma{A}^H\ma{A})^{-1}\ma{A}^H\ma{R}_x^{-1}
 \end{flalign*}
 }
 $\ma{\hat{R}}_x=\frac{1}{N}\ma{X}\ma{X}^H \qquad \ma{R}_\nu=\ma{R}_x\left.\right|_{\ma{S}=\ma{0}};$\\
