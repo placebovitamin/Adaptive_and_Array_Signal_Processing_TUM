@@ -2,17 +2,17 @@
 \begin{itemize}
 	\item Discrete Time
 	\item Proper random processes
-	\item Mimimum mean square error (MMSE), Linear processing MMSE (LMMSE)
+	\item Minimum mean square error (MMSE), Linear processing MMSE (LMMSE)
 	\item Theory by N. Wiener (1948) and A. Kolmogorov (1941)
 \end{itemize}
-The design of a Wiener Filter requires a priori information about the statistics of the data to be processed. The filter is optimum only when the statistical characteristics of the input data match the priori information on which the design of the filter is based on. When this information is not known completely, however, it may not be possible to design the Wiener Filter or else the design may no loner be optimum.A straightforward approach that we may use in such situation is the "estimate and plug" procedure. This is a two-stage process, whereby the filter first "estimates" the statistical parameters of the relevant signals and then "plugs" the results so obtained into a non recursive formula for computing the filter parameters. For real-time operation, this procedure has the disadvantage of requiring excessively elaborate and costy hardware. \\
-A widre variety of recursive algorithms have been developed in the literature for the operation of linear adaptive filters. In the final analysis, the choise of the algorithm is determinded by one or more of the following factors: 
+The design of a Wiener Filter requires a priori information about the statistics of the data to be processed. The filter is optimum only when the statistical characteristics of the input data match the priori information on which the design of the filter is based on. When this information is not known completely, however, it may not be possible to design the Wiener Filter or else the design may no loner be optimum.A straightforward approach that we may use in such situation is the "estimate and plug" procedure. This is a two-stage process, whereby the filter first "estimates" the statistical parameters of the relevant signals and then "plugs" the results so obtained into a non recursive formula for computing the filter parameters. For real-time operation, this procedure has the disadvantage of requiring excessively elaborate and costly hardware. \\
+A wide variety of recursive algorithms have been developed in the literature for the operation of linear adaptive filters. In the final analysis, the choice of the algorithm is determined by one or more of the following factors: 
 \begin{itemize}
 	\item rate of convergence
 	\item misadjustment
 	\item tracking
 	\item robustness
-	\item computaional requirements
+	\item computational requirements
 \end{itemize}
 \begin{figure}[htbp]
 	\centering
@@ -43,7 +43,7 @@ $\ma{H}$: Channel matrix\\
 $\vec{s}[n]$: Tx-signal vector\\
 $\vec{\nu}[n]$: Noise vector
 }
-\subsection{Correlation between filteroutput and error in the optimum}
+\subsection{Correlation between filter output and error in the optimum}
 \begin{itemize}
 	\item Error signal: $e[n]=d[n] - y[n]$
 	\item Cost function: $J=E[|e[n]|^2]$
@@ -55,14 +55,14 @@ $\vec{\nu}[n]$: Noise vector
 $J=E[e^*[n]\cdot e[n]] = E[(d^*[n] - y^*[n])(d[n]-\underbrace{y[n]}_{\vec{w}^H\vec{u}[n]})]$\\
 $\frac{\partial J}{\partial \vec{w}^*} = E[e^*[n](-\vec{u}[n])] \stackrel{!}{=} 0$ (in the optimum)\\
 $E[e^*[n]y[n]] = E[e^*[n]\vec{w}^H\vec{u}[n]] \underbrace{=}_{\vec{w}^H\ \text{deterministic}} \vec{w}^H\ E[e^*[n]\vec{u}[n]]=0$\\
-in the optimum $\Leftrightarrow E[y[n]e^*[n]] = 0$ (Filteroutput is uncorrelated with error)\\
+in the optimum $\Leftrightarrow E[y[n]e^*[n]] = 0$ (Filter output is uncorrelated with error)\\
 If you want to know, whether  a different filter is optimal or not, test if the error and the output are uncorrelated.
 
 \subsection{Determine Optimal Filter Weight \texorpdfstring{$w_{opt}$}{w-opt}}
 $J=E[(d^*[n] - y^*[n])(d[n]-y[n])] = \sigma_d^2 - \vec{w}^H\vec{p} - \vec{p}^H \vec{w} + \vec{w}^H \ma{R}\vec{w}$\\
 $\sigma_d^2 = E[|d[n]|^2]$\\
 $\vec{p} = E[\vec{u}[n]d^*[n]]; \qquad$ correlation vector\\
-$\ma{R} = E[\vec{u}[n]\vec{u}^H[n]]; \qquad$ corrrelation matrix\\
+$\ma{R} = E[\vec{u}[n]\vec{u}^H[n]]; \qquad$ correlation matrix\\
 Note: $\ma{R}\geq 0 \qquad$ usually $\ma{R}>0 \Rightarrow \ma{R}^{-1}$ exists\\$\qquad \ma{R}=\ma{R}^H$\\
 $\frac{\partial J}{\partial \vec{w}^*}=-\vec{p} + \ma{R}\vec{w} \stackrel{!}{=} 0$\\
 \mybox{
@@ -89,7 +89,7 @@ _{\vec{w}^H_{opt}} \ma{R} \vec{w} + \vec{w}^H \ma{R}\vec{w} + \vec{p}^H \underbr
 \end{tabular}\\
 \textbf{EVD:}\\
 $\ma{R} = \ma{Q} \ma{\Lambda} \ma{Q}^H; \qquad \ma{\Lambda} = \mat{\lambda_1 & & \\ & \ddots &\\ & & \lambda_M} > \vec{0}$\\
-$J=J_{\text{min}} + \underbrace{\Delta\vec{w}^H \ma{Q}}_{\vec{v}^H} \ma{\Lambda} \underbrace{\ma{Q}^H \Delta\vec{w}}_{\vec{v}} = J_{\text{min}} \vec{v}^H \ma{\Lambda} \vec{v} = J_{\text{min}} + \sum\limits_{m=1}^{M} \lambda_m |v_m|^2$\\
+$J=J_{\text{min}} + \underbrace{\Delta\vec{w}^H \ma{Q}}_{\vec{v}^H} \ma{\Lambda} \underbrace{\ma{Q}^H \Delta\vec{w}}_{\vec{v}} = J_{\text{min}} + \vec{v}^H \ma{\Lambda} \vec{v} = J_{\text{min}} + \sum\limits_{m=1}^{M} \lambda_m |v_m|^2$\\
 \end{doublespace}
 
 \begin{doublespace}
@@ -177,7 +177,7 @@ Solve for \vec{x}: &computational load $\sim n^3$\\
 \begin{doublespace}
 \textbf{Note: Inter-Symbol-Interference}\\
 $y[n]=\vec{w}^H\vec{u}[n] = \vec{w}(\ma{H}\vec{s}[n]+\vec{\nu}[n]) = \vec{w}^H(\underbrace{\mat{\vec{h}_1&\vec{h}_2&\shdots&\vec{h}_N}}_{\ma{H}}\underbrace{\vec{s}[n]}_{\mat{s[n]\\s[n-1]\\\svdots\\s[n-M+1]}}+\vec{\nu}[n])$\\
-$d[n]=s[n-1]$\\
+$d[n]=s[n-l]$\\
 $y[n]=\vec{w}^H(\vec{h}_{l+1}\underbrace{\vec{s}[n-l]}_{\text{signal of interest}}+\underbrace{\sum\limits_{k=1; k\neq l+1}^{N}\vec{h}_k \vec{s}[n-k]}_{\text{Inter-Symbol-Interference}}+\underbrace{\vec{\nu}[n])}_{\text{Noise}}$\\
 \subsection{Filter with different kinds of Noise}
 
@@ -201,7 +201,7 @@ No optimal solution because:\\
 Try: $\vec{w}^H\ma{H}\stackrel{!}{=}\vec{e}_{l+1}^T;\quad y[n]=\underbrace{\vec{w}^H\ma{H}}_{\vec{e}_{l+1}^T}\vec{s}[n]=\vec{s}[n-1]$\\
 However it does not work!\\
 $\ma{H}^H\vec{w}=\vec{e}_{l+1}$\\
-$\ma{H}\in\mathbb{C}^{N\times M}\qquad \text{with } M<N$\\
+$\ma{H}^H\in\mathbb{C}^{N\times M}\qquad \text{with } M<N$\\
 Number of degrees of freedom = $M$\\
 Number of constraints = $N>M$\\
 $\Rightarrow$ No exact solution exists!\\
@@ -261,7 +261,7 @@ System: $y[n]=\vec{w}^H\vec{u}[n]=\vec{w}^H\ma{H}\vec{s}[n]+\vec{w}^H\vec{\nu}[n
 =&\sigma_\nu^2\cdot\tr(\underbrace{\vec{w}^H\vec{w}}_{\in\mathbb{C}^{1\times 1}})=\sigma_\nu^2\cdot\vec{w}^H\vec{w}\\
 \end{align*}}
 
-\textbf{Mathmatical derivation of Cauchy-Schwarz-Inequality:}\\
+\textbf{Mathematical derivation of Cauchy-Schwarz-Inequality:}\\
 $\vec{z}:=\vec{h}-\vec{w}\frac{\vec{w}^H\vec{h}}{\vec{w}^H\vec{w}}$
 \begin{flalign*}
 \vec{z}^H\vec{z}&=(\vec{h}^H-\frac{\vec{h}^H\vec{w}}{\vec{w}^H\vec{w}}\vec{w})(\vec{h}-\vec{w}\frac{\vec{w}^H\vec{h}}{\vec{w}^H\vec{w}})&&\\
@@ -529,7 +529,7 @@ $\vec{\hat{p}}[n+1]=\eta\vec{\hat{p}}[n](1-\eta)\vec{u}[n+1]d^*[n+1]$\\ \\
 &\\
 \end{tabular}
 
-\textbf{Note: LMS-Procdure:}\\
+\textbf{Note: LMS-Procedure:}\\
 $\text{``LMS''}=\lim\limits_{\eta\rightarrow 0}\text{``SDP''}$\\
 $\ma{\hat{R}}[n+1]=\vec{u}[n]\vec{u}^H[n], \quad \vec{\hat{p}}[n]=\vec{u}[n]d^*[n]$\\
 $\vec{w}[n+1]=\vec{w}[n]+\mu\vec{u}[n]\vec{e}^*[n]$\\
@@ -553,7 +553,7 @@ $y[n]=\vec{w}_q^H\vec{u}[n]-\vec{w}_a^H\ma{V}_2\vec{u}[n]$\\
 \end{figure}
 \end{doublespace}
 
-\subsubsection{Example: Digital Spectrum Analyzer (linear)}\label{sssec:dsa}
+\subsubsection{Example: Digital Spectrum Analyser (linear)}\label{sssec:dsa}
 \begin{doublespace}
 $u[n]=\sum\limits_{k=1}^{d}s_k \cdot e^{j2\pi f_k T n}+\nu[n]$\\
 With following variables:\\

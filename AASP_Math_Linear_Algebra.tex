@@ -5,11 +5,11 @@
 \textbf{Definition:} A \textbf{vector space} $\mathbb{V}$ over a set $\mathbb{K}$ is a set such that: 
 \begin{enumerate}
 \item $\forall \vec{a},\vec{b}\in\mathbb{V}: \qquad \vec{a}+\vec{b}\in\mathbb{V}$\\
-The vectors $\vec{a}$ and $\vec{b}$ in vectorspace  $\mathbb{V}$ can be added to a new vector in the vector space.
+The vectors $\vec{a}$ and $\vec{b}$ in vector space  $\mathbb{V}$ can be added to a new vector in the vector space.
 \item $\forall \vec{a},\vec{b}\in\mathbb{V}: \qquad \vec{a}+\vec{b}=\vec{b}+\vec{a}$\\
 Addition in commutative.
 \item $\forall \vec{a},\vec{b},\vec{c}\in\mathbb{V}: \quad (\vec{a}+\vec{b})+\vec{c}=\vec{a}+(\vec{b}+\vec{c})$\\
-The order to operate addition ist not relevant.
+The order to operate addition is not relevant.
 \item $\forall \vec{a}\in\mathbb{V}: \exists \vec{0} \in \mathbb{V}: \vec{a} + \vec{0}= \vec{a} $ with $\vec{0} $ as the identity element.\\
 The sum of a vector with the zero-vector equals the original vector.
 \item $\forall \vec{a} \in \mathbb{V}: \exists - \vec{a} \in \mathbb{V}: \vec{a} + (-\vec{a})= \vec{0} $\\
@@ -19,7 +19,7 @@ Scaling a vector with 1 results in the vector.
 \item $\forall \vec{a} \in \mathbb{V}, \forall \lambda, \mu \in  \mathbb{K}: \lambda (\mu \vec{a}) = (\lambda \mu)\vec{a}$\\
 Scaling a vector with two scalars is commutative.
 \item $\forall \vec{a}, \vec{b}\in \mathbb{V}, \forall \lambda \in  \mathbb{K}: \lambda (\vec{a}+ \vec{b})= \lambda \vec{a} + \lambda \vec{b}$\\
-Scaling two vectors with the same scalar equals scaling two vectors with the scalar seperately.
+Scaling two vectors with the same scalar equals scaling two vectors with the scalar separately.
 \item $\forall \vec{a} \in \mathbb{V}, \forall \lambda, \mu \in  \mathbb{K}: (\mu + \lambda)\vec{a}= \mu\vec{a}+\lambda \vec{a}$\\
 It's irrelevant if two scalars are summed up first or multiplied by a vector individually.
 \end{enumerate}}
@@ -51,7 +51,7 @@ $\left. \begin{array}{l}
 \item $\mathbb{K}=\mathbb{C}, \mathbb{V}=\mathbb{C}$ \quad complex numbers
 \item $\mathbb{K}=\mathbb{C},$
 
-$\mathbb{V}=\left\lbrace a_0+a_1z+a_2z^2+ \shdots +a_nz^n |z,a_0,\shdots,a_n \in \mathbb{C} \right\rbrace$ \quad polynoms
+$\mathbb{V}=\left\lbrace a_0+a_1z+a_2z^2+ \shdots +a_nz^n |z,a_0,\shdots,a_n \in \mathbb{C} \right\rbrace$ \quad polynomials
 \item $\mathbb{K}=\mathbb{C}, \mathbb{V}=\mathbb{C}^n=\left\lbrace \begin{bmatrix}
 a_1 \\ \svdots \\ a_n
 \end{bmatrix} \right\rbrace, a_1,a_2,\shdots,a_n \in \mathbb{C}$ \quad vectors 
@@ -86,19 +86,19 @@ $\mathbb{K}=\mathbb{C}, \mathbb{V}=\mathbb{C}^m$
 
 $a_1,...,a_m\in\mathbb{C}$
 
-colum vector: $\vec{a}:=\begin{bmatrix}a_1\\\svdots\\a_m\end{bmatrix} $
+column vector: $\vec{a}:=\begin{bmatrix}a_1\\\svdots\\a_m\end{bmatrix} $
 
 row vector: $\vec{a}^T:=\begin{bmatrix}a_1&\shdots&a_m\end{bmatrix} \quad (\vec{a}^T)^T=\vec{a}$
 
 complex conjugate: $\vec{a}^*=\begin{bmatrix}a_1^*\\\svdots\\a_m^*\end{bmatrix}\quad (\vec{a}^*)^*=\vec{a}$
 
-Hermite-ian vector: $(\vec{a}^*)^T=(\vec{a}^T)^*:= \vec{a}^H \quad (\vec{a}^H)^H=\vec{a}$
+Hermitian vector: $(\vec{a}^*)^T=(\vec{a}^T)^*:= \vec{a}^H \quad (\vec{a}^H)^H=\vec{a}$
 
 complex scalar product: $\vec{a}^H\vec{b}=a_1^*b_1+...+a_m^*b_m=(\vec{b}^H\vec{a})^*$
 
 $\vec{a},\vec{b}$ are orthogonal iff $\vec{a}^H\vec{b}=\vec{b}^H\vec{a}=0$
 
-euclidian norm: $\left|\left|\vec{a}\right|\right|_2:=\sqrt{\vec{a}^H\vec{a}}=\sqrt{a_1^*a_1+...+a_m^*a_m}=\sqrt{\left|a_1\right|^2+...+\left|a_m\right|^2}$
+Euclidean norm: $\left|\left|\vec{a}\right|\right|_2:=\sqrt{\vec{a}^H\vec{a}}=\sqrt{a_1^*a_1+...+a_m^*a_m}=\sqrt{\left|a_1\right|^2+...+\left|a_m\right|^2}$
 
 \mybox{\textbf{Definition: Span}  
 
@@ -139,7 +139,7 @@ Every subset $\mathbb{S}$ with $dim\mathbb{S}=n$ is a span $\Sp(\vec{v}_1,...,\v
 \item show $\mathbb{S}\subseteq \Sp(\vec{v}_1,...,\vec{v}_n)$ 
 \end{itemize}
 \begin{doublespace}
-	suppose $\vec{s}\in\mathbb{S}: \vec{s}\in \Sp(\vec{v}_1,...,\vec{v}_n)$, then $(\vec{v}_1,...,\vec{v}_n,\vec{s})$ are LID 
+	suppose $\vec{s}\in\mathbb{S}: \vec{s}\notin \Sp(\vec{v}_1,...,\vec{v}_n)$, then $(\vec{v}_1,...,\vec{v}_n,\vec{s})$ are LID 
 
 $\underbrace{(\vec{v}_1,...,\vec{v}_n,\vec{s})}_{dim=n+1}\subseteq \underbrace{\mathbb{S}}_{dim =n}$ because $\vec{s}\in\mathbb{S}$
 
@@ -167,12 +167,12 @@ $\begin{bmatrix}0\\1\\0\end{bmatrix}=\frac{1}{2}\!\begin{bmatrix}0\\2\\1\end{bma
 
 $\textcirc{1} \& \textcirc{2} \Rightarrow \mathbb{S}_1=\mathbb{S}_2$\\
 
-\mybox{\textbf{Definition:} Orthonormal base vectors $\vec{w}_1,...,\vec{2}_n$ have the property: 
+\mybox{\textbf{Definition:} Orthonormal base vectors $\vec{w}_1,...,\vec{w}_n$ have the property: 
 
-$\vec{w}_j^H\vec{w}_k=\left\lbrace \begin{matrix}1,& i=k\\0,&else\end{matrix} \right.$}
+$\vec{w}_j^H\vec{w}_k=\left\lbrace \begin{matrix}1,& j=k\\0,&else\end{matrix} \right.$}
 
 \mybox{
-\textbf{Theroem:} orthonormal vectors are LID}
+\textbf{Theorem:} orthonormal vectors are LID}
 
 \textbf{Proof:} $a_1\vec{w}_1+a_2\vec{w}_2+...+a_n\vec{w}_n=\vec{0}\quad |\vec{w}_1^H\cdot$
 
@@ -186,7 +186,7 @@ with: $\vec{e}_1=\begin{bmatrix}1\\0\\0\\\svdots\end{bmatrix},\vec{e}_2=\begin{b
 
 \textbf{Proof:} $\vec{v}_i=\sum\limits_{j=1}^na_{ji}\vec{e}_j\Rightarrow \Sp(\vec{v}_1,...,\vec{v}_n)\subseteq \mathbb{C}^n$
 
-if $\exists\vec{s}\in\mathbb{C}^n: \vec{s}\in \Sp(\vec{v}_1,...,\vec{v}_n)$ then $(\vec{v}_1,...,\vec{v}_n,\vec{s})$ is LID
+if $\exists\vec{s}\in\mathbb{C}^n: \vec{s}\notin \Sp(\vec{v}_1,...,\vec{v}_n)$ then $(\vec{v}_1,...,\vec{v}_n,\vec{s})$ is LID
 $\underbrace{\Sp(\vec{v}_1,...,\vec{v}_n,\vec{s})}_{dim=n+1}\subseteq\underbrace{\mathbb{C}^n}_{dim=n (wrong)}$ \qed
 
 \mybox{\textbf{Theorem:} Every subspace has got orthonormal base-vectors
@@ -223,7 +223,7 @@ $\ma{A}^*=\begin{bmatrix}A_{11}^*&\shdots&A_{1n}^*\\\svdots& &\svdots\\A_{m1}^* 
  
 $\ma{A}^T=\begin{bmatrix}A_{11}&\shdots&A_{m1}\\\svdots& &\svdots\\A_{1n} & \shdots& A_{mn}\end{bmatrix} \in \mathbb{C}^{n\times m}$
 
-Hermite-ian matrix: $(\ma{A}^*)^T=(\ma{A}^T)^*=\ma{A}^H$
+Hermitian matrix: $(\ma{A}^*)^T=(\ma{A}^T)^*=\ma{A}^H$
 
 Frobenius norm: $\left|\left| \ma{A}\right|\right|_F := \sqrt{\sum\limits_{k=1}^m\sum\limits_{p=1}^n \left|A_{kp}\right|^2}$
 
@@ -282,7 +282,7 @@ $\tr\ma{A}=\sum\limits_{k}A_{kk}$}
 \item $\tr(\ma{A}\ma{B}\ma{C})=\tr(\ma{B}\ma{C}\ma{A})=\tr(\ma{C}\ma{A}\ma{B})$
 \item $\tr(\ma{A}\ma{A}^H)=\tr(\ma{A}^H\ma{A})$
 \end{itemize}
-$\tr(\ma{A}\ma{A}^H)=\tr(\ma{A}\ma{A}^H)=
+$\tr(\ma{A}\ma{A}^H)=\tr(\ma{A}^H\ma{A})=
 \tr\begin{bmatrix}\vec{a}_1^H\\...\\\vec{a}_n^H\end{bmatrix}\begin{bmatrix}\vec{a}_1&...&\vec{a}_n\end{bmatrix}
 =\tr\begin{bmatrix}\vec{a}_1^H\vec{a}_1 & & X\\ &\ddots& \\X& &\vec{a}_n^H\vec{a}_n\end{bmatrix}
 =\sum\limits_{k=1}^n\vec{a}_k^H\vec{a}_k=\sum\limits_{k=1}^n||\vec{a}_k||^2_2
@@ -290,12 +290,12 @@ $\tr(\ma{A}\ma{A}^H)=\tr(\ma{A}\ma{A}^H)=
 
 Frobenius norm: $\tr(\ma{A}^H\ma{A})=\tr(\ma{A}\ma{A}^H)=||\ma{A}||^2_F$
 
-\mybox{\textbf{Definition:} $\ma{A}\in\mathbb{C}^{n\times n}$ is invertable if and only if: 
+\mybox{\textbf{Definition:} $\ma{A}\in\mathbb{C}^{n\times n}$ is invertible if and only if: 
 
 $\exists \ma{B}: \ma{A}\ma{B}=\ma{B}\ma{A}=\ma{I}_n$, then $\ma{B}=\ma{A}^{-1}$ is called inverse of $\ma{A}$}
 
 \mybox{
-\textbf{Theorem:} If $\ma{A}$ is invertable then $\ma{A}^{-1}$ is unique}
+\textbf{Theorem:} If $\ma{A}$ is invertible then $\ma{A}^{-1}$ is unique}
 
 \textbf{Proof:} $\ma{C}$ is another inverse of $\ma{A}$
 
@@ -334,7 +334,7 @@ Property 1: $n=1: \det A=A$
 
 Property 2: If $\ma{A}$ has LD columns, then $\det A=0$
 
-Property 3: $\det \ma{A}$ is linear in colums of $\ma{A}$
+Property 3: $\det \ma{A}$ is linear in columns of $\ma{A}$
 
 \quad \textcirc{1}: $\det [\vec{a}_1,...,\vec{a}_{i-1},\lambda\vec{a}_i,\vec{a}_{i+1},...,\vec{a}_n]=\lambda \det \ma{A}$
 
@@ -369,7 +369,7 @@ example:
 
 \subsubsection{Eigenvalues}
 \mybox{
-\textbf{Definition:} $\lambda\in\mathbb{C}$ is an eigenvalue (Eval) of $\ma{A}\in\mathbb{C}^{n\times n}$ if $\exists\vec{b}\neq \vec{0}$ such that $(\ma{A}-\lambda\ma{I})\vec{b}=\vec{0}$, then $\vec{b}$ is a eigenvecotr (Evec) of $\ma{A}$ for the eigenvalue $\lambda$}
+\textbf{Definition:} $\lambda\in\mathbb{C}$ is an eigenvalue (Eval) of $\ma{A}\in\mathbb{C}^{n\times n}$ if $\exists\vec{b}\neq \vec{0}$ such that $(\ma{A}-\lambda\ma{I})\vec{b}=\vec{0}$, then $\vec{b}$ is a eigenvector (Evec) of $\ma{A}$ for the eigenvalue $\lambda$}
 
 Properties: 
 \begin{itemize}
@@ -592,11 +592,11 @@ on condition on: $\vec{w}_1^H\vec{w}_2\overset{!}{=}0$
 
 $\vec{w}_1^H\vec{w}_2=\vec{v}_1^H(\vec{v}_1+a\cdot\vec{v}_2)\overset{!}{=}0 \pfeil  a=-\frac{\vec{v}_1^H\vec{v}_1}{\vec{v}_1^H\vec{v}_2}$
 
-$\vec{v}_1, \vec{v}_2$ are orthogonal if a is definde as above
+$\vec{v}_1, \vec{v}_2$ are orthogonal if a is defined as above
 \qed
 
 
-\subsubsection{Gram-ian Matrix}\label{sec:Gramian_matrix}
+\subsubsection{Gramian Matrix}\label{sec:Gramian_matrix}
 \mybox{
 \textbf{Theorem:} 
 
@@ -620,7 +620,7 @@ $\ma{B}\ma{B}^H=\ma{B}^H\ma{B}=\ma{I}$, \quad $\ma{B}$ is unitary and orthonorma
 
 
 \subsubsection{Singular Value Decomposition}\label{sssec:svd}
-\mybox{Sigular value decomposition exists for every matrix $\ma{A}\in\mathbb{C}^{m\times n}$
+\mybox{Singular value decomposition exists for every matrix $\ma{A}\in\mathbb{C}^{m\times n}$
 
 with:
 \begin{itemize}
@@ -658,7 +658,7 @@ $\left. \begin{array}{l}
 
 \ \\
 
-Zeors in EVD: (for $\ma{A}\ma{A}^H$)
+Zeros in EVD: (for $\ma{A}\ma{A}^H$)
 
 
 \textcirc{1} $n\geq m$:
@@ -719,7 +719,7 @@ $\ma{\Sigma}=\mat{\begin{matrix}s_1& & \\ & \ddots& \\ & & s_r \end{matrix} &\vl
 \vspace{5mm} 
 \textbf{Undermatrices of SVD:}
 
-r: number of positive Sigular Values:
+r: number of positive Singular Values:
 
 $s_1\geq s_2\geq ...\geq s_r > 0   \qquad  s_{r+1}=s_{r+2}=...s_{\min(m,n)}=0$
 
@@ -760,7 +760,7 @@ $\ma{U}\ma{U}^H=\mat{\ma{U}_1 &\ma{U}_2}\mat{\ma{U}_1^H \\\ma{U}_2^H}=\ma{I}  \p
 \mybox{
 \textbf{Definition: }
 
- The Image of a Matirx $im\ma{A}$ is the span of the colums of $\ma{A}$
+ The Image of a Matrix $im\ma{A}$ is the span of the columns of $\ma{A}$
 
 $\quad im\ma{A}=\left\lbrace \vec{x} |\quad \vec{x}=\ma{A}\vec{y} ,\quad\vec{y}\in\mathbb{C}^{n\times 1}  \right\rbrace$}
 
@@ -869,7 +869,7 @@ $\forall\vec{x}\notin\mathbb{S}: \quad \ma{P}_{\mathbb{S}}\vec{x}\neq\vec{x}$}
 
 \textbf{Proof: }
 
-$\vec{x}\in\mathbb{S} \pfeil \exists\vec{u}: \quad \vec{x}=\ma{P}_{\mathbb{S}}\vec{y}$
+$\vec{x}\in\mathbb{S} \pfeil \exists\vec{y}: \quad \vec{x}=\ma{P}_{\mathbb{S}}\vec{y}$
 
 $\ma{P}_{\mathbb{S}}\vec{x} \overset{\vec{x}=\ma{P}_{\mathbb{S}}\vec{y}}{=}\underbrace{\ma{P}_{\mathbb{S}}\ma{P}_{\mathbb{S}}}_{\ma{P}_{\mathbb{S}}}\vec{y}=\ma{P}_{\mathbb{S}}\vec{y}=\vec{x}$
 
@@ -937,7 +937,7 @@ $\ma{A}(\vec{z}-\vec{x}_p)=\vec{0}\pfeil \vec{z}-\vec{x}_p\in null\ma{A}$
 \\ {\footnotesize(difference between two particular solutions is part of the null-space of $\ma{A}$)}
 \\
 $\vec{z}=\vec{x}_p+\vec{y}, \qquad \vec{y}\in null\ma{A}$
-\\ {\footnotesize(the sum of a particular solution and a vector of the null-space is another particluar solution)}
+\\ {\footnotesize(the sum of a particular solution and a vector of the null-space is another particular solution)}
 \end{enumerate}
 
 with: $\quad null\ma{A}=im\ma{V}_2; \quad \ma{V}\in\mathbb{C}^{n\times (n-r)}$
@@ -963,7 +963,7 @@ Particular Solution: $\vec{x}_p=\ma{V}_1\ma{\Sigma}_1^{-1}\ma{U}_1^H\vec{b}$
 The whole Solution set with the SVD is: \quad
 $\mathbb{S}=\left\lbrace \ma{V}_1\ma{\Sigma}_1^{-1}\ma{U}_1^H\vec{b}+\ma{V}_2\vec{w} |\quad \vec{w}\in \mathbb{C}^{(n-r)\times 1} \right\rbrace$ 
 
-if $rank\ma{A}<n$\pfeil mulitple solution with  $(n-r)$ dimensions 
+if $rank\ma{A}<n$\pfeil multiple solution with  $(n-r)$ dimensions 
 
 
 \textbf{Minimum Norm Solution:}
@@ -979,7 +979,7 @@ $\vec{b}=\ma{A}\vec{x}=-\ma{A}\ma{A}^H\vec{\lambda}\pfeil \vec{\lambda}=-(\ma{A}
 
 Minimum Norm Solution: $\pfeil \vec{x}_{MN}=\ma{A}^H(\ma{A}\ma{A}^H)^{-1}\vec{b}$
 
-Asume: $\ma{A}\ma{A}^H$ is inverteble $\ma{A}\in\mathbb{C}^{m\times n}\pfeil \ma{A}\ma{A}^H\in\mathbb{C}^{m\times m}$
+Assume: $\ma{A}\ma{A}^H$ is invertible $\ma{A}\in\mathbb{C}^{m\times n}\pfeil \ma{A}\ma{A}^H\in\mathbb{C}^{m\times m}$
 
 $rank\ma{A}=m=r$\quad full row rank
 
@@ -999,7 +999,7 @@ $\pfeil\vec{x}_{MN}=\ma{V}_1\Sigma_1^{-1}\ma{U}_1^H\vec{b}   \quad = \vec{x}_p$ 
 
 \textcircled{2}:  $\vec{b}\notin im\ma{A}\pfeil \mathbb{S}=\emptyset=\left\lbrace\right\rbrace$
 
-\textbf{Approximate Solution:} eg. Least-Squeare Solution
+\textbf{Approximate Solution:} eg. Least-Square Solution
 
 $\vec{x}_{LS}=arg\min\limits_{\vec{x}}||\ma{A}\vec{x}-\vec{b}||^2_2$
 
@@ -1010,7 +1010,7 @@ $\frac{\partial \mathcal{L}}{\partial \vec{z}^*}=\ma{A}^H\ma{A}\vec{x}-\ma{A}^H\
 $ \pfeil \vec{x}_{LS}=(\ma{A}^H\ma{A})^{-1}\ma{A}^H\vec{b}$
 
 
-asume $rank\ma{A}=n \pfeil$ full column rank $\pfeil \ma{V}_1=\ma{V}$
+Assume $rank\ma{A}=n \pfeil$ full column rank $\pfeil \ma{V}_1=\ma{V}$
 
 SVD: $\ma{A}=\ma{U}_1\ma{\Sigma}_1\ma{V}_1^H=\ma{U}_1\ma{\Sigma}_1\ma{V}^H \quad with \quad \ma{V}_1=\ma{V} $
 
@@ -1088,7 +1088,7 @@ Get Minimum if:
 \item $M_{i,j\neq i}=0$
 \item $M_{i,i}=0, i>r$
 \item $M_{i,i}=s_i; \quad for\quad i\in\left\lbrace 1,2,...,k\right\rbrace$ \quad because \quad  $rank\ma{B}=k<r$
-\\$s_1\geq s_2\geq ... \geq s_k > s_{r+1}=s_{r+2}=...=0$
+\\$s_1\geq s_2\geq ... \geq s_r > s_{r+1}=s_{r+2}=...=0$
 \end{itemize}
 
 
